@@ -69,9 +69,9 @@ cvs、svn是集中式版本控制系统，git为分布式版本控制系统。
 所有版本控制系统只能跟踪文本文件的改动，即txt、网页、程序代码，不包括图片视频等媒体格式的二进制文件，这些文件版本控制系统只能知道文件大小的变化，并不能实际知道他们到底何处做了什么变化。而word文档也为二级制文件，如需保存它们更改的变化信息，需要保存为纯文本文件。
 
 空白地方创建一个git空目录：（右键单击git bash here）
-mkdir learngit 
+mkdir learngit //learngit为自定义目录名字
 cd learngit
-pwd //用于显示当期目录
+pwd //用于显示当前目录
 
 git init //创建一个可以管理的git仓库（生成一个隐藏的.git文件）
 
@@ -79,3 +79,10 @@ git add demo.txt //将文件添加至这个仓库
 git commit -m "注释内容" //提交添加申请 并作出注释
 git status //查看仓库的状态 是否需要进行添加或提交
 git diff //查看仓库修改的内容
+
+git log //查看提交的历史记录
+git reset --hard HEAD^（commit_id） //返回上一个版本 
+//HEAD表示当前版本，HEAD^为上一个版本，HEAD^^为上上个版本，HEAD~100为上100个版本, 同时commit_id为每次提交的版本号为十六进制非常大的数字
+git reflog //查看命令历史 查找回退版本的commit_id
+
+.git是git的版本库，里面存着暂存区、master分支以及它的第一个指针HEAD，使用git add添加文件时将添加至暂存区里，而后通过git commit将暂存区的文件提交到master分支
