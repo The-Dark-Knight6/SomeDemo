@@ -98,14 +98,33 @@ git checkout -- <filename> //误删文件之后可以从版本库里面还原
 
 git remote add origin <ssh> //关联远程库（此处使用ssh协议，github为代码库）
 git push -u origin master //第一次向库里面推送内容会error 出入yes即可
-git push origin master //之后每次向库里面推送内容
+git push origin master //之后每次向库里面推送内容 （master为主分支）
 
 git branch //查看分支 有*的为当前分支
 git checkout -b <name> //创建+切换分支（<name>为分支名字）
 git branch <name> //创建分支 
 git checkout <name> //切换到相应分支
 git merge <name> //合并指定分支到当前分支
-git branch -b <name> //删除分支
+git branch -d <name> //删除分支
 
-if you could see this message,you could create branch of git...
-and this is a bug of create branch of git.bugs have.&don't have.
+git merge --no-ff -m 'message' <name>
+//普通模式合并提交 可以git log看见合并历史记录 而git merge为fast forward模式看不出曾经做过合并（指针都指向master）
+git stash //手头工作需要保存时
+git stash pop //回到保存的工作状态
+git branch -D <name> //强行删除未保存的分支
+
+git remote -v //查看远程库的详细信息
+多人协作推送到远程仓库的操作：
+1、用git push origin <name> 推送自己的提交
+2、推送失败 则远程比你先提交 需要先本地更新 用git pull
+3、合并 有冲突解决 在本地提交
+4、继续git push origin <name>推送提交
+5、第二步git pull失败，则本地分支与远程分支没有链接，需要git branch --set-upstream-to=origin/<name> <name>
+
+git tag <name> //打标签 切换到相应的分支上
+git tag //查看所有标签
+git tag show <name> //查看指定标签的信息
+git push origin <name> //推送本地标签至远程仓库
+git push origin --tags //推送全部的本地标签至远程仓库
+git tag -d <name> //删除一个本地标签
+git push origin :refs/tags/<name> //删除一个远程标签
