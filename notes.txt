@@ -105,3 +105,5 @@ git branch <name> //查看/创建 当前分支 有*的为当前分支
 git checkout <name> //切换到相应分支（<>为分支名字）
 git merge <name> //合并指定分支到当前分支
 git branch -b <name> //删除分支
+
+if you could see this message,you could create branch of git...
