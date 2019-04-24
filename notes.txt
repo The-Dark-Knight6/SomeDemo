@@ -108,4 +108,4 @@ git merge <name> //合并指定分支到当前分支
 git branch -b <name> //删除分支
 
 if you could see this message,you could create branch of git...
-and this is a bug of create branch of git.
+and this is a bug of create branch of git.bugs have.&don't have.
