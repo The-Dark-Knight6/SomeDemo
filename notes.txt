@@ -96,6 +96,12 @@ rm //删除某文件 （只是删掉了工作区里的）
 git rm <filename> //删除某文件 （删除掉了工作区里的 同时也添加到了暂存区里） 之后需要提交至版本库git commit -m ''
 git checkout -- <filename> //误删文件之后可以从版本库里面还原
 
-git remote add origin <ssh> //关联远程库（github）
+git remote add origin <ssh> //关联远程库（此处使用ssh协议，github为代码库）
 git push -u origin master //第一次向库里面推送内容会error 出入yes即可
 git push origin master //之后每次向库里面推送内容
+
+git checkout -b <name> //git 创建+切换分支
+git branch <name> //查看/创建 当前分支 有*的为当前分支
+git checkout <name> //切换到相应分支（<>为分支名字）
+git merge <name> //合并指定分支到当前分支
+git branch -b <name> //删除分支
