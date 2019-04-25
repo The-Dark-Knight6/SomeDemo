@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js表格数据搜索</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<style>
+body{
+    margin: 0%;
+    padding: 0%
+}
+input.inp{
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+table{
+    width: 100%;
+    /* 将table表格边框合并为一个 */
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+tr{
+    border-bottom: 1px solid #ddd; 
+}
+tr td,tr th{
+    padding: 15px ;
+    font-size: 20px;
+    /* border: 1px solid #ddd; */
+    text-align: left;
+}
+thead tr,tbody tr:hover{
+    background: #f1f1f1;
+}
+</style>
+<body>
+    <input type="text" placeholder="search..." class="inp">    
+    <table>
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>city</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>alfreds futtterkiste</td>
+                <td>germany</td>
+            </tr>
+            <tr>
+                <td>Vergilds ansabop</td>
+                <td>Sweden</td>
+            </tr>
+            <tr>
+                <td>Island Trading</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Konighlich eSSEN</td>
+                <td>Genmany</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- 此示例检索的为table tr中的第一个td，在code中可以见到[0]的字样，即循环与input值匹配的为tr中td的第一项，
+    当然如果要匹配第二项改为[1]即可，以此类推... -->
+    <input type="button" value="ADD TR" class="but">
+    <div class="adds">
+    </div>
+</body>
+</html>
+<script>
+document.querySelector('input').addEventListener('keyup',function () { 
+    var inputs = document.querySelector('input').value.toUpperCase();
+    var lists = document.querySelector('tbody').querySelectorAll('tr');
+    for(var i = 0 ; i < lists.length ; i++){
+        var have = lists[i].querySelectorAll('td')[0];
+        if(have.innerHTML.toUpperCase().indexOf(inputs) > -1){
+            lists[i].style.display = ''
+        }else{
+            lists[i].style.display = 'none'
+        }
+    }
+ })
+ $(function () {
+     $('input.but').click(function () {
+        var come = `name:
+        <input type="text" class="name">
+        city:
+        <input type="text"class="city">
+        <button class="sure">sure</button>
+        <button class="cancel">cancel</button>`
+        if($('div.adds').has('input').length > 0){
+            alert('once just add one tr');
+            // 阻止事件向下传播，即阻止事件捕获
+            return false;
+        }else{
+            $('div.adds').append(come);
+        }
+        $('.cancel').click(function () { 
+            $(this).parent().empty();
+         })
+         $('.sure').click(function(e){
+             //阻止事件冒泡
+             e.stopPropagation();
+            //  console.log('adfkljs');
+            var trs = `<tr>
+                <td>${$('.name').val()}</td>
+                <td>${$('.city').val()}</td>
+            </tr>`
+            if($('.name').val() != '' && $('.city').val() != '' ){
+                $('table').append(trs);
+                $(this).parent().empty()
+            }else{
+                alert('input don\'t have empty...')
+            }       
+         })
+       })
+   })
+</script>

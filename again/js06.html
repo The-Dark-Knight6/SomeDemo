@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>so many example.</title>
+</head>
+<style>
+    .text.visib{
+        visibility: visible;
+        animation: bottoms 3s;
+    }
+.text{
+    background: rgba(0, 0, 0, .5);
+    font-size: 30px;
+    color: white;
+    border-radius: 6px;
+    width: 250px;
+    padding: 10px 20px;
+    text-align: center;
+    margin: 0% auto;
+    visibility: hidden;
+}
+@keyframes bottoms{
+    from{bottom:0%;opacity: 0;}
+    to{bottom: 300px;opacity: 1;}
+}
+.cont{
+    cursor: pointer;
+    display: inline-block;
+}
+.bar1,.bar2,.bar3{
+    width: 30px;
+    height: 5px;
+    background: #333;
+    margin: 6px 0;
+    transition: .4s;
+}
+.change .bar1{
+    transform: rotate(-45deg) translate(-9px,6px);
+}
+.change .bar2{
+    opacity: 0;
+}
+.change .bar3{
+    transform: rotate(45deg) translate(-8px,-8px);
+}
+button.accordion{
+    padding: 10px;
+    font-size: 20px;
+    text-align: left;
+    background: #eee;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    outline: none;
+    transition: .4s;
+    font-weight: 100;
+}
+button.accordion.act,button.accordion:hover{
+    background: rgb(128, 109, 109);
+}
+div.panel{
+    /* 用最大的高度限制显示的范围值得借鉴 */
+    overflow: hidden;
+    max-height: 0;
+    padding: 0% 18px;
+    transition: .4s;
+}
+.sidenav{
+    max-height: 25%;
+    width: 0;
+    position: fixed;
+    left: 0;
+    background-color: #111;
+    overflow: hidden;
+    padding:10px 0;
+    top: 53%;
+    transition: .5s;
+    /* animation: scr .5s; */
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+}
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+.closebtn {
+    position: absolute;
+    right: 25px;
+}
+/* @media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+} */
+.opens{
+    transition: .5s;
+    margin-left: 0%;
+}
+</style>
+<body>
+    <button>click here</button>
+    <div class="text">something </div>
+
+    <p>点击菜单按钮变为'X'</p>
+    <div class="cont">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+
+    <h4>手风琴</h4>
+    <button class="accordion">accodion one</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+    </div>
+    <button class="accordion">accodion two</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+    </div>
+    <button class="accordion">accodion three</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+    </div>
+
+    <div class="sidenav">
+        <a href="javascript:;" class="closebtn">&times;</a>
+        <a href="javascript:;">SERvices</a>
+        <a href="javascript:;">about</a>
+        <a href="javascript:;">clients</a>
+        <a href="javascript:;">red mi note 67</a>
+        <a href="javascript:;">contact</a>
+    </div>
+         <h6>侧边栏</h6>
+        <!-- &#9776汉堡包的图标 -->
+        <span class="opens" style="cursor:pointer">&#9776 OPEN</span>
+    
+</body>
+</html>
+<script>
+document.querySelector('button').addEventListener('click',function () {
+    var words = document.querySelector('.text');
+    words.classList.add('visib');
+    setTimeout(function () {
+        words.className = words.className.replace('visib','');
+      },3000)
+  })
+
+  document.querySelector('.cont').addEventListener('click',function () {
+      this.classList.toggle('change');
+    })
+
+   var acc = document.getElementsByClassName('accordion');
+   for(var i = 0 ; i < acc.length; i++){
+       acc[i].addEventListener('click',function () {
+           this.classList.toggle('act');
+           var ele = this.nextElementSibling;
+          if(ele.style.maxHeight){
+            //   此处不可设置为0，否则将出现if条件判断就此卡住的尴尬
+              ele.style.maxHeight = null;
+          }else{
+              ele.style.maxHeight = ele.scrollHeight + 'px';
+          }
+         })
+   }
+
+  document.querySelector('.opens').addEventListener('click',function () {
+    document.querySelector('.sidenav').style.width = '250px';
+    document.querySelector('.opens').style.marginLeft = '250px';
+
+    })
+    document.querySelector('.closebtn').addEventListener('click',function () {
+    document.querySelector('.sidenav').style.width = '0';
+    document.querySelector('.opens').style.marginLeft = '0';
+  })
+</script>

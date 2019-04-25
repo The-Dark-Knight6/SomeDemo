@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<title>iScroll demo: barebone</title>
+<script src="/js/load.headnewRem.js"></script>
+<script src="jss/iscroll.js"></script>
+<script type="text/javascript">
+// ref https://github.com/WICG/EventListenerOptions/pull/30
+//定义滑动的函数，权当iscroll.js的一个分支吧，不知道表达什么...
+function isPassive() {
+    var supportsPassiveOption = false;
+    try {
+        addEventListener("test", null, Object.defineProperty({}, 'passive', {
+            get: function () {
+                supportsPassiveOption = true;
+            }
+        }));
+    } catch(e) {}
+    return supportsPassiveOption;
+}
+//初始化iscroll.js，可以引入很多的iscroll.js的参数，操作不同样式	  
+var myScroll;
+function loaded () {
+	myScroll = new IScroll('#wrapper',{
+        mouseWheel : true,
+        // scrollbars : true,
+    }); 
+}
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
+	capture: false,
+	passive: false
+} : false);
+
+</script>
+
+<style>
+body,html {
+	/* overflow: hidden; */
+    background: #000;
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+}
+#wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	user-select: none;
+	text-size-adjust: none;
+}
+#scroller {
+	position: absolute;
+	/* transform: translateZ(0); */
+}
+li > p{
+    color: white;
+    text-align: center;
+    font-size: 0.12rem;
+}
+.host{
+    display:flex;
+    justify-content: space-between;
+    font-size: 0.16rem;
+    align-items: center;
+    color: white;
+    padding: 0.1rem;
+}
+.host img{
+    height: 0.2rem;
+    width: 0.2rem;
+}
+.cen {
+    font-size:0.12rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0.1rem; 
+}
+.cen a:link{
+    color: #A0A0A0;
+}
+.cen a:link:nth-of-type(1){
+    color: white;
+    font-size: 0.15rem;
+    border-bottom: 0.01rem solid skyblue;
+    padding-bottom: 0.05rem;
+}
+ul li{
+    background: #101010;
+    padding:0 0.1rem;
+    list-style: none;
+    margin: 0.1rem 0;
+}
+.user{
+    position: relative;
+}
+.user > div{
+    display: inline-block;
+}
+.user_img{
+    height: 0.6rem;
+    width: 0.6rem;
+    padding-right: 0.1rem;
+}
+.user_img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.user > span{
+    color: #FFFFFF;
+    font-size: 0.13rem;
+    position: absolute;
+    top: 0.15rem;
+}
+.user_brand{
+    position: absolute;
+    bottom: 0;
+    top: 0.35rem;
+}
+.user_brand img,.address > img,.icon_a > img{
+    height: 0.2rem;
+    width: 0.2rem;
+}
+.user_brand span,.icon_a span{
+    color: #A0A0A0;
+    font-size: 0.1rem;
+}
+.user_brand > *,.address > *,.icon_a > *{
+    vertical-align: middle;
+}
+.user_think{
+    background: #202020;
+    border-radius: 0.1rem;
+    height: 0.25rem;
+    line-height: 0.25rem;
+    font-size: 0.14rem;
+    color: #50D7ED;
+    position: absolute;
+    right: 0.1rem;
+    top: 0.2rem;
+    padding: 0 0.1rem;
+}
+.saying{
+    font-size: 0.13rem;
+    color: #FFFFFF;
+    padding: 0.05rem 0;
+}
+.saying p span{
+    color: #50D7ED;
+}
+.imgs{
+    padding: 0.05rem 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.ig{
+    width: 1.1rem;
+    height: 1.1rem;
+    display: inline-block;
+    padding:0.03rem 0.03rem 0 0;
+}
+.ig > img,.bg_img > img{
+    height: 100%;
+    width: 100%;
+}
+.address{
+    padding: 0.05rem 0 ;
+    color: #A0A0A0;
+    font-size: 0.1rem;
+    width: 100%;
+    overflow: hidden;
+}
+.icon{
+    display: flex;
+    padding: 0.05rem 0;
+    justify-content: space-around;
+    align-items: center;
+}
+.bg{
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.4); ;
+    position: absolute;
+    z-index: 99;
+    color: white;
+    font-size: 0.34rem;
+    box-sizing: border-box;
+    display: none;
+}
+.bg::after{
+    content: '1/1';
+    font-size: 0.2rem;
+    color: #A0A0A0;
+    position: absolute;
+    bottom: 0;
+    padding: 0.1rem;
+    left: 45%;
+}
+.bg > span{
+    float: right;
+    margin: 0.1rem;
+    padding-right: 0.1rem;
+}
+.bg_img{
+    height: 2.5rem;
+    position: absolute;
+    top:2rem;
+    box-sizing: border-box;
+}
+</style>
+</head>
+<body onload="loaded()">
+        <div class="bg">
+            <span>&times;</span>
+            <div class="bg_img">
+                <img src="" alt="">
+            </div>
+        </div>
+<div id="wrapper">
+	<ul id="scroller">
+            <li style="margin-top:0">
+                    <div class="host">
+                            <img src="image/形状 16.png" alt="">
+                            <span>#中国最美大学#</span>
+                            <img src="image/分享.png" alt="">
+                        </div>
+                        <div class="cen">
+                            <a href="javascript:;">热门</a>
+                            <a href="javascript:;">最新</a>
+                        </div>
+                <div class="user">
+                    <div class="user_img">
+                        <img src="image/img1.jpg" alt="">
+                    </div>
+                    <span>Elizabeth</span>
+                    <div class="user_brand">
+                        <img src="image/宝马标志.png" alt="">
+                        <span>宝马</span>
+                        <img src="image/加V.png" alt="">
+                    </div>
+                    <div class="user_think">
+                        <span>+ 关注</span>
+                    </div>
+                </div>
+                <div class="saying">
+                    <p><span>#中国最美大学#</span>“上天安排你在哪个学校，就证明那里有 你该遇见的人”你想到谁了？</p>
+                </div>
+                <div class="imgs">
+                    <div class="ig">
+                        <img src="image/img2.jpg" alt="">
+                    </div>
+                    <div class="ig">
+                            <img src="image/p3.jpg" alt="">
+                        </div>
+                        <div class="ig">
+                                <img src="image/p1.jpg" alt="">
+                            </div>
+                </div>
+                <div class="address">
+                    <img src="image/定位icon.png" alt="">
+                    <span>青海省 海南藏族自治州共和县二郎风景区</span>
+                </div>
+                <div class="icon">
+                    <div class="icon_a">
+                        <img src="image/预览icon.png" alt="">
+                        <span>1342</span>
+                    </div>
+                    <div class="icon_a">
+                            <img src="image/评论icon.png" alt="">
+                            <span>42</span>
+                        </div>
+                        <div class="icon_a">
+                                <img src="image/喜欢icon.png" alt="">
+                                <span>6662</span>
+                            </div>
+                </div>
+            </li>
+        <li>
+		<p><strong>This demo shows the minimum CSS/HTML/JS configuration you ne
+            ed to run the iScroll. Look at the source code for details.</strong></p>
+        </li>
+        <li>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
+            ip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+            sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
+            nt mollit anim id est laborum.</p>
+        </li>
+        <li>
+		<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
+            accusantium doloremque laudantium, totam rem aperiam, eaque 
+            ipsa quae ab illo inventore veritatis et quasi architecto beatae
+            tae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas 
+            sit aspernatur aut odit aut fugit, sed quia consequuntur magni 
+            dolores eos qui ratione voluptatem sequi nesciunt. Neque porro 
+            quisquam est, 
+            qui dolorem ipsum quia dolor sit amet, consectetur, adipisci 
+            velit, sed quia non numquam eius modi tempora incidunt ut labore 
+            et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima 
+            veniam, quis nostrum exercitationem ullam corporis suscipit 
+            laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis 
+            autem vel eum iure reprehenderit qui in ea voluptate velit esse 
+            quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat 
+            quo voluptas nulla pariatur?</p>
+        </li>
+        <li>
+		<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui 
+            blanditiis praesentium voluptatum deleniti atque corrupti quos dolores 
+            et quas molestias excepturi sint occaecati cupiditate non provident,
+             similique sunt in culpa qui officia deserunt mollitia animi, id est 
+             laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita 
+             ctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque 
+             nihil impedit quo minus id quod maxime placeat facere possimus, omnis
+              voluptas assumenda est, omnis dolor repellendus. Temporibus autem 
+              quibusdam et aut officiis debitis aut rerum necessitatibus 
+              saepe eveniet ut et voluptates repudiandae sint et molestiae 
+              non recusandae. Itaque earum rerum hic tenetur a sapiente 
+              delectus, ut aut reiciendis voluptatibus maiores alias 
+              consequatur aut perferendis doloribus asperiores repellat.</p>
+            </li>
+        </ul>
+</div>
+</body>
+</html>
+<script>
+        $(function(){
+            $('div.ig > img').click(function () {
+                var $this = $(this).attr('src');
+                $('div.bg').show();
+                $('div.bg_img > img').attr('src',$this);
+              })
+              $('div.bg > span').click(function () { 
+               $(this).parent().hide();
+               })
+              
+        })
+    </script>

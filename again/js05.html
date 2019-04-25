@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>calculate</title>
+</head>
+<style>
+/* Basic Reset */
+* {
+	border: none;
+	font-family: 'Open Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+body {
+
+}
+.center {
+	background-color: #fff;
+	border-radius: 50%;
+	height: 600px;
+	margin: auto;
+	width: 600px;
+}
+h1 {
+	color: #495678;
+	font-size: 30px;	
+	margin-top: 20px;
+	padding-top: 50px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+}
+
+form {
+	background-color: #495678;
+	box-shadow: 4px 4px #3d4a65;
+	margin: 40px auto;
+	padding: 40px 0 30px 40px;	
+	width: 280px;
+}
+.btn {
+	outline: none;
+	cursor: pointer;
+	font-size: 20px;
+	height: 45px;
+	margin: 5px 0 5px 10px;
+	width: 45px;
+}
+.btn:first-child {
+	margin: 5px 0 5px 10px;
+}
+.btn, #display, form {
+	border-radius: 25px;
+}
+#display {
+	outline: none;
+	background-color: #98d1dc;
+	box-shadow: inset 6px 6px 0px #3facc0;
+	color: black;
+	font-size: 20px;
+	height: 47px;
+	text-align: left;
+	width: 165px;
+    text-indent: 15px;
+	margin-left: 10px;
+}
+.number {
+	background-color: #72778b;
+	box-shadow: 0 5px #5f6680;
+	color: #dededc;
+}
+.number:active {
+	box-shadow: 0 2px #5f6680;
+  	-webkit-transform: translateY(2px);
+  	-ms-transform: translateY(2px);
+  	-moz-tranform: translateY(2px);
+  	transform: translateY(2px);
+}
+.operator {
+	background-color: #dededc;
+	box-shadow: 0 5px #bebebe;
+	color: #72778b;
+}
+.operator:active {
+	box-shadow: 0 2px #bebebe;
+  	-webkit-transform: translateY(2px);
+  	-ms-transform: translateY(2px);
+  	-moz-tranform: translateY(2px);
+  	transform: translateY(2px);
+}
+.other {
+	background-color: #e3844c;
+	box-shadow: 0 5px #e76a3d;
+	color: #dededc;
+}
+.other:active {
+	box-shadow: 0 2px #e76a3d;
+  	-webkit-transform: translateY(2px);
+  	-ms-transform: translateY(2px);
+  	-moz-tranform: translateY(2px);
+  	transform: translateY(2px);
+}
+</style>
+<body>
+    <!-- css样式是我copy的，但js是自己写的 -->
+<div class="center">
+    <h3 style="text-align:center">h5,css3,javascript calculate</h3>
+    <form action="#">
+        <input type="button" class="clear btn other" value="C"></input>
+        <input type="text" class="display" id="display" autocomplete="off">
+        <br>
+        <button class="btn number">7</button>
+        <button class="btn number">8</button>
+        <button class="btn number">9</button>
+        <button class="btn number">+</button>
+        <br>
+        <button class="btn number">4</button>
+        <button class="btn number">5</button>
+        <button class="btn number">6</button>
+        <button class="btn number">-</button>
+        <br>
+        <button class="btn number">1</button>
+        <button class="btn number">2</button>
+        <button class="btn number">3</button>
+        <button class="btn number">*</button>
+        <br>
+        <button class="btn number">0</button>
+        <button class="btn number">.</button>
+        <button class="btn number">/</button>
+        <input type="button" class="btn other calculate" value="=">
+    </form>
+</div>
+</body>
+</html>
+<script>
+document.getElementsByTagName('h3')[0].innerHTML = 
+document.getElementsByTagName('h3')[0].textContent.toUpperCase();
+    var btn = document.querySelectorAll('button');
+    for(var i = 0 ; i < btn.length ; i++){
+       btn[i].onclick = function () {
+           document.querySelector('.display').value += this.innerHTML;
+         }
+    }
+    document.getElementsByClassName('clear')[0].addEventListener('click',function () {
+        document.querySelector('.display').value = '';
+      })
+    document.querySelector('.calculate').onclick = function () {
+        var res = document.querySelector('.display').value;
+        document.querySelector('.display').value = '';
+        document.querySelector('.display').value = eval(res);
+      }
+    //   eval()方法可以计算某个字符串并且执行其中的js代码
+</script>

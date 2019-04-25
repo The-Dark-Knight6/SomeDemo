@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vuejs1</title>
+    <script src="js/vue.min.js"></script>
+</head>
+<style>
+</style>
+<body>
+    <div class="code">
+        <form v-on:submit.prevent="adds">
+            <label for="">add some items</label>
+            <input type="text" placeholder="add something..." 
+            v-model="text"
+            v-focus>
+            <button>ADD SOMETHING</button>
+        </form>
+        <ol>
+            <li is="todo" 
+            v-for="(item,index) in todo"
+            v-bind:title="item.title"
+            v-on:remove="todo.splice(index,1)"
+            v-bind:style="{padding : good}"></li>
+        </ol>
+        <p v-if="todo.length == 0">there is nothing...</p>
+    </div>
+</body>
+</html>
+<script>
+Vue.component('todo',{
+    props : ['title'],
+    template : `<li>
+        <span>{{title}}</span>
+    <button v-on:click="$emit('remove')">remove</button>
+    </li>`
+})
+Vue.directive('focus',{
+    inserted : function (e) {
+        e.focus();
+      }
+})
+var app = new Vue({
+    el : '.code',
+    data : {
+      text : '',
+      todo : [
+          {title : 'todo begin...'}
+      ],
+      good : 5 + 'px' + ' ' + 0 + 'px'
+    },
+    methods : {
+        adds(){
+            if(this.text == ''){
+                alert('can\'t empty!')
+            }else{
+                this.todo.push({
+                title : this.text
+                }),
+                this.text = ''
+            }
+        }
+    }
+})
+</script>

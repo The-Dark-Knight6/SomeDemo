@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>js搜索框自动提示</title>
+</head>
+<style>
+body,html{
+      margin: 0%;
+      padding: 0;
+}
+.main{
+      margin: 0% auto;
+}
+.search{
+      padding: 10px;
+      display: inline-block;
+      box-sizing: border-box;
+      width: 100%;
+      margin: 10px 0;
+}
+ul{
+      margin: 0%;
+      padding: 0%;
+      list-style: none;
+}
+ul li a{
+      display: block;
+      background: #f6f6f6;
+      color: black;
+      text-decoration: none;
+      padding: 10px;
+      font-size: 20px;
+      border:1px solid #ddd;
+}
+ul li a.up{
+      background: #e2e2e2;
+}
+ul li a:hover:not(.up){
+      background: #eee
+}
+p.think{
+      font-size: 12px;
+      color: red;
+      margin: 10px;
+      display:none;
+      letter-spacing: 2px;
+
+}
+button{
+      margin: 10px;
+}
+</style>
+<body>
+      <div class="main">
+            <input type="text" placeholder="searching..." class="search">
+            <ul>
+                  <li><a href="javascript:;" class="up">A</a></li>
+                  <li><a href="javascript:;">adele</a></li>
+                  <li><a href="javascript:;">agnes</a></li>
+                  <li><a href="javascript:;" class="up">B</a></li>
+                  <li><a href="javascript:;">billy</a></li>
+                  <li><a href="javascript:;">bob</a></li>
+                  <li><a href="javascript:;" class="up">C</a></li>
+                  <li><a href="javascript:;">calivn</a></li>
+                  <li><a href="javascript:;">christina</a></li>
+                  <li><a href="javascript:;">cindey</a></li>
+            </ul>
+      </div>    
+      <button class="btn">secret</button>  
+<p class="think">
+      keyup事件为按下键盘之后松开触发，首先得到input中的值然后在所有的li a中遍历寻找它，利用indexOf方法检索
+      每个与input值相匹配的值，没有匹配到隐藏则 a，即设置样式为display="none"，反之亦然。
+      思考路径：需要检索和input输入框中所输入的值有关联，则先需要获取到input输入框中的值，
+      之后再去从所展示的列表中寻找和这个值相等的，所以需要遍历li，然后需要用到找寻的方法indexOf，或者search方法，
+      只不过搜索字符串这些还是用indexOf越接近底层的方法可以减少系统资源的浪费，而search主要用来检索正则表达式
+</p>
+</body>
+</html>
+<script>
+function sear() {
+      var Val = document.querySelector('input').value.toLowerCase();
+      var link = document.querySelector('ul').getElementsByTagName('li');
+      for(var i = 0 ; i < link.length ; i ++){
+            a = link[i].querySelector('a');
+            if(a.innerHTML.toLowerCase().indexOf(Val) > -1){
+                  a.style.display = ''
+            }else{
+                  a.style.display = 'none'
+            }
+      }
+  }
+  document.querySelector('input').addEventListener('keyup',sear);
+  document.querySelector('button').onclick = function () {
+      document.querySelector('.think').style.display = 'block'
+    }
+</script>

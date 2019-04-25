@@ -57,6 +57,7 @@ axios、vue-resource都可获取接口数据，即响应http请求，vue2.0之后推荐使用axios
 若非群玉山头见
 会向瑶台月下逢
 
+廖雪峰的官方网站学习git教程学习笔记：
 git，分布式版本控制系统，使用c语言开发。
 
 cvs、svn是集中式版本控制系统，git为分布式版本控制系统。
@@ -68,7 +69,6 @@ cvs、svn是集中式版本控制系统，git为分布式版本控制系统。
 
 所有版本控制系统只能跟踪文本文件的改动，即txt、网页、程序代码，不包括图片视频等媒体格式的二进制文件，这些文件版本控制系统只能知道文件大小的变化，并不能实际知道他们到底何处做了什么变化。而word文档也为二级制文件，如需保存它们更改的变化信息，需要保存为纯文本文件。
 
-廖雪峰的官方网站学习git教程学习笔记：
 空白地方创建一个git空目录：（右键单击git bash here）
 mkdir learngit //learngit为自定义目录名字（工作区）
 cd learngit
@@ -96,6 +96,7 @@ rm //删除某文件 （只是删掉了工作区里的）
 git rm <filename> //删除某文件 （删除掉了工作区里的 同时也添加到了暂存区里） 之后需要提交至版本库git commit -m ''
 git checkout -- <filename> //误删文件之后可以从版本库里面还原
 
+git clone <ssh> //克隆远程库 ssh为git默认的协议即git://开头 速度快 原生
 git remote add origin <ssh> //关联远程库（此处使用ssh协议，github为代码库）
 git push -u origin master //第一次向库里面推送内容会error 出入yes即可
 git push origin master //之后每次向库里面推送内容 （master为主分支）
