@@ -8,10 +8,11 @@
 安装vue项目运行环境（全局范围）：
 1、安装node.js （百度下载安装包以及阅读安装教程）
 2、npm i -g cnpm （使用淘宝镜像，国内npm）
-3、cnpm run dev（一般项目所有环境搭好之后的运行code）
+3、npm i -g vue-cli （安装vue的脚手架）
+4、vue init webpack project （新目录下创建新的vue项目）
+5、cnpm run dev（一般项目所有环境搭好之后的运行code）
 
-对于已经安装过vue-cli脚手架的环境，运行新的项目时：
-vue init webpack myproject
+对于已经安装过vue-cli脚手架的环境，运行clone过来的项目时：cnpm i
 
 安装sass预编译器：
 cnpm i node-sass --save-dev
