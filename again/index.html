@@ -7,21 +7,23 @@
   <title>Document</title>
 </head>
 <body>
-  <button>play</button>
-  <p></p>  
+  <button>show time</button>
+  <p>the test of javascript</p>  
 </body>
 </html>
 <script>
- var dev = 'hello, world';
- var show = document.querySelector('p');
- document.querySelector('button').addEventListener('click',() => {
-   show.textContent = dev.indexOf('w');
- })
- var a = 0;
- var b = 2;
- while(b <= 100){
-   a += b;
-   b += 2;
- }
- console.log(a)
-</script>
+function aa() {
+  var arr = []
+  for(var i = 0 ; i < arr.length ; i++){
+    arr.push(function(){
+      return i * i
+    })
+  }
+  return arr
+  }
+  var result = aa();
+  var f1 = result[0];
+  var f2 = result[5];
+  f1();
+  f2();
+ </script>
