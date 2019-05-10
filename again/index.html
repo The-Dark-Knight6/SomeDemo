@@ -2,28 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="shortcut icon" href="img/165.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>bootstrap_test</title>
 </head>
 <body>
-  <button>show time</button>
-  <p>the test of javascript</p>  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <p>LEFT adfasdfasdfasdffafqwerqwerzxjcvpergn;ljgoipjgfoqwefqwef</p>
+      </div>
+      <div class="col-md-8">
+        <p>RIGHT adfasdfasdfasdffafqwerqwerzxjcvpergn;ljgoipjgfoqwefqwef</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-push-8">
+        <p>LEFT adfasdfasdfasdffafqwerqwerzxjcvpergn;ljgoipjgfoqwefqwef</p>
+      </div>
+      <div class="col-md-8 col-md-pull-4">
+        <p>RIGHT adfasdfasdfasdffafqwerqwerzxjcvpergn;ljgoipjgfoqwefqwef</p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
 <script>
-function aa() {
-  var arr = []
-  for(var i = 0 ; i < arr.length ; i++){
-    arr.push(function(){
-      return i * i
-    })
-  }
-  return arr
-  }
-  var result = aa();
-  var f1 = result[0];
-  var f2 = result[5];
-  f1();
-  f2();
  </script>

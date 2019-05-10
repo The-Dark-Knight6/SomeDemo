@@ -38,7 +38,6 @@ cnpm i better-scroll -s
 csrf攻击（跨站请求伪造），攻击者盗用身份信息（即自己的帐号被盗了）
 xss攻击（跨站脚本攻击），网页中嵌入脚本进行相应攻击
 处理跨域的方法，jsonp，空iframe加form，cors，
-
 axios、vue-resource都可获取接口数据，即响应http请求，vue2.0之后推荐使用axios
 
 利用git上传vue项目至github的步骤：
@@ -52,11 +51,6 @@ axios、vue-resource都可获取接口数据，即响应http请求，vue2.0之后推荐使用axios
 8、git remote add origin http:...（地址）
 9、（这里会弹出登录gitub的登录框，按需输入即可）
 10、git push -u origin master（上传本地项目，完成后github里面刷新即可出现）
-
-云想衣裳花想容
-春风拂槛露华浓
-若非群玉山头见
-会向瑶台月下逢
 
 廖雪峰的官方网站学习git教程学习笔记：
 git，分布式版本控制系统，使用c语言开发。
