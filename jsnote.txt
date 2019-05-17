@@ -96,6 +96,6 @@ cnpm install -g pm2
 进入需要启动的vue项目：
 cd /www/demo
 之后运行这个服务：（即运行npm run dev）
-pm2 start npm --run dev
+pm2 start npm -- run dev
 查看运行状态：
 pm2 list
