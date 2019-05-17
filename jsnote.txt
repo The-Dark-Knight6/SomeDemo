@@ -108,3 +108,11 @@ vue路由的切换中可以使用this.$router.push({})以及<router-link :to=""></router-lin
 可以用来给选中时候的路由加上相应样式，而用第一种会出现重新刷新当前路由得不到当前样式的尴尬。
 (05-14)‘关于’页面增加地图及相关介绍，增加全局媒体查询适配，上传项目至主ip地址。
 (05-15)‘关于’页面增加评论功能，增加页面加载时的延迟动画，修正字体显示大小。
+(05-16)linux上安装mysql数据库（菜鸟教程+xshell）。
+使用navicat连接服务器中的数据库（主ip地址），如出错请复制错误代码百度。之后成功连接数据库。
+express搭建后端服务。空目录下安装express框架（参见官方文档）。
+(05-17)安装navicat，安装mysql依赖，使用express框架链接数据库。
+由于使用express每次更改代码保存都要重新启动项目（npm start或node bin/www），使用这个express会自动保存代码，方便了不少。
+cnpm i supervisor -g (启动为supervisor bin/www 一次启动多次运用啊)
+测试熟悉使用express、mysql创建接口并使用。
+命令窗口中 ctrl + c 实现后退的操作。
