@@ -66,6 +66,7 @@ replaceChild(a,b)将a元素替换为b元素，需要找到b元素的父元素。
 .col-md-offset-*(位偏移，该列左外边距增加*列)。
 列的嵌套：在row的一列之中嵌套row，其列数<=12。
 
+(05-11)购买服务器申请备案、着手准备vue个人博客项目。
 服务器的简单配置（腾讯云centos7.2 64位）：
 1、下载xshell6进入到服务器（用户名、密码、公网ip）
 2、安装nginx及配置（https://blog.csdn.net/wxyjuly/article/details/79443432）
@@ -95,7 +96,28 @@ server{...
 cnpm install -g pm2
 进入需要启动的vue项目：
 cd /www/demo
+<<<<<<< HEAD
 之后运行这个服务：（即运行npm run dev）
 pm2 start npm -- run dev
+=======
+之后运行这个服务：（即可以在服务器中一直运行npm run dev）
+pm2 start npm -- run dev (注意空格)
+>>>>>>> 5819e52c255d5a7466ce7d6b19b0e07a26f95d1c
 查看运行状态：
 pm2 list
+
+(05-13)处理路由切换的bug，大致完成每个页面的基本架构。
+处理的bug：
+vue路由的切换中可以使用this.$router.push({})以及<router-link :to=""></router-link>两种方法
+这里推介使用第二种内嵌<a>标签的方法，选中它时会自懂增加一个class样式，
+可以用来给选中时候的路由加上相应样式，而用第一种会出现重新刷新当前路由得不到当前样式的尴尬。
+(05-14)‘关于’页面增加地图及相关介绍，增加全局媒体查询适配，上传项目至主ip地址。
+(05-15)‘关于’页面增加评论功能，增加页面加载时的延迟动画，修正字体显示大小。
+(05-16)linux上安装mysql数据库（菜鸟教程+xshell）。
+使用navicat连接服务器中的数据库（主ip地址），如出错请复制错误代码百度。之后成功连接数据库。
+express搭建后端服务。空目录下安装express框架（参见官方文档）。
+(05-17)安装navicat，安装mysql依赖，使用express框架链接数据库。
+由于使用express每次更改代码保存都要重新启动项目（npm start或node bin/www），使用这个express会自动保存代码，方便了不少。
+cnpm i supervisor -g (启动为supervisor bin/www 一次启动多次运用啊)
+测试熟悉使用express、mysql创建接口并使用。
+命令窗口中 ctrl + c 实现后退的操作。
