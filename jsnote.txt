@@ -116,3 +116,11 @@ express搭建后端服务。空目录下安装express框架（参见官方文档）。
 cnpm i supervisor -g (启动为supervisor bin/www 一次启动多次运用啊)
 测试熟悉使用express、mysql创建接口并使用。
 命令窗口中 ctrl + c 实现后退的操作。
+(05-20)在config/index.js下proxyTable添加'/api':{
+        target:'http://localhost:3000',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/api':''
+        }
+      }
+	  解决axios跨域问题

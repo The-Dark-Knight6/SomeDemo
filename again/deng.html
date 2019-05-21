@@ -1,16 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>图片懒加载-简单</title>
+    <script src="https://lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        ul,li{
+            list-style:none;
+        }
+        .container{
+            width: 100%;
+            margin: 0 auto;
+        }
+        .container li{
+            float: left;
+            margin: 10px 10px;
+        }
+        .container li img{
+            width: 240px;
+            height: 500px;
+        }
+        p{
+            float: left;
+        }
+    </style>
 </head>
 <body>
-    <form action="http://localhost:3000/deng" method="POST">
-        name:<input type="text" name="name"><br>
-        passwrod: <input type="password" name="password"><br>
-        <input type="submit" value="denglu">
-    </form>
+<ul class="container">
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/1.jpg" /></a></li>
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/2.jpg" /></a></li>
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/3.jpg" /></a></li>
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/4.jpg" /></a></li>
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/5.jpg" /></a></li>
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/6.jpg" /></a></li>
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/7.jpg" /></a></li>
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/8.jpg" /></a></li>
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/9.jpg" /></a></li>
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/10.jpg" /></a></li>
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg" /></a></li>
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/12.jpg" /></a></li>
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/13.jpg" /></a></li>
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/14.jpg" /></a></li>
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/15.jpg" /></a></li>
+    <li><a href="#"><img src="" data-src="http://cdn.jirengu.com/book.jirengu.com/img/16.jpg" /></a></li>
+</ul>
+
+<script>
+     // 先进行一次检查
+     lazyRender();
+    $(window).on('scroll',function () {
+        lazyRender();
+    })
+    function lazyRender () {
+        $('.container img').each(function () {
+            if (checkShow($(this)) && !isLoaded($(this)) ){
+                loadImg($(this));
+            }
+        })
+    }
+    function checkShow($img) { // 传入一个img的jq对象
+        var scrollTop = $(window).scrollTop();  //即页面向上滚动的距离
+        var windowHeight = $(window).height(); // 浏览器自身的高度
+        var offsetTop = $img.offset().top;  //目标标签img相对于document顶部的位置
+
+        if (offsetTop < (scrollTop + windowHeight) && offsetTop > scrollTop) { //在2个临界状态之间的就为出现在视野中的
+            return true;
+        }
+        return false;
+    }
+    function isLoaded ($img) {
+        return $img.attr('data-src') === $img.attr('src'); //如果data-src和src相等那么就是已经加载过了
+    }
+    function loadImg ($img) {
+        $img.attr('src',$img.attr('data-src')); // 加载就是把自定义属性中存放的真实的src地址赋给src属性
+    }
+</script>
 </body>
 </html>
