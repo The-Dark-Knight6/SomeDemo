@@ -96,13 +96,8 @@ server{...
 cnpm install -g pm2
 进入需要启动的vue项目：
 cd /www/demo
-<<<<<<< HEAD
-之后运行这个服务：（即运行npm run dev）
-pm2 start npm -- run dev
-=======
 之后运行这个服务：（即可以在服务器中一直运行npm run dev）
 pm2 start npm -- run dev (注意空格)
->>>>>>> 5819e52c255d5a7466ce7d6b19b0e07a26f95d1c
 查看运行状态：
 pm2 list
 
@@ -121,11 +116,15 @@ express搭建后端服务。空目录下安装express框架（参见官方文档）。
 cnpm i supervisor -g (启动为supervisor bin/www 一次启动多次运用啊)
 测试熟悉使用express、mysql创建接口并使用。
 命令窗口中 ctrl + c 实现后退的操作。
-(05-20)在config/index.js下proxyTable添加'/api':{
-        target:'http://localhost:3000',
-        changeOrigin:true,
-        pathRewrite:{
-          '^/api':''
-        }
-      }
-	  解决axios跨域问题
+(05-20)在config/index.js下proxyTable添加
+'/api':{
+	target:'http://localhost:3000',
+	changeOrigin:true,
+	pathRewrite:{
+	  '^/api':''
+	}}
+解决axios跨域问题
+(05-21)完成了‘关于’界面的评论发表、评论数据渲染（即一个评论接口的实现）。
+完成了发布文章的接口，包括文章发布人的验证以及发布文章的限制。
+解决bug记录如下：接口中的时间戳需要渲染到页面，在assets目录下添加了formatDate文件
+同时var times = times * 1000 //由于获取的时间戳为毫秒所以需要*1000才可正确得到时间。
