@@ -4,64 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>vuejs1</title>
-    <script src="js/vue.min.js"></script>
+    <title>Document</title>
+    <script src="https://lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        #getPhoneCode{
+            cursor: pointer;
+            background:#f38401;
+        }
+    </style>
 </head>
-<style>
-</style>
 <body>
-    <div class="code">
-        <form v-on:submit.prevent="adds">
-            <label for="">add some items</label>
-            <input type="text" placeholder="add something..." 
-            v-model="text"
-            v-focus>
-            <button>ADD SOMETHING</button>
-        </form>
-        <ol>
-            <li is="todo" 
-            v-for="(item,index) in todo"
-            v-bind:title="item.title"
-            v-on:remove="todo.splice(index,1)"
-            v-bind:style="{padding : good}"></li>
-        </ol>
-        <p v-if="todo.length == 0">there is nothing...</p>
-    </div>
+    <button id="getPhoneCode">获取手机验证码</button>
 </body>
 </html>
 <script>
-Vue.component('todo',{
-    props : ['title'],
-    template : `<li>
-        <span>{{title}}</span>
-    <button v-on:click="$emit('remove')">remove</button>
-    </li>`
-})
-Vue.directive('focus',{
-    inserted : function (e) {
-        e.focus();
-      }
-})
-var app = new Vue({
-    el : '.code',
-    data : {
-      text : '',
-      todo : [
-          {title : 'todo begin...'}
-      ],
-      good : 5 + 'px' + ' ' + 0 + 'px'
-    },
-    methods : {
-        adds(){
-            if(this.text == ''){
-                alert('can\'t empty!')
-            }else{
-                this.todo.push({
-                title : this.text
-                }),
-                this.text = ''
-            }
-        }
-    }
-})
+    $('#getPhoneCode').click(function(){
+        settime($(this),20)
+    })
+    // settime($("#getPhoneCode"),0);
+function settime($obj, time) {
+  if (time == 0) {
+    $obj.attr("disabled", false);
+    $obj.css("background", "#f38401").css("cursor", "pointer");
+    $obj.text("获取手机验证码"); 
+    return;
+  } else {
+    $obj.attr("disabled", true);
+    $obj.css("background", "#ccc").css("cursor", "not-allowed");
+    $obj.text("重新发送(" + time + ")");
+    time--;
+  }
+  setTimeout(function () { settime($obj, time) }, 1000)
+}
 </script>
