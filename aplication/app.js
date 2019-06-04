@@ -6,10 +6,10 @@ var logger = require('morgan');
 var bodyParser = require('body-parser')
 
 global.sql = {
-	host     : '129.204.61.122',
-  	user     : 'root',
-  	password : '123456',
-  	database : 'hosts'
+	host     : '****', //ip地址
+  	user     : '****', //mysql用户名
+  	password : '****', //密码
+  	database : '****' //数据库名
 }
 
 //·引入路由
