@@ -6,8 +6,7 @@ var connection  = mysql.createConnection(global.sql)
 router.get('/', function(req, res, next) {
 	let sqlData = new Object();
 	// let art_id = req.query.id
-	console.log(req.params)
-	  connection.query(`SELECT * FROM poems order by id desc`, function (error, results, fields) {
+	  connection.query(`SELECT * FROM articles order by views desc LIMIT 0,5`, function (error, results, fields) {
 		if (error) throw error;
 		  // console.log(results);
 		  sqlData.data = results

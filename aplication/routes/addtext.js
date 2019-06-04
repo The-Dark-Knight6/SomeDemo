@@ -9,8 +9,9 @@ router.post('/', function(req, res) {
   let sqlData = new Object() ;
   let title = req.body.params.title;
   let article = req.body.params.article;
+  let a_type = req.body.params.type;
   console.log(req.body)
-    connection.query(`INSERT INTO articles (titles,contents,times) VALUES ('${title}','${article}','${timeStamp}')`, function (error, results) {
+    connection.query(`INSERT INTO articles (titles,contents,times,types) VALUES ('${title}','${article}','${timeStamp}','${a_type}')`, function (error, results) {
       if (error) throw error;
         console.log(results);
          sqlData.data = results
