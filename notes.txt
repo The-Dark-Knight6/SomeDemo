@@ -52,6 +52,13 @@ axios、vue-resource都可获取接口数据，即响应http请求，vue2.0之后推荐使用axios
 9、（这里会弹出登录gitub的登录框，按需输入即可）
 10、git push -u origin master（上传本地项目，完成后github里面刷新即可出现）
 
+再新机器（电脑）上关联自己github仓库上的项目：（电脑已经装好git）
+1、Windows（桌面）下打开git bash（右键即可看见），输入ssh-keygen -t rsa -C "youremail@example.com"（github同注册的邮箱地址）
+2、之后一路回车等待执行完毕。
+3、github上进入到add ssh key界面，填上title，key中填上id_rsa.pub文件里面的内容。
+4、id_rsa.pub进入方式=> C:\Users\Administrator\.ssh这个目录（即用户主目录）
+5、选择需要克隆的仓库：git clone ssh地址。
+
 廖雪峰的官方网站学习git教程学习笔记：
 git，分布式版本控制系统，使用c语言开发。
 
