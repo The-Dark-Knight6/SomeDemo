@@ -11,6 +11,11 @@
 </body>
 </html>
 <script>
- var a = 5201314;
- console.log(a.toString(16));
+var a =[];
+for(let i = 0 ; i < 10 ; i++){
+  a[i] = function(){
+    console.log(i);
+  }
+}
+a[9]();
 </script>
