@@ -1,1 +1,9 @@
-es6-notes:
+编程风格：
+1、块级作用域使用let取代var，使得变量作用域局限明显，var有变量提升，而let没有。
+2、向对象中添加属性可以使用。Objesct.assign(object,｛key:value｝);
+3、使用扩展运算符来进行数组的复制。arrcopy = [...arr];
+4、使用Array.from()方法将类似可循环对象转化为数组。
+5、立即执行函数可以写成箭头函数形式。(()=>{console.log(666);})();
+对象的扩展：
+1、直接写入变量作为对象的属性和值。let a = 'arr'; let obj = {a};
+2、
