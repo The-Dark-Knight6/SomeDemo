@@ -1,3 +1,4 @@
+《es6教程》
 编程风格：
 1、块级作用域使用let取代var，使得变量作用域局限明显，var有变量提升，而let没有。
 2、向对象中添加属性可以使用。Objesct.assign(object,｛key:value｝);
@@ -17,3 +18,6 @@ set和map数据结构：
 2、set接受一个数组作为参数，其数据结构中size为length长度，详见控制台输出。
 3、Array.from()将set类型转为array类型。
 4、map类似于对象，不同与object中的‘键值对（字符串-值）’这里可以使用任意‘键值对’（值-值），让值不再局限于字符串。
+
+《阮一峰JavaScript》
+
