@@ -1,4 +1,3 @@
-《es6教程》
 编程风格：
 1、块级作用域使用let取代var，使得变量作用域局限明显，var有变量提升，而let没有。
 2、向对象中添加属性可以使用。Objesct.assign(object,｛key:value｝);
@@ -19,5 +18,14 @@ set和map数据结构：
 3、Array.from()将set类型转为array类型。
 4、map类似于对象，不同与object中的‘键值对（字符串-值）’这里可以使用任意‘键值对’（值-值），让值不再局限于字符串。
 
-《阮一峰JavaScript》
+let和const命令：
+1、let用来声明变量、只在声明变量的作用域内有效，块状作用域。
+2、for循环变量中，for（）里头为父作用域，{}里头为子作用域，有单独的各自作用域范围。
+3、let和const不存在变量提升，let声明变量需要先声明后使用（暂时性死区）。
+4、const声明一个常量，声明之后不可改变，即必须初始化值。
+5、es6中变量声明有6中方法：var,function,let,const,import,class。
+
+变量的解构赋值：
+
+
 
