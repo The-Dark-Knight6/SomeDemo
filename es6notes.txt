@@ -5,9 +5,6 @@
 4、使用Array.from()方法将类似可循环对象转化为数组。
 5、立即执行函数可以写成箭头函数形式。(()=>{console.log(666);})();
 
-【对象的扩展】
-1、直接写入变量作为对象的属性和值。let a = 'arr'; let obj = {a};
-
 【symbol】
 1、js的第七种数据类型，表示独一无二的值。前六种是：undefined,null,布尔值，数值，
 字符串、对象。
@@ -53,8 +50,27 @@ function example(){return[1,2,3]};let [a,b,c]=example();
 【正则的扩展】
 there's nothing...
 【数值的扩展】
-1、Number.isFinite()返回布尔值，检验一个数值是否为有限。
+1、Number.isFinite()返回布尔值，检验一个数值是否为有限。（参数）
 2、Number.isNaN()返回布尔值，检验一个数值是否为nan，即是否为数值。
+3、Number.parseInt()返回整数。
+4、Number.parseFloat()返回浮点数。
+5、Number.isInteger()判断一个数值是否为整数。
+6、Math对象的扩展。
 【函数的扩展】
-
-
+1、可以直接给函数参数设置默认值。function temp(a=0,b=66){return{a,b}}
+2、函数参数默认值一般是函数的尾参数，在函数所存在的参数中排末尾。
+3、引入rest参数，（必须是最后一个参数，同时length属性不包含rest参数）即function aa(...array){return array};aa(1,3,4);
+4、函数name属性，返回该函数名称。
+5、允许使用=>箭头来代替函数，也就是箭头函数。与普通函数的不同：所指向的this有差异。同时箭头函数没有自己的this，有的是指向最外层函数的this。
+6、不适用箭头函数场景：定义对象的方法，其中使用箭头函数的this所指向的为全局变量对象，与预期不符合；需要使用动态this的时候。
+7、尾调用：一个函数的最后一步是调用另外一个函数。
+【数组的扩展】
+1、扩展运算符：...（就是三个英文符号的点）。
+2、Array.from()将可迭代的对象转为真正的数组，需要拥有length属性。
+3、Array.of()将一组值，转换为数组。
+4、Array.copyWithin()在数组内部将指定成员位置复制到其他位置，会改变当前数组。
+5、Array.find()找出数组中第一个符合条件的成员。
+6、Array.findIndex()返回数组中第一个符号条件的成员的位置。
+7、Array.fill()给定一个值，填充整个数组。
+【对象的扩展】
+1、
