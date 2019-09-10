@@ -11,17 +11,9 @@
 </body>
 </html>
 <script>
-let arrayLike = {
-    0:{
-		name:'adsfa',
-		ago:23
-	},
-	1:{
-		name:'whart',
-		ago:234
-	},
-    length: 3
-};
-let b = Array.from('hello');
-console.log(b);
+	function noagain(arr){
+		return Array.from(new Set(arr));
+	}
+	let ab = noagain([21,32,43,32,32,32,12,234,21,212,342]);
+	console.log(ab)
 </script>

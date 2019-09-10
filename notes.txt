@@ -131,3 +131,6 @@ git push origin <name> //推送本地标签至远程仓库
 git push origin --tags //推送全部的本地标签至远程仓库
 git tag -d <name> //删除一个本地标签
 git push origin :refs/tags/<name> //删除一个远程标签
+
+【日常笔记】
+1、在element-ui插件中的table渲染接口上的时间戳，可以在slot-scope-'scope'的template标签中加如这个{{action.timeFormat(scope.row.time)}}（time即为从接口数据中返回的参数时间）即可完美转换接口的时间戳，不必再写转换时间戳的函数。
