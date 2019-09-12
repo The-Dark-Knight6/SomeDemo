@@ -76,8 +76,12 @@ there's nothing...
 6、WeakSet结构与Set结构类似，但是它的成员只能是对象。有三个方法，add(),delete(),has(),作用同前面的set结构方法类似。不可遍历，弱引用，可用于存储dom节点。
 7、Map数据结构类似于对象，提供‘值-值’的对应，键的范围不限于字符串，各种类型都可。
 8、Map的方法，set()为添加键值，get()为得到某个键名的键值，has()返回布尔值判断结构汇总是否存在这个键，delete()删除某个键，clear()清楚所有成员没有返回值，size属性返回Map结构的成员总数。同时Map结构的遍历方法同上。
-9、WeakMap与Map结构类似，它值接受对象作为键名。
+9、WeakMap与Map结构类似，它只接受对象作为键名。
 【Proxy】【Reflect】
 【Promise】【Iterator和for...of循环】
+【Generator函数的语法】【Generator函数的语异步应用】
+【async函数】
 参见文档：ecmascript6。
-
+【class的基本语法】
+1、class类作为对象的模版，定义一个类，同时在这个类中可以定义方法，this指带实例对象。
+2、

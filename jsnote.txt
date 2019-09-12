@@ -131,3 +131,6 @@ cnpm i supervisor -g (启动为supervisor bin/www 一次启动多次运用啊)
 (05-23)网站备案成功。优化一些页面，增加图片懒加载插件，增加文章详细界面。
 (05-24)处理mysql data too long错误，将要传输字段类型改为text，简单粗暴。
 遗留quill文本编辑器的图片上传问题，先就发布图片，等待后续补上。
+（9-12）继续探索布置网站：
+1、重装服务器系统。
+2、http://www.nginx.cn/install（centos环境下nginx安装）。
