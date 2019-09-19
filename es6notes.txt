@@ -92,7 +92,7 @@ there's nothing...
 【class的继承】
 【Module的语法】【Module的加载实现】
 【编程风格】
-【其它js笔记】
+【其它js】
 1、arguments获取函数所有传入参数的集合，类似于数组，js函数内置的关键字。
 2、函数的方法apply()与call()指定函数内部的this指向，接受两个参数，第一个为this变量的指向，第二个为函数本身的参数。前者将第二个参数打包为数组，后者直接将参数按顺序传入。
 3、
@@ -103,3 +103,9 @@ there's nothing...
 4、wxss样式类似于css，增加了尺寸单位rpx，适用于小程序的页面像素尺寸。
 5、js逻辑交互。即小程序中的逻辑层，处理小程序的所有交互。
 6、wxml模版：wx:for="{{array}}"，当前项下标默认变量名为index，变量名为item。也可以使用wx:for-index和wx:for-item来指定当前数组的下标名以及变量名。wx:key来指定项目中的惟一标识符。
+7、template模块可以动态使用，用name定义声明，之后在<template is="name"/>中使用。
+8、使用import和include进行页面间的相互引用。
+9、样式的引用：@import './test.wxss'。
+10、小程序脚本执行顺序同app.json中文件的顺序一致。App()构造器存在于项目根目录里的app.js中，其它js文件可以通过getApp()来获取程序实例。即other.js中，let globel=getApp();
+11、由于所有页面逻辑都是跑在同一个jsCore中，固使用setTimeout或者setInterval的时候在离开当前所使用这个函数的页面时候并未清楚这些定时器，需要手动来进行清理。
+12、this.setDate()函数用来渲染更新data()中的数据。
