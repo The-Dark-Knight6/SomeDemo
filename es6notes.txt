@@ -109,3 +109,11 @@ there's nothing...
 10、小程序脚本执行顺序同app.json中文件的顺序一致。App()构造器存在于项目根目录里的app.js中，其它js文件可以通过getApp()来获取程序实例。即other.js中，let globel=getApp();
 11、由于所有页面逻辑都是跑在同一个jsCore中，固使用setTimeout或者setInterval的时候在离开当前所使用这个函数的页面时候并未清楚这些定时器，需要手动来进行清理。
 12、this.setDate()函数用来渲染更新data()中的数据。
+13、普通点击事件（轻触点击屏幕）bindtap=""，catchbind=""阻止事件冒泡的点击事件，
+14、wx.redirectTo是两个页面间的平行跳转，跳转后是没有返回到上一页的，而wx.navigateTo是父子页面间的跳转，跳转后是可以返回到上一页的所以当使用wx.redirectTo跳转的时候，onUnload:function():页面关闭函数会被执行，当使用wx.navigateTo跳转的时候，onHide:function():页面隐藏函数会被执行
+15、hover-class=""点击button时的反馈，应用wxml模版中。loading="{{loading}}"可以用来生成加载效果，loading在js中值为布尔值。wx.showToast({})用来弹出提示，详见小程序api。
+wx.showModal({})用于弹框错误提示，提醒用户下一步操作，模拟对话框。
+16、下拉刷新：在page.json中{enablePullDownRefresh:true}，而后逻辑js中使用onPullDownRefresh(){}调用这个方法。同时上拉触底{"onReachBottomDistance": 100 }，js中onReachBottom(){}。// 当界面的下方距离页面底部距离小于100像素时触发回调
+17、wx.request({})这个api用来发起http请求，前提需要绑定服务器域名。其中小程序发起的http请求必须是https请求，必须提供https服务的接口，同时请求的域名需要在小程序管理平台进行设置。通过data参数可以给接口传递所需要的相应参数。
+18、设置接口返回数据的超时时间  "networkTimeout": {"request": 3000}在小程序根目录中的app.json中。详见官方文档，发起https网络通信。wx.scanCode({})，调用微信扫一扫api。
+19、
