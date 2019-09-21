@@ -116,4 +116,7 @@ wx.showModal({})用于弹框错误提示，提醒用户下一步操作，模拟对话框。
 16、下拉刷新：在page.json中{enablePullDownRefresh:true}，而后逻辑js中使用onPullDownRefresh(){}调用这个方法。同时上拉触底{"onReachBottomDistance": 100 }，js中onReachBottom(){}。// 当界面的下方距离页面底部距离小于100像素时触发回调
 17、wx.request({})这个api用来发起http请求，前提需要绑定服务器域名。其中小程序发起的http请求必须是https请求，必须提供https服务的接口，同时请求的域名需要在小程序管理平台进行设置。通过data参数可以给接口传递所需要的相应参数。
 18、设置接口返回数据的超时时间  "networkTimeout": {"request": 3000}在小程序根目录中的app.json中。详见官方文档，发起https网络通信。wx.scanCode({})，调用微信扫一扫api。
-19、
+19、一个小程序仅有一个App实例，全局页面共享，其它页面可以通过getApp()方法获取注册在App()中的函数或参数。
+20、自定义的组件和其它的基本模块页面类似，只是需要在该组件的json文件中注明：{"component":true}，此时js文件中可以定义相应的参数和方法，而后需要使用该组件时需要在json中写明这个组件的名字（自定义的名字）和路径：{"usingComponent":{"my-component":"../divcomponent/divcomponent"}}。详情参见小程序官方文档。
+21、同时在组件中可以使用<slot></slot>（vue中这个叫做插槽）来进行在使用该组件的文件汇总提供一个渲染节点。即：<my-component><view>这个是使用组件的slot节点的地方，提供给宿主一个增加渲染界面的地方</view></my-component>。在组件中wxml中需要写上<slot></slot>。默认情况下一个组件只能开启一个slot，不过需要过个可以在js中开启。详情见文档。
+22、
