@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>ecmas6</title>
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<style>
+		.press_box {
+			border: 1px solid red;
+			padding: 20px;
+			margin: 10px;
+		}
+
+		.press_box>span {
+			display: inline-block;
+			margin: 10px 20px;
+			color: rgb(238, 155, 48);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="headqueryers">
+		<h6>Alphabet game</h6>
+		<p>pleace enter your keypress：</p>
+		<button>again</button>
+		<div class="press_box"></div>
+	</div>
+</body>
+
+</html>
+<script>
+	$(function () {
+		let num = Number($('.press_box span:last').text()),
+			error_time = 0,
+			time = 0;
+		setInterval(function () {
+			time += 1;
+		}, 1000);
+		$(window).keypress(function (e) {
+			if (num) {
+				num = Number($('.press_box span:last').text());
+				if (e.which - num == 1) {
+					$('.press_box').append(`<span>${e.which}</span>`);
+				} else {
+					alert('error');
+					error_time++;
+				}
+			} else {
+				num = e.which;
+				$('.press_box').append(`<span>${e.which}</span>`);
+			}
+			if ($('.press_box').children().length == 26) {
+				alert(`you have ${error_time} times error!
+				you have been finished it take ${time} s.`)
+				$('.press_box').empty();
+				num = 0;
+				error_time = 0;
+				time=0;
+			}
+		})
+		$('button').click(function () {
+			$('.press_box').empty();
+			num = 0;
+			error_time = 0;
+		})
+
+	})
+</script>

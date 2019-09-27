@@ -121,3 +121,9 @@ wx.showModal({})用于弹框错误提示，提醒用户下一步操作，模拟对话框。
 21、同时在组件中可以使用<slot></slot>（vue中这个叫做插槽）来进行在使用该组件的文件汇总提供一个渲染节点。即：<my-component><view>这个是使用组件的slot节点的地方，提供给宿主一个增加渲染界面的地方</view></my-component>。在组件中wxml中需要写上<slot></slot>。默认情况下一个组件只能开启一个slot，不过需要过个可以在js中开启。详情见文档。
 22、同时在使用组件的时候对于样式的使用也有相应的规范，参见文档。
 23、组件生命周期：lifetimes:{attached:{},//组件进入页面节点时执行detached:{}//组件从页面节点销毁时执行}。
+【jquery】
+1、jquery中最好不要使用箭头函数，会使得$(this)的this指针指向不明从而导致意料之外bug。
+2、引用jq，下载jq文件或者使用cdn引入。
+3、在浏览器控制台中可以使用$.fn.jquery查看当前网页使用的jq版本。
+4、mousedown,mouseup,click的区别：mousedown鼠标按下左、右两键均可触发，mouseup鼠标按下左、右两键并在此元素上松开即可触发，click鼠标按下左键并在此元素上松开即可触发。
+5、keydown,keyup,keypress的区别：keydown按下键盘上的某键即可触发，keyup按下键盘上某键后松开即可触发，keypress按下能够在屏幕上输出产生字符的按键即可触发。
