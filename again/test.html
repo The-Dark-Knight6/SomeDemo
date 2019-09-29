@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        .box {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <button>click</button>
+
+        <div class="box">
+
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    $(function () {
+        let action = 0;
+        $('button').click(function () {
+            action+=1;
+            if (action % 2 == 0) {
+                $('.box').animate({
+                    right: '300px'
+                })
+            } else {
+                $('.box').animate({
+                    left: '300px'
+                })
+            }
+            console.log(action)
+        })
+    })
+</script>

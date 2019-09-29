@@ -127,3 +127,6 @@ wx.showModal({})用于弹框错误提示，提醒用户下一步操作，模拟对话框。
 3、在浏览器控制台中可以使用$.fn.jquery查看当前网页使用的jq版本。
 4、mousedown,mouseup,click的区别：mousedown鼠标按下左、右两键均可触发，mouseup鼠标按下左、右两键并在此元素上松开即可触发，click鼠标按下左键并在此元素上松开即可触发。
 5、keydown,keyup,keypress的区别：keydown按下键盘上的某键即可触发，keyup按下键盘上某键后松开即可触发，keypress按下能够在屏幕上输出产生字符的按键即可触发。
+6、$(':button')可以选择<button>标签以及<input type='button'>标签，而$('button')只可以选择<button>标签。即:可以理解为种类的选择，而[]可以理解为属性的选择，[href]选择带有href属性的元素。
+7、faedTo()方法给元素渐变为给定的不透明度（介于0和1之间，0完全透明，1完全不透明）。
+9、

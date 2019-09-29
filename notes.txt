@@ -137,3 +137,33 @@ git push origin :refs/tags/<name> //删除一个远程标签
 2、使用element组件中的多选框提取其中的值，若是对象则会失去效果（指的是checkbox-group，即多选框的集合）。这时可以使用单个的checkbox，在用v-for来循环，value来显示判断是否勾选，同时change事件来更改所勾选的checkbox。
 3、在获取日期时间时，后半段的时间（小时、分钟和秒）可用toLocaleTimeString来实现。
 4、在点击一个编辑按钮之后编辑输入框，此时环境是在后台所给接口渲染数据的大列表下，需要进行对点击编辑按钮之后立马进行输入框聚焦（即点击第一个编辑按钮，光标就聚焦在第一个编辑的输入框上，点第几个就聚焦在第几个的输入框上，优化用户的编辑输入体验，如若没有这个聚焦则需要用户手动的点击编辑输入框，这样就意味着用户需要点击两次来完成这个编辑操作）。实现：利用自定义指令，而后用原生的input输入框（之前项目用de element-ui，则将里头的input样式复刻一下即可），在这个input中绑定自定义指令，同时处理好点击编辑按钮时候触发的input中disabled状态即可。
+5、vue路由的优化写法以及其拥有子路由的时候的写法，在有使用到子路由的时候需要在vue页面中使用<router-view>这个标签，如需要缓存子路由则可以写成<keep-alive><router-view></router-view></keep-alive>这样子路由就可以显示在<router-view>这对标签里头了。
+ {
+	path: '/scene',
+	component: resolve => require(['@/components/AI/scene/index'], resolve),
+	redirect: { path: '/scene/time' },
+	children: [{
+			path: 'time',
+			component: resolve => require(['@/components/AI/scene/Time/time'], resolve),
+		},
+		{
+			path: 'area',
+			component: resolve => require(['@/components/AI/scene/area/area'], resolve),
+		}, {
+			path: 'weather',
+			component: resolve => require(['@/components/AI/scene/weather/weather'], resolve),
+		},
+	]
+}
+6、在使用element中的分页时，遇到每页显示的条数
+ <el-pagination
+@size-change="handleSizeChange"
+@current-change="handleCurrentChange"
+:current-page="currentPage"
+:page-sizes="[10,20, 50, 80, 100]"
+:page-size="10"
+layout="total, sizes, prev, pager, next, jumper"
+:total="total"
+>></el-pagination>
+handleCurrentChange(){}为翻页函数，handleSizeChange(){}为每页展示多少条数的函数。
+前者可以传入参数调用接口渲染，后者给接口传入多少条数的参数即可。例如：getdata(page){}是获取数据的函数，则前者传入page用来翻页，后者则可以增加参数到函数所调用的接口中，需要后台接口支持显示每页展示多少的条数。
