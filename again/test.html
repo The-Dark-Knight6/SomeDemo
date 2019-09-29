@@ -7,41 +7,71 @@
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <style>
         .box {
-            display: inline-block;
-            width: 200px;
-            height: 200px;
-            background: red;
-            position: absolute;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        tr>td {
+            padding: 20px;
+            border: 1px solid #ddd;
         }
     </style>
 </head>
 
 <body>
     <div class="head">
-        <button>click</button>
-
+        <button>change</button>
         <div class="box">
-
+            <table border="0">
+                <tr>
+                    <td>序号</td>
+                    <td>功能</td>
+                    <td>不可用提示语</td>
+                    <td>开关</td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>
 
 </html>
 <script>
+    let url = `http://optmj.didi365.com/public/index.php/`,
+        data;
     $(function () {
-        let action = 0;
+        $('tr:first').css({
+            "color": 'red',
+            "fontWeight": 'bold'
+        });
         $('button').click(function () {
-            action+=1;
-            if (action % 2 == 0) {
-                $('.box').animate({
-                    right: '300px'
-                })
-            } else {
-                $('.box').animate({
-                    left: '300px'
-                })
+            let my = data.list;
+            for (let i in my) {
+                $('table').append(`<tr><td>${i}</td>
+                <td>${my[i].func_name}</td>
+                <td>${my[i].clues}</td>
+                <td>${my[i].edit}</td></tr>`);
             }
-            console.log(action)
+            $('tr').hover(function () {
+                $(this).css('background', '#f9f9f9');
+            }, function () {
+                $(this).css('background', 'transparent')
+            })
+        })
+        $.ajax({
+            url: `${url}index/Beforeproject/switch_list`,
+            type: 'get',
+            data: {
+                id: 1
+            },
+            success: function (res) {
+                data = res.data;
+            }
         })
     })
 </script>
