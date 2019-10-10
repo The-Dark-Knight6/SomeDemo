@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        .home * {
+            display: block;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 20px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="home">
+        <div class="grand_grandparent">
+            grand_grandparent
+            <ul class="grandparent">
+                grandparent
+                <li>
+                    parent
+                    <span class="children">
+                        children
+                        <p>
+                            children_p_1
+                        </p>
+                        <p>
+                            children_p_2
+                        </p>
+                    </span>
+                    <p>children</p>
+                    <p>children_2</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    $(function () {
+        $('p:first-child').css({
+            'color': 'blue'
+        })
+    })
+</script>

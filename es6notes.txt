@@ -132,3 +132,6 @@ wx.showModal({})用于弹框错误提示，提醒用户下一步操作，模拟对话框。
 9、jq停止动画的方法$('element').stop()。同时只是停止当然元素身上的第一个动画，如需停止当前元素的所有动画效果，加上true即可，$('element').stop(true)。
 10、获取元素的固有的属性使用prop()，获取自定义的dom属性使用attr()。
 11、<tabel><tr><td></td></td></table>制作简介表格，只需要在table中使用样式width:100%;border-collpase:collpase;以及td中设置样式border:1px solid #ddd;padding:20px;即可展现一个良好的表格。
+12、使用$.noConflict()方法可以用来解决jq中$符号和其它框架所产生的冲突。
+13、jq选择器中的有关:first-child和:first-of-type是有不相同之处的：$('p:first-child')指的是属于它的父元素的第一个子元素的所有p元素（即这个p元素是其父元素的第一个子元素），$('p:first-of-type')指的是属于它的父元素下的p元素的所有p元素（即这个p可以不是它父元素的第一个元素，可以是它父元素下的第二个p元素，总之是在它父元素下首次出现的p元素）。
+14、
