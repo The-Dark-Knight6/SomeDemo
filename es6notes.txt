@@ -134,4 +134,11 @@ wx.showModal({})用于弹框错误提示，提醒用户下一步操作，模拟对话框。
 11、<tabel><tr><td></td></td></table>制作简介表格，只需要在table中使用样式width:100%;border-collpase:collpase;以及td中设置样式border:1px solid #ddd;padding:20px;即可展现一个良好的表格。
 12、使用$.noConflict()方法可以用来解决jq中$符号和其它框架所产生的冲突。
 13、jq选择器中的有关:first-child和:first-of-type是有不相同之处的：$('p:first-child')指的是属于它的父元素的第一个子元素的所有p元素（即这个p元素是其父元素的第一个子元素），$('p:first-of-type')指的是属于它的父元素下的p元素的所有p元素（即这个p可以不是它父元素的第一个元素，可以是它父元素下的第二个p元素，总之是在它父元素下首次出现的p元素）。
-14、
+【canvas】
+1、canvas是可以用js来进行绘制图形的html元素，可以绘制出很多精彩绝伦的图案。
+2、canvas画布默认大小为：300px*150px（宽*高）。
+3、建立一个canvas画布需要两步。首先定义一个变量获取所定义的canvas元素，（其中<canvas width='300' height='150' id='canvas'>中的一般只有宽高两个属性），而后使用canva中的一个方法getContext()来选择使用2d或者3d进行图案的绘制，这个方法只有一个参数。
+4、fillRect()绘制一个填充的矩形、strokeRect()绘制一个矩形的边框，clearRect()清空指定矩形区域且让该区域透明。（获取canvas之后用变量调用getContext()方法，用该变量使用）。
+5、绘制路径，通过路径来绘制不同形状的图案。beginPath()开始绘制图案。moveTo()方法为绘制图案的起点，在调用beginPath()图案后调用。lineTo()方法绘制图案线条、轮廓。fill()通过填充绘制的图形来生成实心图形，其默认填充颜色为黑色。stroke()通过线条来绘制图案，一般当使用closePath()方法之后来调用会形成图案轮廓。closePath()闭合绘制图形的路径，如需绘制实心图案，直接调用fill()即可。
+6、绘制圆形。首先通过beginPath()方法开始绘制图案，其后使用arc(x,y,radius,begin_angle,end_angle,time)方法来进行绘制圆形图案，其中x,y为圆心坐标，radius为圆半径，begin_angle为圆的初始角度，end_angle为圆的结束角度，其中角度单位为弧度，最后的time为画圆的方向，默认为顺时针方向，其值为false，如果给定true则为逆时针方向。
+7、fillStyle()方法可以用来给填充元素指定颜色，strokeStyle()方法则可以用来给绘制图形的边框、轮廓指定颜色。
