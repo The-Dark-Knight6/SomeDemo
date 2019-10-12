@@ -141,4 +141,8 @@ wx.showModal({})用于弹框错误提示，提醒用户下一步操作，模拟对话框。
 4、fillRect()绘制一个填充的矩形、strokeRect()绘制一个矩形的边框，clearRect()清空指定矩形区域且让该区域透明。（获取canvas之后用变量调用getContext()方法，用该变量使用）。
 5、绘制路径，通过路径来绘制不同形状的图案。beginPath()开始绘制图案。moveTo()方法为绘制图案的起点，在调用beginPath()图案后调用。lineTo()方法绘制图案线条、轮廓。fill()通过填充绘制的图形来生成实心图形，其默认填充颜色为黑色。stroke()通过线条来绘制图案，一般当使用closePath()方法之后来调用会形成图案轮廓。closePath()闭合绘制图形的路径，如需绘制实心图案，直接调用fill()即可。
 6、绘制圆形。首先通过beginPath()方法开始绘制图案，其后使用arc(x,y,radius,begin_angle,end_angle,time)方法来进行绘制圆形图案，其中x,y为圆心坐标，radius为圆半径，begin_angle为圆的初始角度，end_angle为圆的结束角度，其中角度单位为弧度，最后的time为画圆的方向，默认为顺时针方向，其值为false，如果给定true则为逆时针方向。
-7、fillStyle()方法可以用来给填充元素指定颜色，strokeStyle()方法则可以用来给绘制图形的边框、轮廓指定颜色。
+7、fillStyle属性可以用来给填充元素指定颜色。strokeStyle属性则可以用来给绘制图形的边框、轮廓指定颜色。globalAlpha属性用来给元素指定透明度，范围0-1，适用在所有的元素上。当然也可以给fillStyle=rgba()来进行设置或者strokeStyle=rgba()来进行设置（即设置填充透明度以及描边、轮廓的透明度）。
+8、lineWidth属性设置线条的粗细，默认值为1，同时线条或线头线尾出现延伸渲染一半的情况。lineCap设置线段端点的显示形式。lineJoin属性设置线段相交处的显示形式。
+9、使用createLinearGradient()方法创建线性渐变对象，使用createRadialGradient()方法创建径向渐变，详细参数参见文档，用addColorStop()方法给渐变上色。
+10、fillText()绘制填充文本，strokeText()绘制文本边框，font属性用于设置文本属性。
+11、save()保存当前画布状态，restore()释放上一次保存的画布状态。translate()用来偏移坐标，移动原点到指定的坐标上。

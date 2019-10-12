@@ -12,20 +12,19 @@
     <div class="home">
         <canvas class="canvas" width="300" height="300">this is a canvas</canvas>
     </div>
+
 </body>
 
 </html>
 
 <script>
     function draw() {
-        let canvas = document.querySelector('.canvas').getContext('2d');
-        for(let i = 0 ; i < 6 ; i++){
-            for(let j = 0 ; j < 6 ; j++){
-                canvas.strokeStyle=`rgb(${255-42.5*i},${255-42.5*j},0)`;
-                canvas.beginPath();
-                canvas.arc(12.5+35*i,12.5+35*j,12,0,Math.PI*2);
-                canvas.stroke();
-            }
-        }
+        let can = document.querySelector('.canvas').getContext('2d');
+        can.fillStyle='red';
+        can.fillRect(0,0,20,20);
+        can.save();
+        can.translate(20,20);
+        can.fillStyle='gray';
+        can.fillRect(0,0,20,20);
     }
 </script>
