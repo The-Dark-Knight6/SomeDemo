@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>canvas</title>
     <style>
-
+body{
+    background: #f5f2f0;
+}
     </style>
 </head>
 
@@ -20,11 +22,19 @@
 <script>
     function draw() {
         let can = document.querySelector('.canvas').getContext('2d');
-        can.fillStyle='red';
-        can.fillRect(0,0,20,20);
-        can.save();
-        can.translate(20,20);
-        can.fillStyle='gray';
-        can.fillRect(0,0,20,20);
+        can.strokeStyle='red';
+        can.beginPath();
+        can.arc(150,150,50,0,Math.PI/4);
+        can.stroke();
+        can.beginPath();
+        can.moveTo(150,150);
+        can.lineTo(200,150);
+        can.stroke();
+        can.translate(150,150)
+        can.rotate(Math.PI/4);
+        can.beginPath();
+        can.moveTo(0,0);
+        can.lineTo(50,0);
+        can.stroke();
     }
 </script>
