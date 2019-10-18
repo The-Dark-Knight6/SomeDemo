@@ -121,7 +121,7 @@ wx.showModal({})用于弹框错误提示，提醒用户下一步操作，模拟对话框。
 21、同时在组件中可以使用<slot></slot>（vue中这个叫做插槽）来进行在使用该组件的文件汇总提供一个渲染节点。即：<my-component><view>这个是使用组件的slot节点的地方，提供给宿主一个增加渲染界面的地方</view></my-component>。在组件中wxml中需要写上<slot></slot>。默认情况下一个组件只能开启一个slot，不过需要过个可以在js中开启。详情见文档。
 22、同时在使用组件的时候对于样式的使用也有相应的规范，参见文档。
 23、组件生命周期：lifetimes:{attached:{},//组件进入页面节点时执行detached:{}//组件从页面节点销毁时执行}。
-【jquery】
+【jquery】（补充）
 1、jquery中最好不要使用箭头函数，会使得$(this)的this指针指向不明从而导致意料之外bug。
 2、引用jq，下载jq文件或者使用cdn引入。
 3、在浏览器控制台中可以使用$.fn.jquery查看当前网页使用的jq版本。
@@ -134,7 +134,7 @@ wx.showModal({})用于弹框错误提示，提醒用户下一步操作，模拟对话框。
 11、<tabel><tr><td></td></td></table>制作简介表格，只需要在table中使用样式width:100%;border-collpase:collpase;以及td中设置样式border:1px solid #ddd;padding:20px;即可展现一个良好的表格。
 12、使用$.noConflict()方法可以用来解决jq中$符号和其它框架所产生的冲突。
 13、jq选择器中的有关:first-child和:first-of-type是有不相同之处的：$('p:first-child')指的是属于它的父元素的第一个子元素的所有p元素（即这个p元素是其父元素的第一个子元素），$('p:first-of-type')指的是属于它的父元素下的p元素的所有p元素（即这个p可以不是它父元素的第一个元素，可以是它父元素下的第二个p元素，总之是在它父元素下首次出现的p元素）。
-【canvas】
+【canvas】（设计游戏）
 1、canvas是可以用js来进行绘制图形的html元素，可以绘制出很多精彩绝伦的图案。
 2、canvas画布默认大小为：300px*150px（宽*高）。
 3、建立一个canvas画布需要两步。首先定义一个变量获取所定义的canvas元素，（其中<canvas width='300' height='150' id='canvas'>中的一般只有宽高两个属性），而后使用canva中的一个方法getContext()来选择使用2d或者3d进行图案的绘制，这个方法只有一个参数。
@@ -147,4 +147,3 @@ wx.showModal({})用于弹框错误提示，提醒用户下一步操作，模拟对话框。
 10、fillText()绘制填充文本，strokeText()绘制文本边框，font属性用于设置文本属性。
 11、save()保存当前画布状态，restore()释放上一次保存的画布状态。save()方法将当前canvas的所有状态保存在一个栈（先进后出）当中，当使用restore()方法时候将按照栈的顺序把所保存的状态进行移出（即复制上次所保存的状态样式，此次使用就不需要再重复声明相应的样式了）
 12、translate()用来偏移坐标，移动到相对坐标原点（0，0）到所指定的坐标（x,y）上。rotate()以原点为中心进行旋转。scale()进行canvas画布的缩放。transform()变形矩阵。
-
