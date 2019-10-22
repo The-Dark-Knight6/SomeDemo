@@ -6,3 +6,5 @@
 >'application'为express框架中的后端内容，简单操控个人网站中的后端服务。
 
 >'.txt'文件为相关学习笔记。
+
+>'mytest'为jq+swiper的响应式小图片轮播网站。
