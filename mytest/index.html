@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>aodi_car</title>
+  <link rel="shortcut icon" href='./imgs/favicon.ico'>
+  <link rel="stylesheet" href="./css/index.css">
+  <script src="./css/config.js"></script>
+  <script src="//cdn.staticfile.org/jquery/2.0.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+  <script>
+    if (os.isAndroid || os.isPhone) {
+      window.location.replace('./mob_index.html');
+      console.log('phone')
+    } else if (os.isTablet) {
+      console.log('tablelet');
+    } else {
+      console.log('computer');
+    }
+  </script>
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    .swiper-slide>img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #F39838 !important;
+    }
+
+    .swiper-pagination-bullet {
+      opacity: .5;
+      background: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div class="float">
+    <img src="./imgs/btn_list_black.png" alt="">
+  </div> -->
+  <div class="nav">
+    <div class="nav_contont">
+      <div class="nav_img">
+        <img src="./imgs/tops.png" alt="">
+      </div>
+      <div class="nav_page">
+        <a href="./index.html" class="action">奥迪</a>
+        <a href="./benchi.html">奔驰</a>
+        <a href="//www.baidu.com" target="_blank">摆渡</a>
+      </div>
+    </div>
+  </div>
+  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img data-src="./imgs/1@2x.jpg" class="swiper-lazy"></div>
+      <div class="swiper-slide"><img data-src="./imgs/1@2x.jpg" class="swiper-lazy"></div>
+      <div class="swiper-slide"><img data-src="./imgs/1@2x.jpg" class="swiper-lazy"></div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+</body>
+
+</html>
+<script>
+  //swiper滑动插件
+  var mySwiper = new Swiper('.swiper-container', {
+    direction: 'vertical',
+    lazy: {
+      loadPrevNext: true,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      dynamicBullets: true,
+    },
+    mousewheel: true,
+    resistanceRatio: 0,
+  })
+</script>
