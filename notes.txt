@@ -167,3 +167,21 @@ layout="total, sizes, prev, pager, next, jumper"
 >></el-pagination>
 handleCurrentChange(){}为翻页函数，handleSizeChange(){}为每页展示多少条数的函数。
 前者可以传入参数调用接口渲染，后者给接口传入多少条数的参数即可。例如：getdata(page){}是获取数据的函数，则前者传入page用来翻页，后者则可以增加参数到函数所调用的接口中，需要后台接口支持显示每页展示多少的条数。
+7、vue跨域代理多个写法：
+ proxyTable: {
+          '/api2': {
+            target: 'https://***.***.com/',
+            changeOrigin: true,
+            pathRewrite: {
+                '^/api2': ''
+            }
+        },
+            '/api': {
+                target: 'http://***.***.com/',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api': ''
+                }
+            }
+            
+        },
