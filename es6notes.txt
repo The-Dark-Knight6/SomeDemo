@@ -147,3 +147,8 @@ wx.showModal({})用于弹框错误提示，提醒用户下一步操作，模拟对话框。
 10、fillText()绘制填充文本，strokeText()绘制文本边框，font属性用于设置文本属性。
 11、save()保存当前画布状态，restore()释放上一次保存的画布状态。save()方法将当前canvas的所有状态保存在一个栈（先进后出）当中，当使用restore()方法时候将按照栈的顺序把所保存的状态进行移出（即复制上次所保存的状态样式，此次使用就不需要再重复声明相应的样式了）
 12、translate()用来偏移坐标，移动到相对坐标原点（0，0）到所指定的坐标（x,y）上。rotate()以原点为中心进行旋转。scale()进行canvas画布的缩放。transform()变形矩阵。
+【js】
+1、判断js一个变量的数据类型方法：typeof()函数，constructor属性，instanceof 操作符。
+其中typeof([1,24])返回object，typeof(newDate())返回object。
+变量.constructor即可返回相应的类型。
+if(arr instanceof Array){}else{}用if...else....判断指定类型。
