@@ -50,8 +50,12 @@
 					error_time++;
 				}
 			} else {
-				num = e.which;
-				$('.press_box').append(`<span>${e.which}</span>`);
+				if (e.which == 65 || e.which == 97) {
+					num = e.which;
+					$('.press_box').append(`<span>${e.which}</span>`);
+				} else {
+					alert('begin in a or A');
+				}
 			}
 			if ($('.press_box').children().length == 26) {
 				alert(`you have ${error_time} times error!
@@ -59,7 +63,7 @@
 				$('.press_box').empty();
 				num = 0;
 				error_time = 0;
-				time=0;
+				time = 0;
 			}
 		})
 		$('button').click(function () {
