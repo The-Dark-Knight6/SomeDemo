@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>guess_number</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<style>
+    body,
+    html {
+        background: #efefef;
+    }
+
+    .host {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .int {
+        padding: 8px 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    input {
+        outline: none;
+    }
+
+    input.int:focus {
+        border: 1px solid #4490e8;
+    }
+
+    .reset {
+        display: inline-block;
+        padding: 6px 12px;
+        background: #409EFF;
+        color: white;
+        border: 1px solid #409EFF;
+        cursor: pointer;
+    }
+
+    input.reset:hover {
+        border: 1px solid #66b1ff;
+        background: #66b1ff;
+    }
+</style>
+
+<body>
+    <div class="host">
+        <p></p>
+        <p>you need input 0-100 numbers to guess this result.</p>
+        <input placeholder="0——100之间的整数" type="text" class="int">
+        <input type="button" class="reset" value="reset">
+        <p class="tip"></p>
+        <p class="last"></p>
+    </div>
+</body>
+
+</html>
+
+<script>
+    //显示北京时间
+    function time() {
+        let time = new Date();
+        let year = time.getFullYear();
+        let month = time.getMonth() + 1 >= 10 ? time.getMonth() + 1 : `0${time.getMonth()+1}`;
+        let day = time.getDate() >= 10 ? time.getDate() : `0${time.getDate()}`;
+        // let hour = time.getHours() >= 10 ? time.getHours() : `0${time.getHours()}`; 
+        // let minute = time.getMinutes() >= 10 ? time.getMinutes() : `0${time.getMinutes()}`; 
+        // let second = time.getSeconds() >= 10 ? time.getSeconds() : `0${time.getSeconds()}`; 
+        $('p:first-child').html(`${year}-${month}-${day} ${time.toLocaleTimeString()}`);
+    }
+    time();
+    setInterval('time()', 1000);
+    //加载猜数字函数
+    $(function () {
+        let number = Math.random() * 100,
+            blue_num = 10;
+        console.log(Math.floor(number)); //打印正确答案
+        $('.reset').hide();
+        $('.reset').click(function () {
+            window.location.reload();
+        })
+        $('.last').text(`you now have ${blue_num} times.`);
+        $('.int').blur(function () {
+            let $this = $(this).val(),
+                tovalue = Math.floor(number);
+            if (isNaN($this)) {
+                $('.tip').text('not number');
+            } else if ($this.trim() == '') {
+                $('.tip').text('not exit value');
+            } else if (Number($this) > tovalue) {
+                $('.tip').text('too big');
+            } else if (Number($this) < tovalue) {
+                $('.tip').text('too small');
+            } else {
+                $('.tip').text('success ！');
+            }
+            blue_num--;
+            $('.last').text(`you now have ${blue_num} times.`);
+            if (blue_num <= 0 || Number($this) == tovalue) {
+                $('.int').attr({
+                    'disabled': 'disabled'
+                });
+                $('.reset').show();
+            }
+        })
+    })
+</script>
