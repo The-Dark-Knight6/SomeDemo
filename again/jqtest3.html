@@ -6,20 +6,61 @@
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <link rel="stylesheet" href="./css/componnet.css">
     <script src="./js/navs.js"></script>
+    <style>
+        p {
+            margin-bottom: 12px;
+        }
+
+        button {
+            padding: 6px 12px;
+            background: #409EFF;
+            color: white;
+            border: 1px solid #409EFF;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .dis {
+            background: #cccccc;
+            cursor: not-allowed;
+            border: 1px solid #ccc;
+            padding: 6px 12px;
+        }
+    </style>
 </head>
 
 <body>
     <div class="left_div"></div>
     <div class="right_div">
-        666666666
+        <p>&nbsp;</p>
+        <button class="getPhoneCode">获取手机验证码</button>
     </div>
 </body>
 
 </html>
 
 <script>
+    function settime($obj, time) {
+        if (time == 0) {
+            $obj.attr("disabled", false);
+            $obj.css("background", "#409EFF").css("cursor", "pointer");
+            $obj.text("获取手机验证码");
+            return;
+        } else {
+            $obj.attr("disabled", true);
+            $obj.addClass('dis');
+            $obj.text("重新发送(" + time + ")");
+            time--;
+        }
+        setTimeout(function () {
+            settime($obj, time)
+        }, 1000)
+    }
     $(function () {
         $('.left_div').append(navs);
-        $('li a:eq(1)').addClass('acives');        
+        $('li a:eq(1)').addClass('acives');
+        $('.getPhoneCode').click(function () {
+            settime($(this), 20);
+        })
     })
 </script>

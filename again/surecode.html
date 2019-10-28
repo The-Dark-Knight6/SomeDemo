@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="./css/componnet.css">
+  <script src="./js/navs.js"></script>
+  <style>
+    #getPhoneCode {
+      cursor: pointer;
+      background: #f38401;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="left_div"></div>
+  <button id="getPhoneCode">获取手机验证码</button>
+</body>
+
+</html>
+<script>
+  $(function () {
+    $('.left_div').append(navs); 
+    $('li a:eq(4)').addClass('acives'); 
+  })
+  $('#getPhoneCode').click(function () {
+    settime($(this), 20)
+  })
+  // settime($("#getPhoneCode"),0);
+  function settime($obj, time) {
+    if (time == 0) {
+      $obj.attr("disabled", false);
+      $obj.css("background", "#f38401").css("cursor", "pointer");
+      $obj.text("获取手机验证码");
+      return;
+    } else {
+      $obj.attr("disabled", true);
+      $obj.css("background", "#ccc").css("cursor", "not-allowed");
+      $obj.text("重新发送(" + time + ")");
+      time--;
+    }
+    setTimeout(function () {
+      settime($obj, time)
+    }, 1000)
+  }
+</script>
