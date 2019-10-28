@@ -4,10 +4,16 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>ecmas6</title>
 	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="./css/componnet.css">
+	<script src="./js/navs.js"></script>
 	<style>
+		.headqueryers {
+			margin-left: 200px;
+			text-align: center;
+		}
+
 		.press_box {
 			border: 1px solid red;
 			padding: 20px;
@@ -19,14 +25,33 @@
 			margin: 10px 20px;
 			color: rgb(238, 155, 48);
 		}
+
+		p {
+			margin-bottom: 12px;
+		}
+
+		button {
+			padding: 6px 12px;
+			background: #409EFF;
+			color: white;
+			border: 1px solid #409EFF;
+			cursor: pointer;
+			outline: none;
+		}
+
+		button:hover {
+			border: 1px solid #66b1ff;
+			background: #66b1ff;
+		}
 	</style>
 </head>
 
 <body>
+	<div class="left_div"></div>
 	<div class="headqueryers">
-		<h6>Alphabet game</h6>
-		<p>pleace enter your keypress(a-z)：</p>
-		<button>again</button>
+		<p>Alphabet Game</p>
+		<p>Pleace input alphabet a-z(A-Z)：</p>
+		<button>Try again</button>
 		<div class="press_box"></div>
 	</div>
 </body>
@@ -34,6 +59,8 @@
 </html>
 <script>
 	$(function () {
+		$('.left_div').append(navs);
+		$('li a:eq(3)').addClass('acives');
 		let num = Number($('.press_box span:last').text()),
 			error_time = 0,
 			time = 0;
