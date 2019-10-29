@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>my_status</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/componnet.css">
+    <!-- 引入右侧导航栏目 -->
+    <script src="./js/navs.js"></script>
+    <style>
+        .tran {
+            margin-top: 50px;
+            width: 100px;
+            height: 80px;
+            background: red;
+            display: inline-block;
+            border-radius: 5px;
+            animation: doing 5s infinite alternate;
+            position: relative;
+        }
+
+        .tran>div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes doing {
+            0% {
+                background: red;
+                left: 0;
+                top: 0;
+            }
+
+            25% {
+                background: blue;
+                left: 200px;
+                top: 0;
+            }
+
+            50% {
+                background: yellow;
+                left: 200px;
+                top: 200px;
+            }
+
+            75% {
+                background: green;
+                left: 0;
+                top: 200px;
+            }
+
+            100% {
+                background: white;
+                left: 0;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 右侧的导航栏目 -->
+    <div class="left_div"></div>
+    <div class="right_div">
+        <div class="tran">
+            <div>
+                <p>集合</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    $(function () {
+        $('.left_div').append(navs); //添加nvas导航
+        $('li a:eq(0)').addClass('acives'); //添加当前a标签样式
+    })
+</script>

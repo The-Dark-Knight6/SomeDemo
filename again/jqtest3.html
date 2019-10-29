@@ -20,12 +20,6 @@
             border-radius: 5px;
         }
 
-        .dis {
-            background: #cccccc;
-            cursor: not-allowed;
-            border: 1px solid #ccc;
-            padding: 6px 12px;
-        }
     </style>
 </head>
 
@@ -48,7 +42,7 @@
             return;
         } else {
             $obj.attr("disabled", true);
-            $obj.addClass('dis');
+            $obj.css("background", "#cccccc").css("border", "1px solid #ccc").css('cursor','not-allowed');
             $obj.text("重新发送(" + time + ")");
             time--;
         }

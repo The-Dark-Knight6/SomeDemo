@@ -115,7 +115,6 @@
 
 <body>
 	<div class="left_div"></div>
-	<!-- css样式是我copy的，但js是自己写的 -->
 	<div class="home">
 		<div class="center">
 			<h3 style="text-align:center">h5,css3,javascript calculate</h3>
@@ -149,10 +148,6 @@
 
 </html>
 <script>
-	$(function () {
-		$('.left_div').append(navs);
-		$('li a:eq(5)').addClass('acives');
-	})
 	document.getElementsByTagName('h3')[0].innerHTML =
 		document.getElementsByTagName('h3')[0].textContent.toUpperCase();
 	var btn = document.querySelectorAll('button');
@@ -170,4 +165,8 @@
 		document.querySelector('.display').value = eval(res);
 	}
 	//   eval()方法可以计算某个字符串并且执行其中的js代码
+	$(function () {
+		$('.left_div').append(navs);
+		$('li a:eq(5)').addClass('acives');
+	})
 </script>

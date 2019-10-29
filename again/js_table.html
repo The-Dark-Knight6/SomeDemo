@@ -127,7 +127,7 @@
                 <td>${$('.name').val()}</td>
                 <td>${$('.city').val()}</td>
             </tr>`
-                if ($('.name').val() != '' && $('.city').val() != '') {
+                if ($('.name').val().trim() != '' && $('.city').val().trim() != '') {
                     $('table').append(trs);
                     $(this).parent().empty()
                 } else {

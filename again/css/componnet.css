@@ -17,8 +17,28 @@ body {
     width: 200px;
     height: 100%;
     background-color: #2b2f3e;
+    text-align: center;
 }
-
+.left_div>span{
+    font-size: 50px;
+    color: #7a7e8a;
+    margin: 20px 0;
+    display: inline-block;
+    cursor: pointer;
+    animation: move 2s;
+    transition: transform 1s ,color 1s;
+}
+.left_div>span:hover{
+    color: red;
+    transform: rotate(-720deg);
+}
+@keyframes move{
+    from{
+        transform: rotate(0deg) scale(0.2,0.2);
+    }to{
+        transform: rotate(360deg) scale(1,1);
+    }
+}
 ul {
     list-style: none;
     text-align: center;
