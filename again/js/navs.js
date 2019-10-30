@@ -5,4 +5,5 @@ let navs = ` <span>正</span><ul>
 <li><a href="./pressgame.html">敲击键盘</a></li>
 <li><a href="./js_table.html">表格</a></li>
 <li><a href="./calculate.html">计算器</a></li>
+<li><a href="./divtable.html">自制列表</a></li>
 </ul>`;
