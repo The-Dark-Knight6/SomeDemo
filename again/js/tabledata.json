@@ -1,40 +1,75 @@
 {
     "list":[
         {
-            "title":"这是测试的json数据",
-            "type":"文本",
-            "content":"用来测试的列子啦",
-            "act_time":"2019-03-03",
+            "title":"野子",
+            "type":"华语",
+            "content":"吹啊吹啊,我的骄傲放纵",
+            "singer":"苏运莹",
             "push_time":"2019-06-02",
             "status":1
         },
         {
             "title":"野狼disco",
-            "type":"文本",
-            "content":"最近流行的一首歌曲",
-            "act_time":"2019-03-12",
+            "type":"华语",
+            "content":"来左边给你画条龙，右边画一道彩虹",
+            "singer":"未知",
             "push_time":"2019-10-04",
             "status":1
         },{
             "title":"遥远的她",
-            "type":"文本",
-            "content":"this is a song,very nice",
-            "act_time":"2019-05-03",
+            "type":"粤语",
+            "content":"遥远的她，可知我心中的说话",
+            "singer":"张学友",
             "push_time":"2019-11-02",
             "status":0
         },{
-            "title":"what do you do and you do",
-            "type":"english",
-            "content":"actor you can proress yourslef",
-            "act_time":"2015-03-03",
+            "title":"像风一样",
+            "type":"华语",
+            "content":"我等的模样好不具像",
+            "singer":"薛之谦",
             "push_time":"2012-06-02",
             "status":1
         },{
-            "title":"132654798798",
-            "type":"文本",
-            "content":"6666666666666",
-            "act_time":"2011-03-03",
+            "title":"faded",
+            "type":"英语",
+            "content":"i'm faded",
+            "singer":"alan walker",
             "push_time":"2019-06-02",
+            "status":0
+        },{
+            "title":"遥远的她",
+            "type":"粤语",
+            "content":"遥远的她，可知我心中的说话",
+            "singer":"陈奕迅",
+            "push_time":"2019-11-02",
+            "status":0
+        },{
+            "title":"浪子回头",
+            "type":"闽南语",
+            "content":"烟一支一支一支的点，酒一杯一杯一杯的干",
+            "singer":"加子蛋",
+            "push_time":"2015-11-12",
+            "status":1
+        },{
+            "title":"人间",
+            "type":"华语",
+            "content":"天上人间，如果真值得留恋",
+            "singer":"王菲",
+            "push_time":"2012-11-12",
+            "status":1
+        },{
+            "title":"晴天",
+            "type":"华语",
+            "content":"故事的小黄花，从出生那年就飘着",
+            "singer":"周杰伦",
+            "push_time":"2013-11-12",
+            "status":1
+        },{
+            "title":"城府",
+            "type":"华语",
+            "content":"你的城府有多深，我爱的有多蠢",
+            "singer":"许嵩",
+            "push_time":"2000-11-12",
             "status":0
         }
     ]

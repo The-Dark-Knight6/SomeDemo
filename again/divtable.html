@@ -7,71 +7,98 @@
   <script src="https://lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" href="./css/componnet.css">
   <script src="./js/navs.js"></script>
-  <style>
-    table {
-      width: 100%;
-      text-align: center;
-      border-collapse: collapse;
-      border-spacing: 0;
-    }
-
-    tr td,
-    tr th {
-      padding: 12px 0;
-      border: 1px solid #ebeef5;
-    }
-
-    .host {
-      margin-left: 200px;
-    }
-
-    .backcolor {
-      background: #f7faff;
-    }
-    tr:hover{
-      background: #f5f7fa;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/divtable.css">
 </head>
 
 <body>
-  <div class="left_div"></div>
-  <div class="host">
-    <table border="0">
-      <tr>
-        <th>序号</th>
-        <th>活动标题</th>
-        <th>类型</th>
-        <th>内容</th>
-        <th>活动时间</th>
-        <th>推送时间</th>
-        <th>状态</th>
-      </tr>
-    </table>
+  <div class="home">
+    <div class="left_div"></div>
+    <div class="host">
+      <div class="top_div">
+        <div class="input_content">
+          <input type="text" class="inner_input" placeholder="搜索歌曲名称">
+          <img src="./img/close.svg" alt="" class="close_img">
+        </div>
+        <button>search</button>
+        <button>refresh</button>
+      </div>
+      <div class="error_back">
+        <div class="err_info">
+          <p>请勿搜索不存在的数据以及空数据...</p>
+        </div>
+      </div>
+      <table border="0">
+        <tr>
+          <th>序号</th>
+          <th>歌曲名称</th>
+          <th>歌词</th>
+          <th>类型</th>
+          <th>歌手</th>
+          <th>推送时间</th>
+          <th>状态</th>
+        </tr>
+      </table>
+    </div>
   </div>
 </body>
 
 </html>
 <script>
+  // 渲染json数据函数
+  function AddData(data) {
+    for (let i in data) {
+      $('table').append(` <tr>
+        <td>${Number(i)+1}</td>
+        <td>${data[i].title}</td>
+        <td>${data[i].content}</td>
+        <td>${data[i].type}</td>
+        <td>${data[i].singer}</td>
+        <td>${data[i].push_time}</td>
+        <td>${data[i].status == 1 ? '正常' : '非正常'}</td>
+      </tr>`);
+    }
+  }
+  let my = '';
   $(function () {
+    $('.input_content').mouseover(function () {
+      $('.close_img').show();
+    })
+    $('.input_content').mouseleave(function () {
+      $('.close_img').hide();
+    })
+    $('.close_img').click(function () {
+      $('.inner_input').val('');
+      $(this).hide();
+    })
+    $('button:eq(1)').click(function () {
+      window.location.reload();
+    })
+    $('.error_back').click(function () {
+      $(this).slideUp();
+    })
+    $('button:eq(0)').click(function () {
+      let val = $('.inner_input').val().trim(), obj=[];
+      for (let i in my) {
+        if (my[i].title.indexOf(val) > -1 && val) {
+          obj.push(my[i]);
+          $('tr td').remove();
+          AddData(obj);
+        }
+      }
+      if (obj.length==0 || !val) {
+        $('.error_back').slideDown();
+        $('.inner_input').val('');
+      }
+    })
     $('.left_div').append(navs);
     $('li a:eq(6)').addClass('acives');
     $('tr th').addClass('backcolor');
+    //ajax获取json数据
     $.ajax({
-      url: '../js/tabledata.json',
+      url: './js/tabledata.json',
       success: function (data) {
-        let my = data.list;
-        for (let i in my) {
-          $('table').append(` <tr>
-        <td>${Number(i)+1}</td>
-        <td>${my[i].title}</td>
-        <td>${my[i].content}</td>
-        <td>${my[i].type}</td>
-        <td>${my[i].act_time}</td>
-        <td>${my[i].push_time}</td>
-        <td>${my[i].status == 1 ? '正常' : '非正常'}</td>
-      </tr>`);
-        }
+        my = data.list;
+        AddData(my);
       }
     })
   })
