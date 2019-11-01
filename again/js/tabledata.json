@@ -72,5 +72,7 @@
             "push_time":"2000-11-12",
             "status":0
         }
-    ]
+    ],
+    "phone":["mi","huawei","iphone","oneplus","oppo","vivo","samsung"],
+    "phone_sale":[444, 200, 306, 100, 110, 120,190]
 }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/componnet.css">
+    <script src="./js/navs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.3.0/echarts-en.min.js"></script>
+    <title>Echarts_example</title>
+    <style>
+        .local {
+            margin-left: 200px;
+            text-align: center;
+        }
+
+        .charts {
+            width: 600px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="left_div"></div>
+    <div class="local">
+        <div class="charts" id="main">
+
+        </div>
+        <p></p>
+    </div>
+</body>
+
+</html>
+<script>
+    $('.left_div').append(navs);
+    $('li a:eq(7)').addClass('acives');
+    $.ajax({
+        url: './js/tabledata.json',
+        success: function (res) {
+            draws(res.phone,res.phone_sale);
+        }
+    })
+    function draws(x_data,ser) {
+        var myChart = echarts.init(document.getElementById('main'));
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'show_sales'
+            },
+            tooltip: {},
+            legend: {
+                data: ['销量']
+            },
+            xAxis: {
+                data: x_data
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: ser
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+</script>
