@@ -12,6 +12,8 @@
         .local {
             margin-left: 200px;
             text-align: center;
+            position: relative;
+            height: 100%;
         }
 
         .charts {
@@ -34,7 +36,8 @@
 </html>
 <script>
     $('.left_div').append(navs);
-    $('li a:eq(7)').addClass('acives');
+    $('.local').append(float);
+    $("a[href='./Echarts.html']").addClass('acives');
     $.ajax({
         url: './js/tabledata.json',
         success: function (res) {

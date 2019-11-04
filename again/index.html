@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>my_status</title>
+    <link rel="shortcut icon" href="./img/ico2.ico" type="image/x-icon" />
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <link rel="stylesheet" href="./css/componnet.css">
     <!-- 引入右侧导航栏目 -->
     <script src="./js/navs.js"></script>
+    <!-- <script src="./js/comdoing.js"></script> -->
     <style>
         .tran {
             margin-top: 50px;
@@ -70,11 +72,6 @@
                 <p>集合</p>
             </div>
         </div>
-        <div class="float_tip">
-            <div class="fly_cont">
-                <p></p>
-            </div>
-        </div>
     </div>
 </body>
 
@@ -83,13 +80,7 @@
 <script>
     $(function () {
         $('.left_div').append(navs); //添加nvas导航
-        $('li a:eq(0)').addClass('acives'); //添加当前a标签样式
-        $('li a:eq(0)').mouseover(function () {
-            $('.float_tip').fadeIn();
-            $('.fly_cont>p').text($(this).text());
-        })
-        $('li a:eq(0)').mouseleave(function () {
-            $('.float_tip').fadeOut();
-        })
+        $('.right_div').append(float); //鼠标悬浮显示的提示框
+        $("a[href='./index.html']").addClass('acives'); //添加当前a标签样式
     })
 </script>

@@ -11,6 +11,8 @@
 <style>
 	.home {
 		margin-left: 200px;
+		position: relative;
+		height: 100%;
 	}
 
 	.center {
@@ -167,6 +169,7 @@
 	//   eval()方法可以计算某个字符串并且执行其中的js代码
 	$(function () {
 		$('.left_div').append(navs);
-		$('li a:eq(5)').addClass('acives');
+		$('.home').append(float);
+		$("a[href='./calculate.html']").addClass('acives');
 	})
 </script>

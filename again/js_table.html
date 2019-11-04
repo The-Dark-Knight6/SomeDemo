@@ -44,6 +44,8 @@
     }
     .host{
         margin-left: 200px;
+        position: relative;
+        height: 100%;
     }
 </style>
 
@@ -93,15 +95,16 @@
         for (var i = 0; i < lists.length; i++) {
             var have = lists[i].querySelectorAll('td')[0];
             if (have.innerHTML.toUpperCase().indexOf(inputs) > -1) {
-                lists[i].style.display = ''
+                lists[i].style.display = '';
             } else {
-                lists[i].style.display = 'none'
+                lists[i].style.display = 'none';
             }
         }
     })
     $(function () {
         $('.left_div').append(navs);
-        $('li a:eq(4)').addClass('acives');
+        $('.host').append(float);
+        $("a[href='./js_table.html']").addClass('acives');
         $('input.but').click(function () {
             var come = `name:
         <input type="text" class="name">

@@ -12,6 +12,8 @@
 		.headqueryers {
 			margin-left: 200px;
 			text-align: center;
+			position: relative;
+			height: 100%;
 		}
 
 		.press_box {
@@ -60,7 +62,8 @@
 <script>
 	$(function () {
 		$('.left_div').append(navs);
-		$('li a:eq(3)').addClass('acives');
+		$('.headqueryers').append(float);
+		$("a[href='./pressgame.html']").addClass('acives');
 		let num = Number($('.press_box span:last').text()),
 			error_time = 0,
 			time = 0;

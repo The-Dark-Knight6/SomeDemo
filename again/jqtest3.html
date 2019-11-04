@@ -19,7 +19,6 @@
             cursor: pointer;
             border-radius: 5px;
         }
-
     </style>
 </head>
 
@@ -42,7 +41,7 @@
             return;
         } else {
             $obj.attr("disabled", true);
-            $obj.css("background", "#cccccc").css("border", "1px solid #ccc").css('cursor','not-allowed');
+            $obj.css("background", "#cccccc").css("border", "1px solid #ccc").css('cursor', 'not-allowed');
             $obj.text("重新发送(" + time + ")");
             time--;
         }
@@ -52,7 +51,8 @@
     }
     $(function () {
         $('.left_div').append(navs);
-        $('li a:eq(1)').addClass('acives');
+        $('.right_div').append(float);
+        $("a[href='./jqtest3.html']").addClass('acives');
         $('.getPhoneCode').click(function () {
             settime($(this), 20);
         })

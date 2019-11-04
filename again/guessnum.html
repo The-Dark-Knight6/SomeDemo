@@ -19,6 +19,8 @@
         text-align: center;
         font-size: 14px;
         margin-left: 200px;
+        position: relative;
+        height: 100%;
     }
 
     .int {
@@ -78,14 +80,15 @@
         // let hour = time.getHours() >= 10 ? time.getHours() : `0${time.getHours()}`; 
         // let minute = time.getMinutes() >= 10 ? time.getMinutes() : `0${time.getMinutes()}`; 
         // let second = time.getSeconds() >= 10 ? time.getSeconds() : `0${time.getSeconds()}`; 
-        $('p:first-child').html(`${year}-${month}-${day} ${time.toLocaleTimeString()}`);
+        $('.host>p:first-child').html(`${year}-${month}-${day} ${time.toLocaleTimeString()}`);
     }
     time();
     setInterval('time()', 1000);
     //加载猜数字函数
     $(function () {
         $('.left_div').append(navs);
-        $('li a:eq(2)').addClass('acives');    
+        $('.host').append(float);
+        $("a[href='./guessnum.html']").addClass('acives');    
         let number = Math.random() * 100,
             blue_num = 10;
         console.log(Math.floor(number)); //打印正确答案
