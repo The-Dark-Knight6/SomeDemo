@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/componnet.css">
     <!-- 引入右侧导航栏目 -->
     <script src="./js/navs.js"></script>
-    <!-- <script src="./js/comdoing.js"></script> -->
+    <script src="./js/broswer.js"></script>
     <style>
         .tran {
             margin-top: 50px;
@@ -78,6 +78,14 @@
 </html>
 
 <script>
+    if (os.isAndroid || os.isPhone) {
+        // window.location.replace('./mob_index.html');
+        console.log('phone')
+    } else if (os.isTablet) {
+        console.log('tablelet');
+    } else {
+        console.log('computer');
+    }
     $(function () {
         $('.left_div').append(navs); //添加nvas导航
         $('.right_div').append(float); //鼠标悬浮显示的提示框
