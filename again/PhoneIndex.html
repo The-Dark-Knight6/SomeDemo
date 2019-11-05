@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="./img/ico2.ico" type="image/x-icon" />
+      <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+      <title>phone_index</title>
+      <script src="./js/broswer.js"></script>
+      <link rel="stylesheet" href="./css/phonecom.css">
+      <script src="./js/mobilecom.js"></script>
+</head>
+<style>
+    
+</style>
+
+<body>
+</body>
+<div class="fix_nav"></div>
+<div class="left_nav">
+      <ul>
+            <li>index</li>
+            <li>coding</li>
+            <li>writing</li>
+      </ul>
+</div>
+
+</html>
+<script>
+      $(function () {
+            $('.fix_nav').append(phone_top);
+            $('.choice').click(function (e) {
+                  e.stopPropagation(); //阻止事件冒泡
+                  $('.left_nav').toggle(500);
+            })
+            $(document).click(function () {
+                  $('.left_nav').hide(500);
+            })
+      })
+</script>

@@ -11,9 +11,9 @@ let os = function () {
       isPhone = /(?:iPhone)/.test(ua) && !isTablet,
       isPc = !isPhone && !isAndroid && !isSymbian;
     return {
-      isTablet: isTablet,
-      isPhone: isPhone,
-      isAndroid: isAndroid,
-      isPc: isPc
+      isTablet: isTablet, // 平板
+      isPhone: isPhone, //ios手机
+      isAndroid: isAndroid,//Android手机
+      isPc: isPc //电脑
     };
 }();
