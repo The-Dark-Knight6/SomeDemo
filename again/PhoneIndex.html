@@ -11,30 +11,26 @@
       <script src="./js/mobilecom.js"></script>
 </head>
 <style>
-    
+
 </style>
 
 <body>
 </body>
 <div class="fix_nav"></div>
-<div class="left_nav">
-      <ul>
-            <li>index</li>
-            <li>coding</li>
-            <li>writing</li>
-      </ul>
+<div class="left_nav"></div>
+<div class="host">
+      <div class="real_content">
+            <p>adsfads</p>
+            <p>132456798</p>
+      </div>
 </div>
 
 </html>
 <script>
       $(function () {
+            
             $('.fix_nav').append(phone_top);
-            $('.choice').click(function (e) {
-                  e.stopPropagation(); //阻止事件冒泡
-                  $('.left_nav').toggle(500);
-            })
-            $(document).click(function () {
-                  $('.left_nav').hide(500);
-            })
+            $('.left_nav').append(nav_list);
+            $("a[href='./PhoneIndex.html']").addClass('act_col');
       })
 </script>
