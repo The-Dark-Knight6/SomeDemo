@@ -9,28 +9,51 @@
       <script src="./js/broswer.js"></script>
       <link rel="stylesheet" href="./css/phonecom.css">
       <script src="./js/mobilecom.js"></script>
+      <link rel="stylesheet" href="./css/acionmu.css">
 </head>
 <style>
-
+      .text {
+            background: #f8faFa;
+            margin: 8px 0;
+            padding: 12px 0;
+            border-radius: 10px;
+      }
+      li.spacial{
+            text-align: center;
+      }
 </style>
 
 <body>
 </body>
 <div class="fix_nav"></div>
 <div class="left_nav"></div>
+<div class="app"></div>
 <div class="host">
       <div class="real_content">
-            <p>adsfads</p>
-            <p>132456798</p>
+            <div class="text">
+                  <ul></ul>
+            </div>
       </div>
 </div>
+
 
 </html>
 <script>
       $(function () {
-            
             $('.fix_nav').append(phone_top);
             $('.left_nav').append(nav_list);
             $("a[href='./PhoneIndex.html']").addClass('act_col');
+            $.ajax({
+                  url: './js/fristtext.json',
+                  success: function (res) {
+                        console.log(res.list)
+                        let my = res.list;
+                        for (let i = 0; i < my.length; i++) {
+                              $('.text>ul').append(`
+                 <li class="spacial">${my[i]}</li>`)
+                        }
+
+                  }
+            })
       })
 </script>

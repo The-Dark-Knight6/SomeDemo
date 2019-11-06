@@ -1,0 +1,30 @@
+@keyframes mysnow {
+    0% {
+        bottom: 80%;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+        transform: rotate(720deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+        opacity: 0;
+        bottom: 0%;
+    }
+}
+
+.container {
+    position: fixed;
+    z-index: 20;
+}
+
+.pic {
+    position: absolute;
+    opacity: 0;
+    animation: mysnow 5s;
+    height: 20px;
+    z-index: 20;
+}
