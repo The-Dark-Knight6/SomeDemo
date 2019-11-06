@@ -10,6 +10,7 @@
       <link rel="stylesheet" href="./css/phonecom.css">
       <script src="./js/mobilecom.js"></script>
       <link rel="stylesheet" href="./css/acionmu.css">
+      <script src="./js/footer.js"></script>
 </head>
 <style>
       .text {
@@ -18,8 +19,45 @@
             padding: 12px 0;
             border-radius: 10px;
       }
-      li.spacial{
+
+      li.spacial {
             text-align: center;
+      }
+
+      .picture {
+            width: 100%;
+            margin: 6px 0;
+      }
+
+      .picture>img {
+            width: 100%;
+            border-radius: 10px;
+      }
+
+      .foot {
+            background: #475050;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+      }
+
+      .foot>p {
+            color: white;
+            margin: 6px 0;
+      }
+
+      .foot>img {
+            width: 25px;
+            margin: 10px;
+      }
+      .suspend{
+            position: fixed;
+            bottom: 110px;
+            display: none;
+      }
+      .suspend>img{
+            width: 100%;
+            height: 100%;
       }
 </style>
 
@@ -30,8 +68,18 @@
 <div class="app"></div>
 <div class="host">
       <div class="real_content">
-            <div class="text">
-                  <ul></ul>
+            <div class="article">
+                  <div class="text">
+                        <ul></ul>
+                  </div>
+                  <div class="picture">
+                        <img src="./img/315441.jpg" alt="">
+                        <img src="./img/315441.jpg" alt="">
+                        <img src="./img/323822.jpg" alt="">
+                  </div>
+            </div>
+            <div class="suspend">
+                  <img src="./img/qqme.png" alt="">
             </div>
       </div>
 </div>
@@ -42,11 +90,18 @@
       $(function () {
             $('.fix_nav').append(phone_top);
             $('.left_nav').append(nav_list);
+            $('.real_content').append(foot);
             $("a[href='./PhoneIndex.html']").addClass('act_col');
+            $('.sinaimg').click(function () {
+                  window.location.replace(
+                        'https://weibo.com/u/6096309423?topnav=1&wvr=6&topsug=1&is_all=1');
+            })
+            $('.qqimg').click(function(){
+                  $('.suspend').fadeToggle(500);
+            })
             $.ajax({
                   url: './js/fristtext.json',
                   success: function (res) {
-                        console.log(res.list)
                         let my = res.list;
                         for (let i = 0; i < my.length; i++) {
                               $('.text>ul').append(`

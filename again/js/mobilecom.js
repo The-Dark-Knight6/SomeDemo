@@ -1,6 +1,6 @@
 let phone_top=` <div class="nav_content">
 <img src="./img/menu.png" alt="" class="choice">
-<img src="./img/ico2.ico" alt="">
+<img src="./img/ico2.ico" alt="" class="myhost">
 <img src="./img/mus.svg" alt="" class="music">
 </div>`;
 
@@ -81,6 +81,9 @@ window.onload = function(){
         })
     $(document).click(function () {
     $('.left_nav').hide(500);   
+        })
+        $('.myhost').click(function(){
+            window.location.replace('./../PhoneIndex.html');
         })
 }
 //飘雪

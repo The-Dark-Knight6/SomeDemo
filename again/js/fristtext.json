@@ -7,5 +7,23 @@
         "白发渔樵江渚上，惯看秋月春风。",
         "一壶浊酒喜相逢。",
         "古今多少事，都付笑谈中。"
+    ],
+    "process":[
+        {
+            "time":"11-04",
+            "description":"研发手机端适配，设计页面样式、结果以及显示效果。通过js判断当前所处设备，Android、ios、flat、computer。",
+            "code":"broswer.js--phonecom.css--PhoneIndex.html--havafun.html",
+            "result":"通过js中定义相关变量来渲染重复代码。顶部导航栏以及左侧滑动导航栏。界面整体架构布局初步完成。"
+        },{
+            "time":"11-05",
+            "description":"左侧滑动栏目超出部分滑动处理，对于jq父子时间冒泡处理（在子事件中传参，后调用stopPropagation()方法）。顶部右侧音乐按钮。",
+            "code":"mobilecom.js--PhoneIndex.html--havefun.html",
+            "result":"顶部左侧点击滑出滑入，右侧点击音乐播放（周杰伦--晴天）"
+        },{
+            "time":"11-06",
+            "description":"右侧点击音乐播放雪花飘落效果，首页内容构思，整体界面字体调整（字体天下）。处理内容溢出问题。首页底部图标弹出、跳转处理。github、sina跳转主页，qq给予二维码显示。",
+            "code":"acionmu.css--mobilecom.js--PhoneIndex.html--havafun.html",
+            "result":"点击右侧音乐图标，播放则出现雪花飘落效果，暂定则停止飘落；字体风格更秀郎直观。首页底部的图标内容显示。"
+        }
     ]
 }

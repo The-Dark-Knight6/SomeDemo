@@ -12,7 +12,13 @@
       <link rel="stylesheet" href="./css/acionmu.css">
 </head>
 <style>
-
+li i{
+      color: #8caed1;
+      font-size: 15px;
+}
+.article>p{
+      margin: 6px 0;
+}
 </style>
 
 <body>
@@ -22,8 +28,12 @@
 <div class="app"></div>
 <div class="host">
       <div class="real_content">
-            <p>adsfads</p>
-            
+            <div class="article">
+                  <p>2019年大事记</p>
+                  <ul>
+                        
+                  </ul>
+            </div>
       </div>
 </div>
 
@@ -33,5 +43,21 @@
             $('.fix_nav').append(phone_top);
             $('.left_nav').append(nav_list);
             $("a[href='./havafun.html']").addClass('act_col');
+            $.ajax({
+                  url: './js/fristtext.json',
+                  success: function (res) {
+                        let my = res.process;
+                        for (let i in my) {
+                              $('.article>ul').append(`
+                              <li>
+                              <i>${my[i].time}</i>
+                        </li>
+                        <li>
+                              ${my[i].description}
+                        </li><li>${my[i].code}</li>
+                        <li>${my[i].result}</li>`)
+                        }
+                  }
+            })
       })
 </script>

@@ -5,8 +5,12 @@ html {
     margin: 0;
     padding: 0%;
     font-size: 14px;
+    font-family: divfont;
 }
-
+@font-face{
+    font-family: divfont;
+    src: url('./WenCangShuFang-2.ttf');
+}
 a {
     display: block;
     text-align: left;
@@ -31,6 +35,8 @@ ul li {
     margin: 10px 15px;
     text-align: left;
     color: #304455;
+    /* 长单词换行 */
+    word-break: break-all;
 }
 
 ul li h3 {
@@ -50,6 +56,7 @@ ul li h3 {
     box-sizing: border-box;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
     z-index: 9;
+    background: white;
 }
 
 .nav_content {
@@ -95,10 +102,14 @@ h6 {
 }
 
 .real_content {
-    padding: 0 12px;
     position: absolute;
     top: 45px;
     left: 0;
     box-sizing: border-box;
     width: 100%;
+    overflow: scroll;
+}
+
+.article {
+    padding: 0 12px;
 }
