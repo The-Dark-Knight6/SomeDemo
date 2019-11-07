@@ -135,4 +135,4 @@ cnpm i supervisor -g (启动为supervisor bin/www 一次启动多次运用啊)
 1、重装服务器系统。
 2、https://www.runoob.com/linux/nginx-install-setup.html
 http://www.nginx.cn/install（centos环境下nginx安装）。
-3、
+（11-06）

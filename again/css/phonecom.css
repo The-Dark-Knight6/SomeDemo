@@ -4,8 +4,8 @@ html {
     height: 100%;
     margin: 0;
     padding: 0%;
-    font-size: 14px;
     font-family: divfont;
+    font-size: 1rem;
 }
 @font-face{
     font-family: divfont;
@@ -41,7 +41,7 @@ ul li {
 
 ul li h3 {
     color: #273849;
-    font-size: 16px;
+    font-size: 1.1rem;
 }
 
 .act_col {

@@ -3,13 +3,19 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- 浏览器窗口图标 -->
       <link rel="shortcut icon" href="./img/ico2.ico" type="image/x-icon" />
       <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
       <title>phone_index</title>
+      <!-- 判断所处设备 -->
       <script src="./js/broswer.js"></script>
+      <!-- 移动端页面css -->
       <link rel="stylesheet" href="./css/phonecom.css">
+      <!-- 移动端页面js -->
       <script src="./js/mobilecom.js"></script>
+      <!-- 雪花飘落样式 -->
       <link rel="stylesheet" href="./css/acionmu.css">
+      <!-- 首页底部 -->
       <script src="./js/footer.js"></script>
 </head>
 <style>
@@ -50,19 +56,47 @@
             width: 25px;
             margin: 10px;
       }
-      .suspend{
-            position: fixed;
-            bottom: 110px;
+
+      .suspend {
+            text-align: center;
             display: none;
       }
-      .suspend>img{
+
+      .suspend>img {
+            width: 100px;
+            height: 100px;
+      }
+      .loading{
+            z-index: 30;
+            position: fixed;
             width: 100%;
             height: 100%;
+            background: rgb(115, 183, 238);
+            color: white;
+            text-align: center;
+      }
+      .loading>p{
+            animation: toload 1s alternate infinite;
+            position: absolute;
+            top: 45%;left: 0;
+            right: 0%;bottom: 0%;
+            width: auto;
+      }
+      @keyframes toload{
+            from{
+                  transform: scale(100%);
+                  font-size: 1.7rem;
+            }to{
+                  transform: scale(0.5%);
+            }
       }
 </style>
 
 <body>
 </body>
+<div class="loading">
+      <p>给美好一点时间...</p>
+</div>
 <div class="fix_nav"></div>
 <div class="left_nav"></div>
 <div class="app"></div>
@@ -79,7 +113,7 @@
                   </div>
             </div>
             <div class="suspend">
-                  <img src="./img/qqme.png" alt="">
+                  <img src="./img/myqq.png" alt="">
             </div>
       </div>
 </div>
@@ -88,19 +122,20 @@
 </html>
 <script>
       $(function () {
+            $('.loading').fadeOut();
             $('.fix_nav').append(phone_top);
             $('.left_nav').append(nav_list);
             $('.real_content').append(foot);
             $("a[href='./PhoneIndex.html']").addClass('act_col');
             $('.sinaimg').click(function () {
-                  window.location.replace(
+                  window.open(
                         'https://weibo.com/u/6096309423?topnav=1&wvr=6&topsug=1&is_all=1');
             })
-            $('.qqimg').click(function(){
+            $('.qqimg').click(function () {
                   $('.suspend').fadeToggle(500);
             })
-            $('.githubimg').click(function(){
-                  window.location.replace('https://github.com/The-Dark-Knight6');
+            $('.githubimg').click(function () {
+                  window.open('https://github.com/The-Dark-Knight6');
             })
             $.ajax({
                   url: './js/fristtext.json',
