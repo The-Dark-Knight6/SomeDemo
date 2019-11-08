@@ -9,17 +9,17 @@ let nav_list=` <ul class="mast">
       <h3>index</h3>
       <ul>
             <li>
-                  <a href="./PhoneIndex.html">index-page</a>
+                  <a href="./PhoneIndex.html">首页</a>
             </li>
             <li>
-                  <a href="./havafun.html">transition</a>
+                  <a href="./lifetime.html">时间线</a>
             </li>
       </ul>
 </li>
 <li>
       <h3>coding</h3>
       <ul>
-            <li><a href="javascript:;">132</a></li>
+            <li><a href="./changepage.html">论客户端移动端的切换</a></li>
             <li><a href="javascript:;">000</a></li>
             <li><a href="javascript:;">369</a></li>
     </ul>
@@ -62,12 +62,12 @@ if (os.isAndroid || os.isPhone) {
     console.log('computer');
 }
 
-let act_music=null;
+let act_music=null,
+audio = document.createElement('audio');
 window.onload = function(){
-   let audio = document.createElement('audio');
-   audio.src='./img/qing.mp3';
    $('.music').click(function(){
        if(audio.paused){
+        audio.src='./img/qing.mp3';
         audio.play();
         start();
        }else{

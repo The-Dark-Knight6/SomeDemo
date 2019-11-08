@@ -6,7 +6,7 @@
       <!-- 浏览器窗口图标 -->
       <link rel="shortcut icon" href="./img/ico2.ico" type="image/x-icon" />
       <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-      <title>phone_index</title>
+      <title>小付同学</title>
       <!-- 判断所处设备 -->
       <script src="./js/broswer.js"></script>
       <!-- 移动端页面css -->
@@ -108,7 +108,7 @@
             }
       }
 
-      ul.endpoem>li {
+      ul.endpoem>li,ul.poem>li {
             text-align: center;
       }
 
@@ -129,9 +129,16 @@
       <div class="real_content">
             <div class="article">
                   <div class="text">
-                        <ul class="poem"></ul>
+                        <ul class="poem">
+                              <li>滚滚长江东逝水，浪花淘尽英雄。</li>
+                              <li>是非成败转头空。</li>
+                              <li>青山依旧在，几度夕阳红。</li>
+                              <li>白发渔樵江渚上，惯看秋月春风。</li>
+                              <li>一壶浊酒喜相逢。</li>
+                              <li>古今多少事，都付笑谈中。</li>
+                        </ul>
                   </div>
-                  <div class="picture center">              
+                  <div class="picture center">
                   </div>
             </div>
             <div class="suspend">
@@ -142,10 +149,9 @@
 
 </html>
 <script>
-      //页面加载完成
+      // 页面加载完成
       document.onreadystatechange = function () {
             if (document.readyState == 'complete') {
-                  // document.querySelector('.loading').style.display='none';
                   $('.loading').slideUp();
             }
       }
@@ -164,17 +170,6 @@
             })
             $('.githubimg').click(function () {
                   window.open('https://github.com/The-Dark-Knight6');
-            })
-            $.ajax({
-                  url: './js/fristtext.json',
-                  success: function (res) {
-                        let my = res.list;
-                        for (let i = 0; i < my.length; i++) {
-                              $('ul.poem').append(`
-                 <li class="spacial">${my[i]}</li>`)
-                        }
-
-                  }
             })
       })
 </script>

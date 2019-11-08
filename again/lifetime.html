@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" href="./img/ico2.ico" type="image/x-icon" />
       <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-      <title>havafun</title>
+      <title>时间线</title>
       <script src="./js/broswer.js"></script>
       <link rel="stylesheet" href="./css/phonecom.css">
       <script src="./js/mobilecom.js"></script>
@@ -31,7 +31,6 @@ li i{
             <div class="article">
                   <p>2019年大事记</p>
                   <ul>
-                        
                   </ul>
             </div>
       </div>
@@ -42,7 +41,7 @@ li i{
       $(function () {
             $('.fix_nav').append(phone_top);
             $('.left_nav').append(nav_list);
-            $("a[href='./havafun.html']").addClass('act_col');
+            $("a[href='./lifetime.html']").addClass('act_col');
             $.ajax({
                   url: './js/fristtext.json',
                   success: function (res) {
