@@ -25,6 +25,12 @@
             "description":"实现jq图片的懒加载。",
             "code":"PhoneIndex.html--footer.js",
             "result":"减轻服务器负荷，加快页面加载速度。"
+        },
+        {
+            "time":"11-09",
+            "description":"给每个界面取名字，增加新页面。",
+            "code":"somelink.html--footer.js",
+            "result":"给出更多页面，丰富博客内容。"
         }
     ]
 }

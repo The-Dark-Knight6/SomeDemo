@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/ico2.ico" type="image/x-icon" />
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <title>前言搭后语</title>
+    <script src="./js/broswer.js"></script>
+    <link rel="stylesheet" href="./css/phonecom.css">
+    <script src="./js/mobilecom.js"></script>
+    <link rel="stylesheet" href="./css/acionmu.css">
+</head>
+<style>
+    body,
+    html {
+        background: #eef1ed;
+    }
+
+    .before {
+        margin: 10px;
+        padding:0 5px;
+        box-sizing: border-box;
+    }
+    .before>span {
+        position: relative;
+        display: inline-block;
+        animation: runnings 15s infinite ease;
+    }
+
+    @keyframes runnings {
+        from {
+            left: 0px;
+            opacity: 1;
+        }
+
+        to {
+            left: 50%;
+            opacity: 0;
+        }
+    }
+    .thecon{
+        margin: 10px;
+    }
+    .thecon>p{
+        margin: 20px 10px;
+        border-bottom: 1px dashed gray;
+    }
+</style>
+
+<body>
+</body>
+<div class="fix_nav"></div>
+<div class="left_nav"></div>
+<div class="app"></div>
+<div class="host">
+    <div class="real_content">
+        <div class="article">
+            <div class="before">
+                <span>哪有什么前言，都是骗你的</span>
+            </div>
+            <div class="thecon">
+            </div>
+            <div class="before">
+                <span>你以为后语就有了？不存在的...</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>
+<script>
+    $(function () {
+        $('.fix_nav').append(phone_top);
+        $('.left_nav').append(nav_list);
+        $("a[href='./record.html']").addClass('act_col');
+        $.ajax({
+            url:'./js/shortword.json',
+            success:function(res){
+                let my=res.data;
+                for(let i = 0 ; i < my.length ; i++){
+                    $('.thecon').append(`<p>${my[i]}</p>`);
+                }
+            }
+        })
+    })
+</script>

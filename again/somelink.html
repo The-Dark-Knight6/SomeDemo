@@ -27,7 +27,6 @@
         padding: 0 1.5rem;
         box-sizing: border-box;
         color: #64854c;
-        font-weight: bold;
         border-bottom: 1px dashed #ddd;
     }
 
@@ -45,50 +44,6 @@
     <div class="real_content">
         <div class="article">
             <ul>
-                <li><i>学习</i></li>
-                <ul class="other">
-                    <li>
-                        <a href="https://www.liaoxuefeng.com/">廖雪峰</a>
-                        <a href="https://developer.mozilla.org/zh-CN/">MDN</a>
-                        <a href="https://www.runoob.com/">菜鸟教程</a>
-                        <a href="https://www.zhangxinxu.com/">张鑫旭</a>
-                        <a href="https://www.yiibai.com/">易百教程</a>
-                        <a href="http://es6.ruanyifeng.com/">Ecmascript 6</a>
-                        <a href="https://cloud.tencent.com/developer/devdocs">Tencent开发手册</a>
-                    </li>
-                </ul>
-                <li><i>框架/插件</i></li>
-                <ul class="other">
-                    <li>
-                        <a href="https://cn.vuejs.org/">Vue</a>
-                        <a href="https://www.swiper.com.cn/">Swiper</a>
-                        <a href="http://caibaojian.com/iscroll-5/">Iscroll</a>
-                        <a href="https://www.sass.hk/">Sass</a>
-                        <a href="https://element.eleme.cn/#/zh-CN">Element</a>
-                        <a href="https://muse-ui.org/#/zh-CN">Muse</a>
-                        <a href="http://momentjs.cn/">Moment</a>
-                        <a href="https://www.layui.com/">Layui</a>
-                        <a href="https://www.iconfont.cn/">Iconfont</a>
-                        <a href="https://www.echartsjs.com/zh/index.html">Echarts</a>
-                        <a href="https://uniapp.dcloud.io/">Uni</a>
-                        <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/">小程序</a>
-                        <a href="https://youzan.github.io/vant-weapp/#/intro">Vant</a>
-                    </li>
-                </ul>
-                <li><i>娱乐/论坛</i></li>
-                <ul class="other">
-                    <li>
-                        <a href="http://www.mvcat.com/music/">Mvcat</a>
-                        <a href="http://listen1.github.io/listen1/">Listen 1</a>
-                        <a href="http://dianying.fm/discovery/timescapes/">电影FM</a>
-                        <a href="https://magi.com/">Magi</a>
-                        <a href="https://www.csdn.net/">CSDN</a>
-                        <a href="http://www.fonts.net.cn/">字体天下</a>
-                        <a href="http://www.zol.com.cn/">中关村</a>
-                        <a href="https://github.com/">Github</a>
-                        <a href="https://www.zhihu.com/">知乎</a>
-                    </li>
-                </ul>
             </ul>
         </div>
     </div>
@@ -100,5 +55,21 @@
         $('.fix_nav').append(phone_top);
         $('.left_nav').append(nav_list);
         $("a[href='./somelink.html']").addClass('act_col');
+        $.ajax({
+            url:'./js/links.json',
+            success:function(res){
+                let my=res.data;
+                for(let i in my){
+                     $('.article>ul').append(`<li><i>${my[i].title}</i></li>`);
+                     for(let j in my[i].list){
+                         $('.article>ul').append(`<ul class="other">
+                    <li>
+                        <a href="${my[i].list[j].link}">${my[i].list[j].name}</a>
+                    </li>
+                </ul>`)
+                     }
+                }
+            }
+        })
     })
 </script>
