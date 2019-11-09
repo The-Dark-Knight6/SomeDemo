@@ -14,12 +14,15 @@ let nav_list=` <ul class="mast">
             <li>
                   <a href="./lifetime.html">时间线</a>
             </li>
+            <li>
+            <a href="./somelink.html">一些小链接</a>
+      </li>
       </ul>
 </li>
 <li>
       <h3>coding</h3>
       <ul>
-            <li><a href="./changepage.html">论客户端移动端的切换</a></li>
+            <li><a href="javascript:;">论客户端移动端的切换</a></li>
             <li><a href="javascript:;">000</a></li>
             <li><a href="javascript:;">369</a></li>
     </ul>
