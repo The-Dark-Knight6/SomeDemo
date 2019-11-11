@@ -1,5 +1,5 @@
 # SomeDemo
->‘again’为前端开发的脚本，整合写过的js、jq等html文件。
+>‘again’为一个小型的jq+js适配桌面端和移动端的网站，样式、布局以及json数据都有，只需要本地用服务器跑就可以。
 
 >‘article’为php制作的本地文章发布系统，需要部署配合php运行环境（wampserver及其自带的phpmyadmin数据库）。
 
