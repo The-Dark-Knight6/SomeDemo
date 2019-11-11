@@ -31,6 +31,12 @@
             "description":"给每个界面取名字，增加新页面。",
             "code":"somelink.html--footer.js",
             "result":"给出更多页面，丰富博客内容。"
+        },
+        {
+            "time":"11-11",
+            "description":"结束移动端创作",
+            "code":"PhoneIndex.html",
+            "result":"通过js判断当前设备，将网站分成桌面端和移动端两个板块。每个板块写不同的内容，在每个板块上写与之相同的样式，而后跳转。简易的移动桌面切换网站就出来了。"
         }
     ]
 }

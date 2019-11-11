@@ -26,7 +26,7 @@ let nav_list=` <ul class="mast">
 <li>
       <h3>coding</h3>
       <ul>
-            <li><a href="javascript:;">record</a></li>
+            <li><a href="javascript:;">996</a></li>
             <li><a href="javascript:;">000</a></li>
             <li><a href="javascript:;">369</a></li>
     </ul>
