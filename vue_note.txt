@@ -84,3 +84,25 @@ sowhat(ev) {
     'element-ui': 'ELEMENT',
  }（详细参照个人项目源码）
  之后直接在项目中使用element-ui（或者其它vue组件）即可。
+
+10、上传图片判断大小：
+// html
+<input type="file" accept="image/png" name="iconFile" @change="getFile">
+// js
+getFile (e) {
+    let imgSrc = window.URL.createObjectURL(e.target.files[0]);
+    let img = new Image();
+    img.src = imgSrc;
+    let this_ = this; // onload 里面不能用this
+    let type = this.formData.iconFile.type.split('/')[1];
+    img.onload = function () {
+    	// 我在这里就可以获取到图片的宽度和高度了 img.width 、img.height
+        if ((img.width === 192) && (img.height === 192) && (type === 'png')) {
+        this_.$Message.success({content: '真棒！！！'})
+        // todo
+        } else {
+            e.target.value = null
+            this_.$Message.error({content: '选的啥玩意！'})
+        }
+    };
+},
