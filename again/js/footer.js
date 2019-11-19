@@ -1,7 +1,7 @@
 let foot = ` <div class="foot">
-<img src="./img/social_github.svg" class="githubimg">
-<img src="./img/qqs.svg" class="qqimg">
-<img src="./img/social_sina.svg" class="sinaimg">
+<img src="../img/social_github.svg" class="githubimg">
+<img src="../img/qqs.svg" class="qqimg">
+<img src="../img/social_sina.svg" class="sinaimg">
 <p style='font-size:0.8rem'>Copyright @ 2019-2020 Class Fu</p>
 </div>`;
 
@@ -10,14 +10,14 @@ let center=`
 <li>Story</li>
 <li>青蛙与啦蛤蟆的区别...</li>
 <li>青蛙思想封建，坐井观天，不思进取，为负能量；</li>
-<li>癞蛤蟆思想前卫，想吃天鹅肉，积极向上，为正能量。</li>
-<li>最后青蛙去了餐桌，成为美味佳肴；</li>
-<li>癞蛤蟆进了庙堂，改名“金蟾”，成为人们供奉对象。</li>
-<li>故曰：人如果没有梦想，那和咸鱼有什么区别？</li>
+<li>癞蛤蟆思想前卫，想吃天鹅肉，有远大抱负，是正能量。</li>
+<li>最后青蛙上了餐桌，成了一道菜；</li>
+<li>而癞蛤蟆进了庙堂，改名“金蟾”。</li>
+<li>所以长的寒蝉点没事，关键是要想得美。</li>
 <li>即便做咸鱼，也要做最咸的那条...</li>
 <li>
       <div class="picture">
-            <img src="./img/25043752.gif" alt="">
+            <img src="../img/25043752.gif" alt="">
       </div>
 </li>
 
@@ -26,21 +26,21 @@ let center=`
 <li>這裡寫觀影音樂，體會韻律</li>
 <li>寫下once，展望future</li>
 </ul>
-<img src="" data-src="./img/309617.jpg" alt="">
+<img src="" data-src="../img/309617.jpg" alt="">
 <ul class="center_word">
 <li>闻道有先后</li>
 <li>术业有专攻</li>
 <li>外行看热闹</li>
 <li>内行看门道</li>
 </ul>
-<img src="" data-src="./img/315441.jpg" alt="">
+<img src="" data-src="../img/315441.jpg" alt="">
 <ul>
 <li>热闹：</li>
 <li>
       <ul>
             <li>
                   <div class="picture">
-                        <img src="" data-src="./img/25043751.gif" alt="">
+                        <img src="" data-src="../img/25043751.gif" alt="">
                   </div>
             </li>
       </ul>
@@ -55,7 +55,7 @@ let center=`
       </ul>
 </li>
 </ul>
-<img src="" data-src="./img/323822.jpg" alt="">
+<img src="" data-src="../img/323822.jpg" alt="">
 <div class="text">
 <ul class="endpoem">
       <li>滕王高阁临江渚，佩玉鸣鸾罢歌舞。</li>

@@ -159,4 +159,17 @@ https://blog.csdn.net/duyusean/article/details/79348613。
     }
 }
 将申请的证书放入到nginx/conf/下新建的文件夹ssl中，在nginx.conf下加入如上代码。】
-4、
+nginx中自动跳转到https的写法：
+【
+server {
+  listen   80;
+  server_name www.lihua6.cn;
+  return     301 https://$server_name$request_uri;
+}
+】（重新加载配置文件、重启nginx）
+（11-19）
+4、centos下安装node.js环境。
+https://www.runoob.com/nodejs/nodejs-install-setup.html（centos环境下安装node.js）
+https://www.cnblogs.com/pikaqu/articles/10863391.html。
+https://www.cnblogs.com/hellowoeld/p/11596455.html。
+5、

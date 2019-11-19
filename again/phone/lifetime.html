@@ -3,13 +3,13 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="shortcut icon" href="./img/ico2.ico" type="image/x-icon" />
+      <link rel="shortcut icon" href="../img/ico2.ico" type="image/x-icon" />
       <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
       <title>时间线</title>
-      <script src="./js/broswer.js"></script>
-      <link rel="stylesheet" href="./css/phonecom.css">
-      <script src="./js/mobilecom.js"></script>
-      <link rel="stylesheet" href="./css/acionmu.css">
+      <script src="../js/broswer.js"></script>
+      <link rel="stylesheet" href="../css/phonecom.css">
+      <script src="../js/mobilecom.js"></script>
+      <link rel="stylesheet" href="../css/acionmu.css">
 </head>
 <style>
       html{
@@ -44,9 +44,9 @@ li i{
       $(function () {
             $('.fix_nav').append(phone_top);
             $('.left_nav').append(nav_list);
-            $("a[href='./lifetime.html']").addClass('act_col');
+            $("a[href='../phone/lifetime.html']").addClass('act_col');
             $.ajax({
-                  url: './js/fristtext.json',
+                  url: '../js/fristtext.json',
                   success: function (res) {
                         let my = res.process;
                         for (let i in my) {
