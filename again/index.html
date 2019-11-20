@@ -113,16 +113,16 @@
 </html>
 
 <script>
-    if (os.isAndroid || os.isPhone) {
-        window.location.replace('../phone/PhoneIndex.html');
-        console.log('phone')
-    } else {
-        console.log('computer');
-    }
+   if (os.isAndroid || os.isPhone) {
+    window.location.replace('../phone/PhoneIndex.html');
+    console.log('phone')
+} else {
+    console.log('computer');
+}
     $(function () {
         $('.loading').fadeOut();
         $('.left_div').append(navs); //添加nvas导航
         $('.right_div').append(float); //鼠标悬浮显示的提示框
-        $("a[href='./index.html']").addClass('acives'); //添加当前a标签样式
+        $("a[href='./index.html']").addClass('acives').parents().slideDown(); //添加当前a标签样式
     })
 </script>

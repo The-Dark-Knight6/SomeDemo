@@ -38,7 +38,7 @@
 <script>
     $('.left_div').append(navs);
     $('.local').append(float);
-    $("a[href='./Echarts.html']").addClass('acives');
+    $("a[href='./Echarts.html']").addClass('acives').parents().slideDown();
     $.ajax({
         url: './js/tabledata.json',
         success: function (res) {

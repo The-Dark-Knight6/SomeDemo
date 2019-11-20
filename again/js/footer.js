@@ -21,10 +21,8 @@ let center=`
       </div>
 </li>
 
-<li>這裡寫個人博客，記錄心得</li>
-<li>這裡寫讀書筆記，通曉代碼</li>
-<li>這裡寫觀影音樂，體會韻律</li>
-<li>寫下once，展望future</li>
+<li>It's the best of times,</li>
+<li>it's the worst of times.</li>
 </ul>
 <img src="" data-src="../img/309617.jpg" alt="">
 <ul class="center_word">

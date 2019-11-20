@@ -89,7 +89,7 @@
     $(function () {
         $('.left_div').append(navs);
         $('.host').append(float);
-        $("a[href='./guessnum.html']").addClass('acives');    
+        $("a[href='./guessnum.html']").addClass('acives').parents().slideDown();    
         let number = Math.random() * 100,
             blue_num = 10;
         console.log(Math.floor(number)); //打印正确答案

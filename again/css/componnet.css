@@ -25,13 +25,11 @@ body {
     color: #7a7e8a;
     margin: 20px 0;
     display: inline-block;
-    cursor: pointer;
     animation: move 2s;
     transition: transform 1s, color 1s;
 }
 
 .left_div>span:hover {
-    color: red;
     transform: rotate(-720deg);
 }
 
@@ -47,7 +45,7 @@ body {
 
 ul {
     list-style: none;
-    text-align: center;
+    text-align: left;
     margin: 0%;
     padding: 0%;
 }
@@ -55,16 +53,23 @@ ul {
 li a {
     display: block;
     text-decoration: none;
-    color: #7a7e8a;
+    color: #b5b5b5;
     font-weight: bold;
-    margin-bottom: 5px;
-    padding: 10px 0;
+    padding: 10px 0 10px 45px;
+    word-break: keep-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+li a::before {
+    content: ' # ';
 }
 
 li a:hover,
 .acives {
-    background-color: #b33d3d;
-    color: white;
+    color: #409EFF;
     transition: .7s;
 }
 
@@ -76,7 +81,13 @@ li a:hover,
     position: relative;
 }
 
-p,h1,h2,h3,h4,h5,h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0%;
 }
 
@@ -86,19 +97,20 @@ p,h1,h2,h3,h4,h5,h6 {
     background: transparent;
     position: absolute;
     right: 0%;
-    bottom:20px;
+    bottom: 20px;
     z-index: 10;
     text-align: center;
     display: none;
 }
 
-.fly_cont{
+.fly_cont {
     display: inline-block;
     width: 95%;
     background: white;
     height: 100%;
-    box-shadow:gray 0 0 10px;
+    box-shadow: gray 0 0 10px;
 }
+
 .fly_cont>p {
     padding: 5px 0 5px 20px;
     font-size: 18px;
@@ -106,4 +118,37 @@ p,h1,h2,h3,h4,h5,h6 {
     background: #d2d1d1;
     color: #409EFF;
     font-weight: bold;
+}
+
+ul.slide_ul>li {
+    color: white;
+    margin: 10px 0;
+    text-align: left;
+}
+
+ul.slide_ul>li>div {
+    padding: 6px 15px;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+img.top_img {
+    width: 28px;
+    margin-right: 7px;
+    visibility: middle;
+}
+
+span.top_span {
+    width: 120px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #f1f1f1;
+}
+
+li>ul {
+    display: none;
 }

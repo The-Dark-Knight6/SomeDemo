@@ -64,7 +64,7 @@
 	$(function () {
 		$('.left_div').append(navs);
 		$('.headqueryers').append(float);
-		$("a[href='./pressgame.html']").addClass('acives');
+		$("a[href='./pressgame.html']").addClass('acives').parents().slideDown();
 		let num = Number($('.press_box span:last').text()),
 			error_time = 0,
 			time = 0;

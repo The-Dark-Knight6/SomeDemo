@@ -52,7 +52,7 @@
     $(function () {
         $('.left_div').append(navs);
         $('.right_div').append(float);
-        $("a[href='./jqtest3.html']").addClass('acives');
+        $("a[href='./jqtest3.html']").addClass('acives').parents().slideDown();
         $('.getPhoneCode').click(function () {
             settime($(this), 20);
         })
