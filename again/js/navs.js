@@ -15,7 +15,7 @@ let navs =`
 <li>
     <div>
         <img src="./img/menu.png" class="top_img">
-        <span class="top_span">高级js禅修之路</span>
+        <span class="top_span">低级JS禅修之道</span>
     </div>
     <ul>
         <li><a href="./divtable.html">自制列表</a></li>
@@ -60,6 +60,7 @@ let float=` <div class="float_tip">
 </div>
 </div>`
 
+//浮动展示内容
 // window.onload=function(){
 //     $('a').mouseover(function(){
 //         $('.float_tip').show();
@@ -72,6 +73,12 @@ let float=` <div class="float_tip">
 
 
 window.onload=function(){
+    //判断设备
+    if(os.isPc){
+        console.info("%c Welcome to my blog","color:red");
+      }else if(os.isAndroid || os.isPhone){
+        window.location.replace('../phone/PhoneIndex.html')
+      }
     // 导航栏点击折叠效果
     $('.slide_ul>li>div').click(function () {
         $(this).siblings().slideToggle();

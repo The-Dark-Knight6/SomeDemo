@@ -63,10 +63,9 @@ let nav_list=` <ul class="mast">
 </ul>`;
 
 if (os.isAndroid || os.isPhone) {
-    console.log('phone')
+    console.log("%c Welcome to my blog","color:green");
 } else {
     window.location.replace('../index.html');
-    console.log('computer');
 }
 
 let act_music=null,

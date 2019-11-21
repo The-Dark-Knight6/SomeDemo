@@ -133,6 +133,9 @@ ul.slide_ul>li>div {
     display: flex;
     align-items: center;
 }
+li>div:hover,li a:hover{
+    background: rgb(76, 83, 90);
+}
 
 img.top_img {
     width: 28px;
