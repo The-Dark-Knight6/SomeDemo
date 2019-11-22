@@ -92,6 +92,28 @@
                 font-size: 1.5rem;
             }
         }
+
+        .blub {
+            float: right;
+            margin-right: 120px;
+        }
+
+        .blub_content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .blub_content>div {
+            width: 2px;
+            height: 130px;
+            background: black;
+        }
+
+        .blub_content>img {
+            width: 30px;
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 
@@ -102,9 +124,16 @@
     <!-- 右侧的导航栏目 -->
     <div class="left_div"></div>
     <div class="right_div">
-        <div class="tran">
+        <!-- <div class="tran">
             <div>
                 <p>集合</p>
+            </div>
+        </div> -->
+       <iframe src="./showcharts.html" frameborder="0" width="100%" height="100%"></iframe>
+        <div class="blub">
+            <div class="blub_content">
+                <div></div>
+                <img src="./img/bulb.svg" alt="">
             </div>
         </div>
     </div>
@@ -113,10 +142,39 @@
 </html>
 
 <script>
+    let audio=document.createElement('audio');
     $(function () {
         $('.loading').fadeOut();
         $('.left_div').append(navs); //添加nvas导航
         $('.right_div').append(float); //鼠标悬浮显示的提示框
         $("a[href='./index.html']").addClass('acives').parents().slideDown(); //添加当前a标签样式
+        $('.blub_content>img').click(function () {
+            let status = $(this).attr('src');
+            console.log(status)
+            if(status.indexOf('bulb.svg')>-1){
+                audio.src='./img/qing.mp3';
+                audio.play();
+                $(this).siblings().animate({
+                    height:'200px'
+                })
+                $(this).siblings().css({
+                    'background':'red'
+                })
+                $(this).attr({
+                    'src':'./img/actb.svg'
+                })
+            }else{
+                audio.pause();
+                $(this).siblings().animate({
+                    height:'120px',
+                })
+                $(this).siblings().css({
+                    'background':'black'
+                })
+                $(this).attr({
+                    'src':'./img/bulb.svg'
+                })
+            }
+        })
     })
 </script>
