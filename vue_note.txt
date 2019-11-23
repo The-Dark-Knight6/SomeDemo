@@ -4,6 +4,7 @@
 2、使用element组件中的多选框提取其中的值，若是对象则会失去效果（指的是checkbox-group，即多选框的集合）。这时可以使用单个的checkbox，在用v-for来循环，value来显示判断是否勾选，同时change事件来更改所勾选的checkbox。
 
 3、在获取日期时间时，后半段的时间（小时、分钟和秒）可用toLocaleTimeString来实现。
+
 4、在点击一个编辑按钮之后编辑输入框，此时环境是在后台所给接口渲染数据的大列表下，需要进行对点击编辑按钮之后立马进行输入框聚焦（即点击第一个编辑按钮，光标就聚焦在第一个编辑的输入框上，点第几个就聚焦在第几个的输入框上，优化用户的编辑输入体验，如若没有这个聚焦则需要用户手动的点击编辑输入框，这样就意味着用户需要点击两次来完成这个编辑操作）。实现：利用自定义指令，而后用原生的input输入框（之前项目用de element-ui，则将里头的input样式复刻一下即可），在这个input中绑定自定义指令，同时处理好点击编辑按钮时候触发的input中disabled状态即可。
 
 5、vue路由的优化写法以及其拥有子路由的时候的写法，在有使用到子路由的时候需要在vue页面中使用<router-view>这个标签，如需要缓存子路由则可以写成<keep-alive><router-view></router-view></keep-alive>这样子路由就可以显示在<router-view>这对标签里头了。
@@ -106,3 +107,51 @@ getFile (e) {
         }
     };
 },
+
+11、对于多选框的全选问题：element组件官方实例过于冗杂，这里提供便捷方法：
+<el-checkbox v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
+<el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+  <el-checkbox v-for="(city,i) in cities" :label="city.name" :key="i">{{city.name}}</el-checkbox>
+</el-checkbox-group>
+
+data(){
+  return {
+    //全选
+    checkAll: false,
+    cities: [
+      {
+        "name":"高一",
+        "value":"928"
+      },
+      {
+        "name":"高二",
+        "value":"929"
+      },
+      {
+        "name":"高三",
+        "value":"930"
+      }
+    ], //数据源
+    checkedCities:[], //绑定默认选中
+  }
+  
+  methods:{
+  handleCheckAllChange(val) {
+    if(this.checkAll){
+        this.cities.forEach(item=>{
+            this.checkedCities.push(item.name)
+        })
+    }else {
+        this.checkedCities = []
+    }
+
+},
+handleCheckedCitiesChange(value) {
+    console.log(this.checkedCities);
+    if(this.checkedCities.length == this.cities.length){
+        this.checkAll=true
+    }else{
+        this.checkAll=false
+    }
+}
+  }
