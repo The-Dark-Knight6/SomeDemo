@@ -118,7 +118,8 @@
             transform: rotate(180deg);
             cursor: pointer;
         }
-        .iframes{
+
+        .iframes {
             height: 100%;
             box-sizing: border-box;
         }
@@ -153,6 +154,7 @@
 
 <script>
     let audio = document.createElement('audio');
+    audio.src = './img/qing.mp3';
     $(function () {
         $('.loading').fadeOut();
         $('.left_div').append(navs); //添加nvas导航
@@ -160,8 +162,8 @@
         $("a[href='./index.html']").addClass('acives').parents().slideDown(); //添加当前a标签样式
         $('.blub_content>img').click(function () {
             let status = $(this).attr('src');
+            
             if (status.indexOf('bulb.svg') > -1) {
-                audio.src = './img/qing.mp3';
                 audio.play();
                 $(this).siblings().animate({
                     height: '200px'
