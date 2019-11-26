@@ -19,6 +19,7 @@
             border-radius: 5px;
             animation: doing 5s infinite alternate;
             position: relative;
+            z-index: 1;
         }
 
         .tran>div {
@@ -94,8 +95,10 @@
         }
 
         .blub {
-            float: right;
-            margin-right: 120px;
+            position: fixed;
+            right: 110px;
+            top: 0%;
+            z-index: 33;
         }
 
         .blub_content {
@@ -107,12 +110,17 @@
         .blub_content>div {
             width: 2px;
             height: 130px;
-            background: black;
+            background: #bfbfbf;
         }
 
         .blub_content>img {
             width: 30px;
             transform: rotate(180deg);
+            cursor: pointer;
+        }
+        .iframes{
+            height: 100%;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -126,10 +134,12 @@
     <div class="right_div">
         <!-- <div class="tran">
             <div>
-                <p>集合</p>
+                <p>loading...</p>
             </div>
         </div> -->
-       <iframe src="./showcharts.html" frameborder="0" width="100%" height="100%"></iframe>
+        <div class="iframes">
+            <iframe src="./showcharts.html" frameborder="0" width="100%" height="100%"></iframe>
+        </div>
         <div class="blub">
             <div class="blub_content">
                 <div></div>
@@ -142,7 +152,7 @@
 </html>
 
 <script>
-    let audio=document.createElement('audio');
+    let audio = document.createElement('audio');
     $(function () {
         $('.loading').fadeOut();
         $('.left_div').append(navs); //添加nvas导航
@@ -150,29 +160,34 @@
         $("a[href='./index.html']").addClass('acives').parents().slideDown(); //添加当前a标签样式
         $('.blub_content>img').click(function () {
             let status = $(this).attr('src');
-            console.log(status)
-            if(status.indexOf('bulb.svg')>-1){
-                audio.src='./img/qing.mp3';
+            if (status.indexOf('bulb.svg') > -1) {
+                audio.src = './img/qing.mp3';
                 audio.play();
                 $(this).siblings().animate({
-                    height:'200px'
-                })
-                $(this).siblings().css({
-                    'background':'red'
+                    height: '200px'
+                }).css({
+                    'background': 'red'
+                }).hover(function () {
+                    $(this).css({
+                        'curosr': 'pointer'
+                    })
                 })
                 $(this).attr({
-                    'src':'./img/actb.svg'
+                    'src': './img/actb.svg'
                 })
-            }else{
+            } else {
                 audio.pause();
                 $(this).siblings().animate({
-                    height:'120px',
-                })
-                $(this).siblings().css({
-                    'background':'black'
+                    height: '120px',
+                }).css({
+                    'background': '#bfbfbf'
+                }).hover(function () {
+                    $(this).css({
+                        'curosr': 'pointer'
+                    })
                 })
                 $(this).attr({
-                    'src':'./img/bulb.svg'
+                    'src': './img/bulb.svg'
                 })
             }
         })

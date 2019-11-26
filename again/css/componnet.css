@@ -119,6 +119,9 @@ h6 {
     color: #409EFF;
     font-weight: bold;
 }
+.fly_cont>h3{
+    margin: 30px 10px;
+}
 
 ul.slide_ul>li {
     color: white;

@@ -3,25 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.3.0/echarts-en.min.js"></script>
-
     <title>Document</title>
+
+    <style>
+        body,
+        html {
+            margin: 0%;
+            padding: 0%;
+            height: 100%;
+            width: 100%;
+        }
+
+        #main {
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            z-index: 30;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="main" style="width: 600px;height:400px;"></div>
+    <div id="main"></div>
 </body>
 
 </html>
 
 <script>
-        var myChart = echarts.init(document.getElementById('main'));
-     var colors = ['#FFAE57', '#FF7853', '#EA5151', '#CC3F57', '#9A2555'];
+    var myChart = echarts.init(document.getElementById('main'));
+    var colors = ['#FFAE57', '#FF7853', '#EA5151', '#CC3F57', '#9A2555'];
     var bgColor = '#2E2733';
-    
+
     var itemStyle = {
         star5: {
             color: colors[0]
-        },
+        },  
         star4: {
             color: colors[1]
         },
@@ -32,7 +49,7 @@
             color: colors[3]
         }
     };
-    
+
     var data = [{
         name: '虚构',
         itemStyle: {
@@ -211,7 +228,7 @@
             }]
         }]
     }];
-    
+
     for (var j = 0; j < data.length; ++j) {
         var level1 = data[j].children;
         for (var i = 0; i < level1.length; ++i) {
@@ -235,14 +252,14 @@
                             return itemStyle.star2;
                     }
                 })(block[star].name);
-    
+
                 block[star].label = {
                     color: style.color,
                     downplay: {
                         opacity: 0.5
                     }
                 };
-    
+
                 if (block[star].children) {
                     style = {
                         opacity: 1,
@@ -251,20 +268,19 @@
                     block[star].children.forEach(function (book) {
                         book.value = 1;
                         book.itemStyle = style;
-    
+
                         book.label = {
                             color: style.color
                         };
-    
+
                         var value = 1;
                         if (bookScoreId === 0 || bookScoreId === 3) {
                             value = 5;
                         }
-    
+
                         if (bookScore[bookScoreId]) {
                             bookScore[bookScoreId].value += value;
-                        }
-                        else {
+                        } else {
                             bookScore[bookScoreId] = {
                                 color: colors[bookScoreId],
                                 value: value
@@ -273,13 +289,13 @@
                     });
                 }
             }
-    
+
             level1[i].itemStyle = {
                 color: data[j].itemStyle.color
             };
         }
     }
-    
+
     option = {
         backgroundColor: bgColor,
         color: colors,
@@ -290,8 +306,7 @@
             sort: function (a, b) {
                 if (a.depth === 1) {
                     return b.getValue() - a.getValue();
-                }
-                else {
+                } else {
                     return a.dataIndex - b.dataIndex;
                 }
             },
@@ -346,4 +361,4 @@
         }]
     };
     myChart.setOption(option);
-    </script>
+</script>
