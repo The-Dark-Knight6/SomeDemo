@@ -12,6 +12,9 @@ let nav_list=` <ul class="mast">
                   <a href="../phone/PhoneIndex.html">首页</a>
             </li>
             <li>
+                  <a href="../phone/people.html">摩登时代</a>
+            </li>
+            <li>
             <a href="../phone/record.html">前言搭后语</a>
       </li>
             <li>
