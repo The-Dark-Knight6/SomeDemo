@@ -160,7 +160,7 @@ https://blog.csdn.net/duyusean/article/details/79348613。
 }
 将申请的证书放入到nginx/conf/下新建的文件夹ssl中，在nginx.conf下加入如上代码。】
 nginx中自动跳转到https的写法：
-【
+【 
 server {
   listen   80;
   server_name www.lihua6.cn;
