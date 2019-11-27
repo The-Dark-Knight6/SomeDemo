@@ -157,3 +157,4 @@ replace()ÓÃÒ»Ð©×Ö·û´®Ìæ»»ÁíÒ»Ð©×Ö·û´®£¬»òÕßÌæ»»Ò»¸öºÍregrxpÏëÆ¥ÅäµÄ×Ö·û´®£¬µÚÒ»¸
 test()¼ì²âÒ»¸ö×Ö·û´®ÊÇ·ñÆ¥ÅäÄ³¸öregexpÄ£Ê½£¬ÊÇÔò·µ»Øtrue£¬·ñÔò·µ»Øfalse¡£
 exec()¼ì²âÒ»¸ö×Ö·û´®µÄregexp£¬·µ»ØÏàÆ¥Åä×Ö·ûµÄÊý×é¡£
 3¡¢±¾µØ×«Ð´Ò»¸öjsonÎÄ¼þ£¬Ê¹ÓÃjq.ajaxÀ´»ñÈ¡ÆäÖÐµÄjsonÊý¾Ý£¬ÐèÒªÊ¹ÓÃ±¾µØµÄ·þÎñÆ÷£¬¸ø±¾µØ·þÎñÆ÷£¨upupw£©¼ÓÉÏÕâ¸öÎÄ¼þµÄÄ¿Â¼´´½¨ÐÂµÄÕ¾µã£¨127.0.0.*Ö®Àà£©¡£Èç¹ûÍ¨¹ýopen in default browserÔò»áÊ¹µÃjq.ajax»ñÈ¡±¨´í£¬¼´²»ÄÜ»ñÈ¡Ð´ÔÚ±¾µØµÄjsonÎÄ¼þÊý¾Ý¡£
+4¡¢clipboard.js²åÌá¹©¸´ÖÆÎÄ±¾ÄÚÈÝµÄ²Ù×÷£¬ÐÂ°æ±¾¹¹Ôìº¯ÊýÎª£ºClipboardJS ¡£
