@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="./img/ico2.ico" type="image/x-icon" />
+    <title>小付一枚-css_world</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/componnet.css">
+    <script src="./js/navs.js"></script>
+    <script src="./js/broswer.js"></script>
+    <style>
+        .host{
+            padding: 50px;
+        }
+        .test{
+            width: 100px;
+            height: 70px;
+            border: 1px solid red;
+        }
+        .floats{
+            float: left;
+        }
+        .floats img{
+            width: 70px;
+            height: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="left_div"></div>
+    <div class="right_div">
+        <div class="host">
+            <div class="test">
+                <div class="floats">
+                    <img src="./img/actb.svg" alt="">
+                    asdfasdfsdf
+                </div>
+            </div>
+            <div>23132132132</div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    $(function () {
+        $('.left_div').append(navs);
+        $('.right_div').append(float);
+        $("a[href='./css_world.html']").addClass('acives').parents().slideDown();
+    })
+</script>

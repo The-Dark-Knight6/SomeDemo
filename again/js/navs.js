@@ -21,6 +21,7 @@ let navs =`
     <ul>
         <li><a href="./divtable.html">自制列表</a></li>
         <li><a href="./Echarts.html">图表</a></li>
+        <li><a href="./css_world.html">css世界</a></li>
     </ul>
 </li>
 <li>
@@ -104,12 +105,12 @@ window.onload=function(){
             switch(fly_cont.innerHTML){
                 case '首页':fly_p.innerHTML='所赖君子见机，达人知命。老当益壮，宁移白首之心？穷且益坚，不坠青云之志。';break;
                 case '自制列表':fly_p.innerHTML='寄蜉蝣于天地，渺沧海之一粟。哀吾生之须臾，羡长江之无穷。挟飞仙以遨游，抱明月而长终。';break;
-                case '图表':fly_p.innerHTML='惟江上之清风，与山间之明月，耳得之而为声，目遇之而成色，取之无禁，用之不竭，是造物者之无尽藏也，而吾与子之所共适。';break;
+                case '图表':fly_p.innerHTML='惟江上之清风，与山间之明月，耳得之而为声，目遇之而成色，取之无禁，用之不竭。';break;
                 case '表格检索':fly_p.innerHTML='江流有声，断岸千尺；山高月小，水落石出。曾日月之几何，而江山不可复识矣。';break;
                 case '猜数字':fly_p.innerHTML='既自以心为形役，奚惆怅而独悲？悟已往之不谏，知来者之可追。';break;
                 case '按压密码':fly_p.innerHTML='江畔何人初见月？江月何年初照人？人生代代无穷已，江月年年望相似。';break;
                 case '无主之地':fly_p.innerHTML='俱往矣，数风流人物，还看今朝。';break;
-                default :fly_p.innerHTML='there\'s nothing...'
+                default :fly_p.innerHTML='there\'s nothing...（流水落花春去也，天上人间。）'
             }
         })
         a_name[i].addEventListener('mouseleave',function(){
