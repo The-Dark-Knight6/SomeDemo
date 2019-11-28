@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="./img/ico2.ico" type="image/x-icon" />
+    <title>小付一枚-无主之地</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+    <link rel="stylesheet" href="./css/componnet.css">
+    <script src="./js/navs.js"></script>
+    <script src="./js/broswer.js"></script>
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 300px;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: rgb(202, 210, 230);
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            color: black;
+        }
+
+        .swiper-slide>img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="left_div"></div>
+    <div class="right_div">
+        <div class="contents">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="./img/315441.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/323822.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="./img/309617.jpg" alt=""></div>
+                    <div class="swiper-slide">个人原创公众号，带你看星辰大海。</div>
+                    <div class="swiper-slide"><img src="./img/selfnum.png" alt=""></div>
+                    <div class="swiper-slide">广告招租：645865839@qq.com</div>
+                    <div class="swiper-slide"><img src="./img/selfnum.png" alt=""></div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        grabCursor: true,
+        slidesPerView: 2,
+        touchRatio: 0.5,
+        loop: true,
+        speed: 1200,
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            dynamicBullets: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+    $(function () {
+        $('.left_div').append(navs);
+        $('.right_div').append(float);
+        $("a[href='./noplace.html']").addClass('acives').parents().slideDown();
+    })
+</script>

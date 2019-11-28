@@ -12,11 +12,22 @@
       <link rel="stylesheet" href="../css/acionmu.css">
 </head>
 <style>
-      html{
-            background: #f9f9f9;
+      html {
+            background: #f7f7f7;
       }
-      .article>img{
-        width: 100%;
+
+      .article>img {
+            width: 100%;
+      }
+
+      .article>h2,
+      .article>p ,.poem>p{
+            margin: 12px 0;
+            text-align: center;
+      }
+      .poem>p>span{
+            display: inline-block;
+            border-bottom: 1px solid #ccc;;
       }
 </style>
 
@@ -24,21 +35,37 @@
 </body>
 <div class="fix_nav"></div>
 <div class="left_nav"></div>
-<div class="app"></div>
 <div class="host">
       <div class="real_content">
             <div class="article">
+                  <h2># 这是广告 #</h2>
+                  <p>个人原创微信公众号，为原创发声！</p>
+                  <p>在小的个体，也有自己的品牌！</p>
                   <img src="../img/selfnum.png" alt="">
+                  <div class="poem"></div>
             </div>
       </div>
 </div>
 
 </html>
 <script>
+      let ad=['如果有一天我的理想被风雨淋湿，',
+      '你是否愿意回头扶我一把？',
+      '如果有一天我无力前行，',
+      '你是否愿意陪我一个温暖的午后？',
+      '如果我问你什么，',
+      '你是否想到妈妈梦中的惊起？',
+      '如果那是一个你不熟悉的家，',
+      '你会不会把善良当作路牌？',
+      '如果这是一个国家的未来，',
+      '你是否让他酣睡，不再彷徨？'];
       $(function () {
             $('.fix_nav').append(phone_top);
             $('.left_nav').append(nav_list);
             $("a[href='../phone/people.html']").addClass('act_col');
-        
+            for(let i in ad){
+                  $('.poem').append(`<p><span>${ad[i]}</span></p>`);
+            }
+            
       })
 </script>

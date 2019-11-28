@@ -39,7 +39,6 @@
 </body>
 <div class="fix_nav"></div>
 <div class="left_nav"></div>
-<div class="app"></div>
 <div class="host">
     <div class="real_content">
         <div class="article">
@@ -64,7 +63,7 @@
                      for(let j in my[i].list){
                          $('.article>ul').append(`<ul class="other">
                     <li>
-                        <a href="${my[i].list[j].link}">${my[i].list[j].name}</a>
+                        <a href="${my[i].list[j].link}" target="_blank">${my[i].list[j].name}</a>
                     </li>
                 </ul>`)
                      }

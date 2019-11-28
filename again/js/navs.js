@@ -10,6 +10,7 @@ let navs =`
     </div>
     <ul>
         <li><a href="./index.html">首页</a></li>
+        <li><a href="./noplace.html">无主之地</a></li>
     </ul>
 </li>
 <li>
@@ -107,6 +108,7 @@ window.onload=function(){
                 case '表格检索':fly_p.innerHTML='江流有声，断岸千尺；山高月小，水落石出。曾日月之几何，而江山不可复识矣。';break;
                 case '猜数字':fly_p.innerHTML='既自以心为形役，奚惆怅而独悲？悟已往之不谏，知来者之可追。';break;
                 case '按压密码':fly_p.innerHTML='江畔何人初见月？江月何年初照人？人生代代无穷已，江月年年望相似。';break;
+                case '无主之地':fly_p.innerHTML='俱往矣，数风流人物，还看今朝。';break;
                 default :fly_p.innerHTML='there\'s nothing...'
             }
         })

@@ -1,10 +1,10 @@
-let phone_top=` <div class="nav_content">
+let phone_top = ` <div class="nav_content">
 <img src="../img/menu.png" alt="" class="choice">
 <img src="../img/ico2.ico" alt="" class="myhost">
 <img src="../img/mus.svg" alt="" class="music">
 </div>`;
 
-let nav_list=` <ul class="mast">
+let nav_list = ` <ul class="mast">
 <li>
       <h3>index</h3>
       <ul>
@@ -66,65 +66,77 @@ let nav_list=` <ul class="mast">
 </ul>`;
 
 if (os.isAndroid || os.isPhone) {
-    console.log("%c Welcome to my blog","color:green");
+    console.log("%c Welcome to my blog", "color:green");
 } else {
     window.location.replace('../index.html');
 }
 
-let act_music=null,
+let act_music = null,
+    hrefs = window.location.href.indexOf('PhoneIndex');
 audio = document.createElement('audio');
-window.onload = function(){
-   $('.music').click(function(){
-       if(audio.paused){
-        audio.src='../img/qing.mp3';
-        audio.play();
-        start();
-       }else{
-        audio.pause();
-        end();
-       }
-   })
+window.onload = function () {
+    let music_logo = $('.music');
+    if (hrefs > -1) {
+        console.log('this\'s page hava music.');
+        $('.music').click(function () {
+            if (audio.paused) {
+                audio.src = '../img/qing.mp3';
+                audio.play();
+                start();
+            } else {
+                audio.pause();
+                end();
+            }
+        })
+    } else {
+        music_logo.attr({
+            'src': ''
+        })
+    }
     $('.choice').click(function (e) {
-    e.stopPropagation(); //阻止事件冒泡
-    $('.left_nav').toggle(500);
-        })
+        e.stopPropagation(); //阻止事件冒泡
+        $('.left_nav').toggle(500);
+    })
     $(document).click(function () {
-    $('.left_nav').hide(500);   
-        })
-        $('.myhost').click(function(){
-            window.location.replace('../phone/PhoneIndex.html');
-        })
+        $('.left_nav').hide(500);
+    })
+    $('.myhost').click(function () {
+        window.location.replace('../phone/PhoneIndex.html');
+    })
 }
 //飘雪
-function snowFlow(left,height,src){
-    let container=document.createElement('div');
-    let pic=document.createElement('img');
-    let snowFlow=document.querySelector('.app');
-    pic.className='pic';
-    container.className='container';	
+function snowFlow(left, height, src) {
+    let container = document.createElement('div');
+    let pic = document.createElement('img');
+    let snowFlow = document.querySelector('.app');
+    pic.className = 'pic';
+    container.className = 'container';
     snowFlow.appendChild(container);
     container.appendChild(pic);
-    container.style.left=left+'px';
-    container.style.height=height+'px';
-    pic.src=src;
-    setTimeout(function(){
+    container.style.left = left + 'px';
+    container.style.height = height + 'px';
+    pic.src = src;
+    setTimeout(function () {
         snowFlow.removeChild(container);
-    },5000);
+    }, 5000);
 }
-function music_back(){
-    let left=Math.random()*window.innerWidth;
-    let height=Math.random()*window.innerHeight;
+
+function music_back() {
+    let left = Math.random() * window.innerWidth;
+    let height = Math.random() * window.innerHeight;
     let src = '../snow.png';
-    snowFlow(left,height,src);
+    snowFlow(left, height, src);
 }
-function start(){
-    if(act_music!=null){
+
+function start() {
+    if (act_music != null) {
         clearInterval(act_music);
-        act_music=null
+        act_music = null
     }
-    act_music=setInterval(music_back,500);
+    act_music = setInterval(music_back, 500);
 }
-function end(){
+
+function end() {
     clearInterval(act_music);
-    act_music=null;
+    act_music = null;
 }
