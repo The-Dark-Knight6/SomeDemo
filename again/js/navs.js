@@ -110,7 +110,7 @@ window.onload=function(){
                 case '猜数字':fly_p.innerHTML='既自以心为形役，奚惆怅而独悲？悟已往之不谏，知来者之可追。';break;
                 case '按压密码':fly_p.innerHTML='江畔何人初见月？江月何年初照人？人生代代无穷已，江月年年望相似。';break;
                 case '无主之地':fly_p.innerHTML='俱往矣，数风流人物，还看今朝。';break;
-                default :fly_p.innerHTML='there\'s nothing...（流水落花春去也，天上人间。）'
+                default :fly_p.innerHTML='流水落花春去也，天上人间。'
             }
         })
         a_name[i].addEventListener('mouseleave',function(){

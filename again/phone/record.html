@@ -19,13 +19,14 @@
 
     .before {
         margin: 10px;
-        padding:0 5px;
+        padding: 0 5px;
         box-sizing: border-box;
     }
+
     .before>span {
         position: relative;
         display: inline-block;
-        animation: runnings 12s infinite alternate;
+        animation: runnings 12s forwards;
     }
 
     @keyframes runnings {
@@ -36,15 +37,29 @@
 
         to {
             left: 60px;
-            opacity: 0.1;
+            opacity: .8;
         }
     }
-    .thecon{
+
+    .thecon,.thepoem {
         margin: 10px;
     }
-    .thecon>p{
+
+    .thecon>p,.thepoem>p {
         margin: 20px 10px;
+    }
+    .thecon>p,.thepoem span{
         border-bottom: 1px dashed gray;
+    }
+    .thepoem>p{
+        text-align: center;
+    }
+    .picture{
+        margin: 12px 0;
+    }
+    .picture>img{
+        width: 100%;
+        opacity: 0.6;
     }
 </style>
 
@@ -56,12 +71,17 @@
     <div class="real_content">
         <div class="article">
             <div class="before">
-                <span>哪有什么前言，都是骗你的</span>
+                <span>前言：奇葩·录</span>
             </div>
             <div class="thecon">
             </div>
+            <div class="picture">
+                <img src="../img/icanbb.jpg" alt="">
+            </div>
             <div class="before">
-                <span>你以为后语就有了？不存在的...</span>
+                <span>港大·中文系·作品赏析</span>
+            </div>
+            <div class="thepoem">
             </div>
         </div>
     </div>
@@ -74,11 +94,15 @@
         $('.left_nav').append(nav_list);
         $("a[href='../phone/record.html']").addClass('act_col');
         $.ajax({
-            url:'../js/shortword.json',
-            success:function(res){
-                let my=res.data;
-                for(let i = 0 ; i < my.length ; i++){
+            url: '../js/shortword.json',
+            success: function (res) {
+                let my = res.data,
+                    pot = res.poem;
+                for (let i = 0; i < my.length; i++) {
                     $('.thecon').append(`<p>${my[i]}</p>`);
+                }
+                for (let i = 0; i < pot.length; i++) {
+                    $('.thepoem').append(`<p><span>${pot[i]}</span></p>`);
                 }
             }
         })

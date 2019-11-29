@@ -108,7 +108,8 @@
             }
       }
 
-      ul.endpoem>li,ul.poem>li {
+      ul.endpoem>li,
+      ul.poem>li {
             text-align: center;
       }
 
@@ -156,6 +157,11 @@
             if (document.readyState == 'complete') {
                   $('.loading').slideUp();
             }
+      }
+      if (os.isAndroid || os.isPhone) {
+            console.log("%c Welcome to my blog", "color:green");
+      } else {
+            window.location.replace('../index.html');
       }
       $(function () {
             $('.fix_nav').append(phone_top);
