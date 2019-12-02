@@ -56,9 +56,14 @@
         }
 
         .text_div{
-            margin: 12px 0;
+            padding: 12px 0;
             text-align: center;
             background: #ddd;
+            box-sizing: border-box;
+        }
+        .right_div{
+            overflow-x: hidden;
+            overflow-y: scroll;
         }
     </style>
 </head>
@@ -86,27 +91,28 @@
         <div class="text_div">
             <p>使用swiper插件完美实现图片的轮播效果：</p>
             <pre>
-                    var swiper = new Swiper('.swiper-container', {
-                        grabCursor: true,
-                        slidesPerView: 2,
-                        touchRatio: 0.5,
-                        loop: true,
-                        speed: 1200,
-                        autoplay: {
-                            delay: 2000,
-                            disableOnInteraction: false,
-                        },
-                        pagination: {
-                            el: '.swiper-pagination',
-                            clickable: true,
-                            dynamicBullets: true,
-                        },
-                        navigation: {
-                            nextEl: '.swiper-button-next',
-                            prevEl: '.swiper-button-prev',
-                        },
-                    });
-                </pre>
+                var swiper = new Swiper('.swiper-container', {
+                    grabCursor: true,
+                    slidesPerView: 2,
+                    touchRatio: 0.5,
+                    loop: true,
+                    speed: 1200,
+                    autoplay: {
+                        delay: 2000,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                        dynamicBullets: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+            </pre>
+            
         </div>
     </div>
 </body>
