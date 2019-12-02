@@ -19,9 +19,9 @@ let navs =`
         <span class="top_span">低级JS禅修之道</span>
     </div>
     <ul>
-        <li><a href="./divtable.html">自制列表</a></li>
-        <li><a href="./Echarts.html">图表</a></li>
-        <li><a href="./css_world.html">css世界</a></li>
+        <li><a href="./divtable.html">js自制列表</a></li>
+        <li><a href="./Echarts.html">Echarts测试</a></li>
+        <li><a href="./css_world.html">css测试</a></li>
     </ul>
 </li>
 <li>

@@ -123,6 +123,28 @@
             height: 100%;
             box-sizing: border-box;
         }
+
+        .tips {
+            padding-top: 50px;
+        }
+
+        .tips>p {
+            font-size: 1.2rem;
+            margin: 12px 0;
+        }
+
+        .bottoms {
+            position: absolute;
+            bottom: 0%;
+            width: 100%;
+            text-align: center;
+        }
+
+        .bottoms>p {
+            margin: 12px 0;
+            color: gray;
+            font-size: .5rem;
+        }
     </style>
 </head>
 
@@ -138,8 +160,15 @@
                 <p>loading...</p>
             </div>
         </div> -->
-        <div class="iframes">
+        <!-- <div class="iframes">
             <iframe src="./showcharts.html" frameborder="0" width="100%" height="100%"></iframe>
+        </div> -->
+        <div class="tips">
+            <p>欢迎来到我的个人网站</p>
+            <p>记录生活，留住感动</p>
+        </div>
+        <div class="bottoms">
+            <p>Copyright @ 2019-2020 Class Fu | 粤ICP备19054851号-1</p>
         </div>
         <div class="blub">
             <div class="blub_content">
@@ -162,7 +191,7 @@
         $("a[href='./index.html']").addClass('acives').parents().slideDown(); //添加当前a标签样式
         $('.blub_content>img').click(function () {
             let status = $(this).attr('src');
-            
+
             if (status.indexOf('bulb.svg') > -1) {
                 audio.play();
                 $(this).siblings().animate({

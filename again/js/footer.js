@@ -3,7 +3,7 @@ let foot = ` <div class="foot">
 <img src="../img/qqs.svg" class="qqimg">
 <img src="../img/social_sina.svg" class="sinaimg">
 <p style='font-size:0.8rem'>Copyright @ 2019-2020 Class Fu</p>
-<p style='font-size:0.8rem'>粤ICP备19054851号</p>
+<p style='font-size:0.8rem'>粤ICP备19054851号-1</p>
 </div>`;
 
 let center=`
@@ -22,8 +22,8 @@ let center=`
       </div>
 </li>
 
-<li>It's the best of times,</li>
-<li>it's the worst of times.</li>
+<li>记录生活,</li>
+<li>留住感动.</li>
 </ul>
 <img src="" data-src="../img/309617.jpg" alt="">
 <ul class="center_word">
