@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>小付一枚</title>
+    <title>小付同学</title>
     <link rel="shortcut icon" href="./img/ico2.ico" type="image/x-icon" />
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <link rel="stylesheet" href="./css/componnet.css">
@@ -10,58 +10,6 @@
     <script src="./js/navs.js"></script>
     <script src="./js/broswer.js"></script>
     <style>
-        .tran {
-            margin-top: 50px;
-            width: 100px;
-            height: 80px;
-            background: red;
-            display: inline-block;
-            border-radius: 5px;
-            animation: doing 5s infinite alternate;
-            position: relative;
-            z-index: 1;
-        }
-
-        .tran>div {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-        }
-
-        @keyframes doing {
-            0% {
-                background: red;
-                left: 0;
-                top: 0;
-            }
-
-            25% {
-                background: blue;
-                left: 200px;
-                top: 0;
-            }
-
-            50% {
-                background: yellow;
-                left: 200px;
-                top: 200px;
-            }
-
-            75% {
-                background: green;
-                left: 0;
-                top: 200px;
-            }
-
-            100% {
-                background: white;
-                left: 0;
-                top: 0;
-            }
-        }
-
         .loading {
             z-index: 30;
             position: fixed;
@@ -125,12 +73,13 @@
         }
 
         .tips {
-            padding-top: 50px;
+            padding-top: 30px;
         }
 
         .tips>p {
             font-size: 1.2rem;
             margin: 12px 0;
+            color: rgb(240, 240, 240);
         }
 
         .bottoms {
@@ -143,7 +92,7 @@
         .bottoms>p {
             margin: 12px 0;
             color: gray;
-            font-size: .5rem;
+            font-size: .6rem;
         }
     </style>
 </head>
@@ -155,11 +104,6 @@
     <!-- 右侧的导航栏目 -->
     <div class="left_div"></div>
     <div class="right_div">
-        <!-- <div class="tran">
-            <div>
-                <p>loading...</p>
-            </div>
-        </div> -->
         <!-- <div class="iframes">
             <iframe src="./showcharts.html" frameborder="0" width="100%" height="100%"></iframe>
         </div> -->
@@ -168,7 +112,7 @@
             <p>记录生活，留住感动</p>
         </div>
         <div class="bottoms">
-            <p>Copyright @ 2019-2020 Class Fu | 粤ICP备19054851号-1</p>
+            <p>Copyright 2019 小付同学 All Rights Reserved | <span style="cursor:pointer">粤ICP备19054851号-1</span></p>
         </div>
         <div class="blub">
             <div class="blub_content">
@@ -185,6 +129,9 @@
     let audio = document.createElement('audio');
     audio.src = './img/qing.mp3';
     $(function () {
+        $('.bottoms>p>span').click(function(){
+            window.open('http://beian.miit.gov.cn');
+        })
         $('.loading').fadeOut();
         $('.left_div').append(navs); //添加nvas导航
         $('.right_div').append(float); //鼠标悬浮显示的提示框

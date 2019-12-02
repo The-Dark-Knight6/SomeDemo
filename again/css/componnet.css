@@ -79,6 +79,9 @@ li a:hover,
     background: #f6f6f6;
     text-align: center;
     position: relative;
+    background:url('../img/8524.jpg');
+    background-size:100% 100%;
+    background-repeat:no-repeat;
 }
 
 p,
