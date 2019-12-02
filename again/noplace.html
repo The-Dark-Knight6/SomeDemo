@@ -54,6 +54,12 @@
             width: 100%;
             height: 100%;
         }
+
+        .text_div{
+            margin: 12px 0;
+            text-align: center;
+            background: #ddd;
+        }
     </style>
 </head>
 
@@ -68,7 +74,7 @@
                     <div class="swiper-slide"><img src="./img/309617.jpg" alt=""></div>
                     <div class="swiper-slide">个人原创公众号，带你看星辰大海。</div>
                     <div class="swiper-slide"><img src="./img/selfnum.jpg" alt=""></div>
-                    <div class="swiper-slide">广告招租：645865839@qq.com</div>
+                    <div class="swiper-slide">邮箱：645865839@qq.com</div>
                     <div class="swiper-slide"><img src="./img/selfnum.jpg" alt=""></div>
                 </div>
                 <div class="swiper-button-prev"></div>
@@ -76,6 +82,31 @@
                 <div class="swiper-pagination">
                 </div>
             </div>
+        </div>
+        <div class="text_div">
+            <p>使用swiper插件完美实现图片的轮播效果：</p>
+            <pre>
+                    var swiper = new Swiper('.swiper-container', {
+                        grabCursor: true,
+                        slidesPerView: 2,
+                        touchRatio: 0.5,
+                        loop: true,
+                        speed: 1200,
+                        autoplay: {
+                            delay: 2000,
+                            disableOnInteraction: false,
+                        },
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                            dynamicBullets: true,
+                        },
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                    });
+                </pre>
         </div>
     </div>
 </body>

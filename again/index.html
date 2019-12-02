@@ -73,7 +73,10 @@
         }
 
         .tips {
-            padding-top: 30px;
+            top:30px;
+        }
+        .bottoms{
+            bottom: 0%;
         }
 
         .tips>p {
@@ -82,9 +85,8 @@
             color: rgb(240, 240, 240);
         }
 
-        .bottoms {
+        .bottoms,.tips {
             position: absolute;
-            bottom: 0%;
             width: 100%;
             text-align: center;
         }
@@ -93,6 +95,17 @@
             margin: 12px 0;
             color: gray;
             font-size: .6rem;
+        }
+
+        .backpic {
+            position: absolute;
+            top: 0%;
+            right: 0%;
+            bottom: 0%;
+            left: 0%;
+            background: url('../img/8524.jpg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
         }
     </style>
 </head>
@@ -107,6 +120,8 @@
         <!-- <div class="iframes">
             <iframe src="./showcharts.html" frameborder="0" width="100%" height="100%"></iframe>
         </div> -->
+        <div class="backpic">
+        </div>
         <div class="tips">
             <p>欢迎来到我的个人网站</p>
             <p>记录生活，留住感动</p>
@@ -129,7 +144,7 @@
     let audio = document.createElement('audio');
     audio.src = './img/qing.mp3';
     $(function () {
-        $('.bottoms>p>span').click(function(){
+        $('.bottoms>p>span').click(function () {
             window.open('http://beian.miit.gov.cn');
         })
         $('.loading').fadeOut();

@@ -172,4 +172,4 @@ server {
 https://www.runoob.com/nodejs/nodejs-install-setup.html（centos环境下安装node.js）
 https://www.cnblogs.com/pikaqu/articles/10863391.html。
 https://www.cnblogs.com/hellowoeld/p/11596455.html。
-5、
+5、找点nginx下的html目录，这里的index就是网站的首页。
