@@ -4,3 +4,72 @@ vue cookbook note:
 main.js下可以定义全局的属性、方法以及请求：
 vue.prototype.$appname='your name',
 vue.prototype.$way=function(app){this[app]=this[app].split('').reverse().join();},
+
+初始vue的table表单模版：
+
+<template>
+  <div class="masterQuotations">
+    <el-form ref="form" :model="form" size="small">
+      <el-form-item label="活动区域：">
+        <el-select v-model="form.region" placeholder="请选择活动区域">
+          <el-option label="区域一" value="shanghai"></el-option>
+          <el-option label="区域二" value="beijing"></el-option>
+        </el-select>
+        <el-button size="small" type="primary">查询</el-button>
+        <el-button size="small" type="success" style="float:right">发布</el-button>
+      </el-form-item>
+    </el-form>
+    <el-table :data="tableData" style="width: 100%" size="small" border>
+      <el-table-column type="index" label="序号"></el-table-column>
+      <el-table-column prop="name" label="发布时间"></el-table-column>
+      <el-table-column prop="address" label="内容摘要"></el-table-column>
+      <el-table-column prop="name" label="点赞数"></el-table-column>
+      <el-table-column prop="name" label="分享数"></el-table-column>
+      <el-table-column prop="name" label="状态"></el-table-column>
+      <el-table-column prop="name" label="操作">
+        <template slot-scope>
+          <el-button size="small" plain type="primary">隐藏</el-button>
+          <el-button size="small" plain>显示</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+     <div class="paginations">
+      <el-pagination
+        @current-change="handleCurrentChange"
+        :current-page.sync="page"
+        layout="total,prev, pager, next, jumper"
+        :total="total"
+      ></el-pagination>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "masterQuotations",
+  data() {
+    return {
+      page:1,
+      total:1,
+      tableData: [],
+      form: {}
+    };
+  },
+  created(){
+
+  },
+  methods:{
+    handleCurrentChange(){},
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+.el-input {
+  width: auto;
+}
+.paginations{
+  margin-top: 12px;
+  text-align: center;
+}
+</style>
