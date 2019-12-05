@@ -155,3 +155,63 @@ handleCheckedCitiesChange(value) {
     }
 }
   }
+  
+12、element原来样式的图片上传：
+ <el-upload
+            action="#"
+            :http-request="httpRequest"
+            list-type="picture-card"
+            :on-preview="handlePictureCardPreview"
+            :on-remove="handleRemove"
+            :before-upload="beforeAvatarUpload"
+            :file-list="productImgs" //成功上传图片的列表
+            :limit="1" //限制只能上传一个图片
+          >
+            <i class="el-icon-plus"></i>
+          </el-upload>
+   //图片上传
+    httpRequest(e, fileList) {
+      let name = e.file,
+        params = {},
+        data = new FormData(),
+        url = this.api.picupdata;
+      params.image = name;
+      for (let i in params) {
+        data.append(i, params[i]);
+      }
+      this.$http.post(url, data).then(res => {
+        let my = res.data;
+        if (my.status == 1) {
+          this.addform.file_id = my.data.file_id;
+          this.$message({
+            type: "success",
+            message: "上传成功!"
+          });
+        } else {
+          this.$message("上传失败!");
+          this.productImgs.splice(0,1);
+          // console.log(this.productImgs);
+        }
+      });
+    },
+	   //上传图片的限制
+    beforeAvatarUpload(file) {
+      const isIMAGE = file.type === "image/jpeg" || "image/png";
+      const isLt2M = file.size / 1024 / 1024 < 2;
+      if (!isIMAGE) {
+        this.$message.error("上传图片只能是 JPG或png 格式!");
+      }
+      if (!isLt2M) {
+        this.$message.error("上传图片大小不能超过 2MB!");
+      }
+      return isIMAGE && isLt2M;
+    },
+    //删除图片
+    handleRemove(file, fileList) {
+      console.log(file, fileList);
+    },
+    // 上传的 图片放大
+    handlePictureCardPreview(file) {
+      this.dialogImageUrl = file.url;
+      this.picvisible = true;
+    }
