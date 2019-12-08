@@ -17,9 +17,7 @@ let nav_list = ` <ul class="mast">
             <li>
             <a href="../phone/record.html">前言搭后语</a>
       </li>
-            <li>
-                  <a href="../phone/lifetime.html">时间线</a>
-            </li>
+        
             <li>
             <a href="../phone/somelink.html">一些小链接</a>
       </li>
