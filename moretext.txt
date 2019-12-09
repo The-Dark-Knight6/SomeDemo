@@ -73,3 +73,63 @@ export default {
   text-align: center;
 }
 </style>
+
+上传大型文件（mp4、apk、exe等到七牛云的写法）：
+
+先安装依赖 而后引入 import * as qiniu from "qiniu-js";
+最后在  <input
+            type="file"
+            accept=".apk"
+            ref="file"
+            name="skin"
+            @change="uploadqiniu($event)"
+            class="el-button el-button--primary el-button--small"
+          />即可。
+		  
+  //上传 版本文件apk 获取七牛 token  （后台书写一个获取七牛云服务的token接口）
+    gettoken() {
+      let url =
+          "http://optmj.****",
+        params;
+      this.$http.get(url, { params: params }).then(res => {
+        let my = res.data;
+        this.upvideo = my.data.token;  //upvideo就是传给下个函数的token。
+      });
+    },
+    //上传视频
+    uploadqiniu(ev) {
+      var uptoken = this.upvideo;
+      var file = ev.target.files[0]; //Blob 对象，上传的文件
+      var key = file.name; // 上传后文件资源名以设置的 key 为主，如果 key 为 null 或者 undefined，则文件资源名会以 hash 值作为资源名。
+
+      let config = {
+        useCdnDomain: true, //表示是否使用 cdn 加速域名，为布尔值，true 表示使用，默认为 false。
+        domain: "http://*****",
+        region: qiniu.region.z2 // 根据具体提示修改上传地区,当为 null 或 undefined 时，自动分析上传域名区域
+      };
+
+      let putExtra = {
+        fname: "", //文件原文件名
+        params: {}, //用来放置自定义变量
+        mimeType: null //用来限制上传文件类型，为 null 时表示不对文件类型限制；限制类型放到数组里： ["image/png", "image/jpeg", "image/gif"]
+      };
+      var observable = qiniu.upload(file, key, uptoken, putExtra, config);
+      observable.subscribe({
+        next: result => {
+          // 主要用来展示进度
+          //this.$message(result);
+        },
+        error: errResult => {
+          // 失败报错信息
+          this.$message(errResult);
+        },
+        complete: result => {
+          // 接收成功后返回的信息   url就是需要的url
+          this.url = "http://video.didi365.com/" + result.key;
+          this.$message({
+            type: "success",
+            message: "上传成功"
+          });
+        }
+      });
+    },
