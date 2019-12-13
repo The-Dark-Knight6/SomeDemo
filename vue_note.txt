@@ -215,3 +215,5 @@ handleCheckedCitiesChange(value) {
       this.dialogImageUrl = file.url;
       this.picvisible = true;
     }
+13、刷新当前vue页面的方法：
+https://www.cnblogs.com/yinn/p/9056731.html；
