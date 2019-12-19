@@ -158,3 +158,24 @@ test()检测一个字符串是否匹配某个regexp模式，是则返回true，否则返回false。
 exec()检测一个字符串的regexp，返回相匹配字符的数组。
 3、本地撰写一个json文件，使用jq.ajax来获取其中的json数据，需要使用本地的服务器，给本地服务器（upupw）加上这个文件的目录创建新的站点（127.0.0.*之类）。如果通过open in default browser则会使得jq.ajax获取报错，即不能获取写在本地的json文件数据。
 4、clipboard.js插提供复制文本内容的操作，新版本构造函数为：ClipboardJS 。
+【js时间对象转化为日期】
+  //将date对象转化为日期
+    calendar(el) {
+      let time = new Date(el);
+      let year = time.getFullYear();
+      let month =
+        time.getMonth() + 1 >= 10
+          ? time.getMonth() + 1
+          : `0${time.getMonth() + 1}`;
+      let day =
+        time.getDate() + 1 >= 10
+          ? time.getDate() + 1
+          : `0${time.getDate() + 1}`;
+      let hour =
+        time.getHours() >= 10 ? time.getHours() : `0${time.getHours()}`;
+      let min =
+        time.getMinutes() >= 10 ? time.getMinutes() : `0${time.getMinutes()}`;
+      let second =
+        time.getSeconds() >= 10 ? time.getSeconds() : `0${time.getSeconds()}`;
+      return `${year}-${month}-${day} ${hour}:${min}:${second}`;
+    },

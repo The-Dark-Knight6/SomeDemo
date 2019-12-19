@@ -1,12 +1,9 @@
-vue cookbook note:
-
-实例属性：
+【vue实例属性】
 main.js下可以定义全局的属性、方法以及请求：
 vue.prototype.$appname='your name',
 vue.prototype.$way=function(app){this[app]=this[app].split('').reverse().join();},
 
-初始vue的table表单模版：
-
+【element-ui后台初始界面模版】
 <template>
   <div class="masterQuotations">
     <el-form ref="form" :model="form" size="small">
@@ -74,9 +71,9 @@ export default {
 }
 </style>
 
-上传大型文件（mp4、apk、exe等到七牛云的写法）：
-
-先安装依赖 而后引入 import * as qiniu from "qiniu-js";
+【vue上传大型文件（MP4、.apk、.exe等到七牛云写法）】
+先安装依赖 
+而后引入 import * as qiniu from "qiniu-js";
 最后在  <input
             type="file"
             accept=".apk"
@@ -133,3 +130,59 @@ export default {
         }
       });
     },
+
+【刷新当前vue页面】
+参考地址：https://www.cnblogs.com/yinn/p/9056731.html；
+1、在app.vue中书写：
+<template>
+  <div id="app">
+    <router-view v-if="isRouterAlive"></router-view>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "App",
+  provide() {
+    return {
+      reload: this.reload
+    };
+  },
+  data() {
+    return {
+      isRouterAlive: true
+    };
+  },
+
+  methods: {
+    reload() {
+      this.isRouterAlive = false;
+      this.$nextTick(function() {
+        this.isRouterAlive = true;
+      });
+    }
+  }
+};
+</script>
+2、在需要使用的组件中注入即可。
+如：component.vue:
+<template>
+</template>
+
+<script>
+export default {
+  name: "App",
+  inject:['reload'],//注入
+  data() {
+    return {
+    };
+  },
+
+  methods: {
+  //在需要使用刷新当前页面的方法下使用即可
+    getlist(){
+		this.reload(); //即可加载当前页面
+	}
+  }
+};
+</script>
