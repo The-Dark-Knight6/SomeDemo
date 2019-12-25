@@ -1,0 +1,101 @@
+【vue实例属性】
+main.js下可以定义全局的属性、方法以及请求：
+vue.prototype.$appname='your name',
+vue.prototype.$way=function(app){this[app]=this[app].split('').reverse().join();},
+【vue/element-ui笔记】
+1、在element-ui插件中的table渲染接口上的时间戳，可以在slot-scope-'scope'的template标签中加如这个{{action.timeFormat(scope.row.time)}}（time即为从接口数据中返回的参数时间）即可完美转换接口的时间戳，不必再写转换时间戳的函数。
+
+2、使用element组件中的多选框提取其中的值，若是对象则会失去效果（指的是checkbox-group，即多选框的集合）。这时可以使用单个的checkbox，在用v-for来循环，value来显示判断是否勾选，同时change事件来更改所勾选的checkbox。
+
+3、在获取日期时间时，后半段的时间（小时、分钟和秒）可用toLocaleTimeString来实现。
+
+4、在点击一个编辑按钮之后编辑输入框，此时环境是在后台所给接口渲染数据的大列表下，需要进行对点击编辑按钮之后立马进行输入框聚焦（即点击第一个编辑按钮，光标就聚焦在第一个编辑的输入框上，点第几个就聚焦在第几个的输入框上，优化用户的编辑输入体验，如若没有这个聚焦则需要用户手动的点击编辑输入框，这样就意味着用户需要点击两次来完成这个编辑操作）。实现：利用自定义指令，而后用原生的input输入框（之前项目用de element-ui，则将里头的input样式复刻一下即可），在这个input中绑定自定义指令，同时处理好点击编辑按钮时候触发的input中disabled状态即可。
+
+5、vue路由的优化写法以及其拥有子路由的时候的写法，在有使用到子路由的时候需要在vue页面中使用<router-view>这个标签，如需要缓存子路由则可以写成<keep-alive><router-view></router-view></keep-alive>这样子路由就可以显示在<router-view>这对标签里头了。
+ {
+	path: '/scene',
+	component: resolve => require(['@/components/AI/scene/index'], resolve),
+	redirect: { path: '/scene/time' },
+	children: [{
+			path: 'time',
+			component: resolve => require(['@/components/AI/scene/Time/time'], resolve),
+		},
+		{
+			path: 'area',
+			component: resolve => require(['@/components/AI/scene/area/area'], resolve),
+		}, {
+			path: 'weather',
+			component: resolve => require(['@/components/AI/scene/weather/weather'], resolve),
+		},
+	]
+}
+
+7、vue跨域代理多个写法：
+ proxyTable: {
+  '/api2': {
+	target: 'https://***.***.com/',
+	changeOrigin: true,
+	pathRewrite: {
+		'^/api2': ''
+	}
+},
+	'/api': {
+		target: 'http://***.***.com/',
+		changeOrigin: true,
+		pathRewrite: {
+			'^/api': ''
+		}
+	}
+	
+},
+
+8、对于vue（或者其它类型表单上传）上传表单文件（或文件，ajax不能上传文件），需要new一个FormData()对象，之后用for...in循环将表单内的数据循环到这个对象上。
+let data=new FormData();for(let i in params){data.appent(i,params[i])};
+上传的参数就改为data即可。如果还有需要上传文件，则先获取到文件：
+let file=document.getElementById('filename').files[0];params.file=file;之后同上。
+如果需要上传图片，并且图片的每次更改都会相应的显示：首先在type='file'的input绑定onchange事件sowhat($event)：
+sowhat(ev) {
+      let name = ev.target.files[0];
+      let src = window.URL.createObjectURL(name);
+      this.editForm.img = src;
+    },
+其中src参数即可用来更改图片的相应路径。
+
+9、如果需要按cdn方式引入关联文件到vue中（或者是插件）可以在index.html页面中：
+   <!-- element-Ui的样式文件 以下放置于<head></head>之间-->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	  <!-- vue的相应依赖cdn引入 优化项目整体大小 加快页面载入 以下放于<body></body>之间-->
+      <script src="https://cdn.bootcss.com/vue/2.5.2/vue.min.js"></script>
+      <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js"></script>
+      <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+      <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	  之后在webpack.base.conf.js文件中的module.exports={}中加入：
+	  externals: {
+    'vue': 'Vue',
+    'vue-router': 'VueRouter',
+    'axios': 'axios',
+    'element-ui': 'ELEMENT',
+ }（详细参照个人项目源码）
+ 之后直接在项目中使用element-ui（或者其它vue组件）即可。
+
+10、上传图片判断大小：
+// html
+<input type="file" accept="image/png" name="iconFile" @change="getFile">
+// js
+getFile (e) {
+    let imgSrc = window.URL.createObjectURL(e.target.files[0]);
+    let img = new Image();
+    img.src = imgSrc;
+    let this_ = this; // onload 里面不能用this
+    let type = this.formData.iconFile.type.split('/')[1];
+    img.onload = function () {
+    	// 我在这里就可以获取到图片的宽度和高度了 img.width 、img.height
+        if ((img.width === 192) && (img.height === 192) && (type === 'png')) {
+        this_.$Message.success({content: '真棒！！！'})
+        // todo
+        } else {
+            e.target.value = null
+            this_.$Message.error({content: '选的啥玩意！'})
+        }
+    };
+},

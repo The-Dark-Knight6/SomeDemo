@@ -147,35 +147,3 @@ wx.showModal({})用于弹框错误提示，提醒用户下一步操作，模拟对话框。
 10、fillText()绘制填充文本，strokeText()绘制文本边框，font属性用于设置文本属性。
 11、save()保存当前画布状态，restore()释放上一次保存的画布状态。save()方法将当前canvas的所有状态保存在一个栈（先进后出）当中，当使用restore()方法时候将按照栈的顺序把所保存的状态进行移出（即复制上次所保存的状态样式，此次使用就不需要再重复声明相应的样式了）
 12、translate()用来偏移坐标，移动到相对坐标原点（0，0）到所指定的坐标（x,y）上。rotate()以原点为中心进行旋转。scale()进行canvas画布的缩放。transform()变形矩阵。
-【js】
-1、判断js一个变量的数据类型方法：typeof()函数，constructor属性，instanceof 操作符。
-其中typeof([1,24])返回object，typeof(newDate())返回object。
-变量.constructor即可返回相应的类型。（可使用console.log()打印出来查看）
-if(arr instanceof Array){}else{}用if...else....判断指定类型。
-2、search()检测一个字符串中的子字符串，参数中可以使用regexp（正则表达式），也可以使用字符串，该方法返回相匹配的参数的字符串的起始位置。
-replace()用一些字符串替换另一些字符串，或者替换一个和regrxp想匹配的字符串，第一个参数是前者的中所存在的字符，第二个参数为需要替代的字符串或者regrxp。
-test()检测一个字符串是否匹配某个regexp模式，是则返回true，否则返回false。
-exec()检测一个字符串的regexp，返回相匹配字符的数组。
-3、本地撰写一个json文件，使用jq.ajax来获取其中的json数据，需要使用本地的服务器，给本地服务器（upupw）加上这个文件的目录创建新的站点（127.0.0.*之类）。如果通过open in default browser则会使得jq.ajax获取报错，即不能获取写在本地的json文件数据。
-4、clipboard.js插提供复制文本内容的操作，新版本构造函数为：ClipboardJS 。
-【js时间对象转化为日期】
-  //将date对象转化为日期
-    calendar(el) {
-      let time = new Date(el);
-      let year = time.getFullYear();
-      let month =
-        time.getMonth() + 1 >= 10
-          ? time.getMonth() + 1
-          : `0${time.getMonth() + 1}`;
-      let day =
-        time.getDate() + 1 >= 10
-          ? time.getDate() + 1
-          : `0${time.getDate() + 1}`;
-      let hour =
-        time.getHours() >= 10 ? time.getHours() : `0${time.getHours()}`;
-      let min =
-        time.getMinutes() >= 10 ? time.getMinutes() : `0${time.getMinutes()}`;
-      let second =
-        time.getSeconds() >= 10 ? time.getSeconds() : `0${time.getSeconds()}`;
-      return `${year}-${month}-${day} ${hour}:${min}:${second}`;
-    },
