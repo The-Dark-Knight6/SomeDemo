@@ -23,3 +23,10 @@ github：https://github.com/ （github代码库）
 ibcn：https://www.ibcn.online/auth/register （翻墙）
 mdn：https://developer.mozilla.org/zh-CN/ （MDN前端）
 runoob：https://www.runoob.com/ （菜鸟教程）
+【Google插件】
+Listen1：全网音乐播放
+Vue.js devtools：vue助手
+谷歌上网助手：谷歌上网助手
+Adblock Plus：谷歌浏览器拦截广告
+JSON-handle：优化json数据的排版
+WEB前端助手(FeHelper)：前端必备
