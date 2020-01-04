@@ -3,6 +3,9 @@ Beyond Compare：文件对比上传到服务器。
 winscp：文件上传到服务器（无对比）。
 xshell6：进入服务器。（进行线上部署，安装服务器环境等）
 upupw：本地部署服务器。
+Notepad++：比较好用的文本编辑器。
+Visual Studio Code：编辑代码必备。
+navicat：数据库操作。
 【网站】
 iScroll 5 API 中文版:http://caibaojian.com/iscroll-5/ （上下滑动插件）
 廖雪峰的官方网站:https://www.liaoxuefeng.com/
