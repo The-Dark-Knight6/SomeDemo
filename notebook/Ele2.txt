@@ -1,0 +1,16 @@
+【时间选取的限制】
+选择时间的时候限制不可选择今天之前的时间：
+ <el-date-picker
+            v-model="addForm.grant_time"
+            type="datetime"
+            placeholder="选择日期时间"
+            value-format="yyyy-MM-dd HH:mm:ss"
+            :picker-options="pickerOptions"
+          ></el-date-picker>
+data里面书写：
+pickerOptions: {
+        disabledDate(time) {
+          return time.getTime() < Date.now() - 8.64e7; //如果没有后面的-8.64e7就是不可以选择今天的
+        }
+      },
+	  

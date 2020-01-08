@@ -99,3 +99,21 @@ getFile (e) {
         }
     };
 },
+【短信验证码发送后的倒计时】
+template里写：
+<el-button type="text" v-show="threelater" @click="tosend">发送验证码</el-button>
+          <el-button type="text" v-show="!threelater" disabled>{{timer}}秒后可重新发送验证码</el-button>
+data里写：
+timer:60,
+threelater:true,
+methods里写：
+tosend(){
+	this.threelater=false;
+	let set_time=setInterval(()=>{
+		this.timer--;
+		if(this.timer<=0){
+			this.threelater=true;
+			clearInterval(set_time);
+		}
+	},1000)
+}
