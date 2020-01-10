@@ -7,6 +7,10 @@ Notepad++：比较好用的文本编辑器。
 Visual Studio Code：编辑代码必备。
 navicat：数据库操作。
 【网站】
+搜索引擎：https://cn.bing.com/?FORM=Z9FD1 （必应搜索，设为首页）
+搜索引擎：https://mijisou.com/ （搜索辅助）
+搜索引擎：https://magi.com/ （magi搜索）
+电影搜索：https://www.cilixiong.com/
 iScroll 5 API 中文版:http://caibaojian.com/iscroll-5/ （上下滑动插件）
 廖雪峰的官方网站:https://www.liaoxuefeng.com/
 sass:https://www.sass.hk/guide/ （css预处理语言）
