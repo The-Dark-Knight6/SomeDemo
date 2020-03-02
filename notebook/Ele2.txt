@@ -13,4 +13,5 @@ pickerOptions: {
           return time.getTime() < Date.now() - 8.64e7; //如果没有后面的-8.64e7就是不可以选择今天的
         }
       },
-	  
+【图片获取宽高】
+参看：https://segmentfault.com/a/1190000012088214
