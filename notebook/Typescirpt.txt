@@ -1,0 +1,6 @@
+1、Typescript是js的一个超集，可以编译成纯JavaScript，编译出来的JavaScript可以运行在任何浏览器。
+
+2、本地安装npm（cmd打开控制台，输入npm -v查看npm版本，输入node -v查看node版本）。
+（全局安装node即会带有npm，详细安装过程咨询搜索引擎）
+
+3、

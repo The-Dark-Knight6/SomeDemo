@@ -15,3 +15,85 @@ pickerOptions: {
       },
 【图片获取宽高】
 参看：https://segmentfault.com/a/1190000012088214
+【表格单选和多选】
+【多选】
+渲染的表格数据需要多选，并且翻到下一页时，保留前一页所选择的内容。
+组件中支持这种模式下的状态保留以及筛选条件。
+```
+  <el-table
+        border
+        size="small"
+        ref="multipleTable"
+        :data="objtable"
+        tooltip-effect="dark"
+        style="width: 100%"
+        @selection-change="handleSelectionChange"
+        :row-key="getRowKeys"
+      >
+        <el-table-column type="selection" :reserve-selection="true" width="50" prop="id"></el-table-column>
+  </el-table>
+```
+```
+  data() {
+    return {
+      getRowKeys(row) {
+        return row.id;
+      },
+      selectedData: [],
+      objtable:[] 
+      }
+   }
+```
+```
+ handleSelectionChange(rows) {
+      this.selectedData = [];
+      if (rows) {
+        rows.forEach(row => {
+          if (row) {
+            this.selectedData.push(row.id);
+          }
+        });
+      }
+      // console.log(this.selectedData);
+    },
+```
+handleSelectionChange多选事件，selectedData存储所选数据，getRowKeys返回所取对象中的某属性值，objtable列表数据。
+
+【单选】
+表格的单选中，组件只提供了单选之后用色块来显示，这样用户体验效果不是很好。
+可以在选中之后增加一个单选框来显示选中的效果，使得选中的一行展示更加明显。
+```
+<el-table
+        ref="singleTable"
+        :data="masterdata"
+        highlight-current-row
+        size="small"
+        border
+        @current-change="masterchoose"
+        @row-click="JoinshowRow"
+        style="width: 100%"
+      >
+        <el-table-column fix="left" width="50" align="center">
+          <template slot-scope="scope">
+            <el-radio class="radio" v-model="theradio" :label="scope.$index">&nbsp;</el-radio>
+          </template>
+        </el-table-column>
+</el-table>
+```
+```
+ data() {
+    return {
+      theradio:'',
+      masterdata:[] 
+      }
+   }
+```
+```
+ JoinshowRow(row) {
+      this.theradio = this.masterdata.indexOf(row);
+    },
+masterchoose(val) {
+      this.currentRow = val;
+    },
+```
+theradio单选框的状态，JoinshowRow展示单选框当前状态，masterchoose获取所选行的数据，masterdata为列表数据。
