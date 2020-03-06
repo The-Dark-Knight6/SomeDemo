@@ -3,4 +3,9 @@
 2、本地安装npm（cmd打开控制台，输入npm -v查看npm版本，输入node -v查看node版本）。
 （全局安装node即会带有npm，详细安装过程咨询搜索引擎）
 
-3、
+3、安装TypeScript：npm install -g typescript。
+查看typescript版本号：tsc -v。
+将ts文件转化为js文件：tsc name.ts。（name为ts文件名,在vs code终端台的该目录下输入命令）。
+运行js文件：node name.js（name为js文件名）
+
+4、
