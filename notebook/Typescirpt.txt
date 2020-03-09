@@ -6,6 +6,10 @@
 3、安装TypeScript：npm install -g typescript。
 查看typescript版本号：tsc -v。
 将ts文件转化为js文件：tsc name.ts。（name为ts文件名,在vs code终端台的该目录下输入命令）。
-运行js文件：node name.js（name为js文件名）
+运行ts编译后的js文件：node name.js（name为js文件名）
 
-4、
+4、Typescript基础类型：任意类型（any），数组类型（元素类型上加入[]）。
+类型断言：一种类型转换为另一种类型，<type>value
+类型推断：当变量没有声明值的类型时，ts自动推断该值的类型。
+
+5、
