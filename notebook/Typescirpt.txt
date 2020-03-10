@@ -1,18 +1,21 @@
-1、Typescript是js的一个超集，可以编译成纯JavaScript，编译出来的JavaScript可以运行在任何浏览器。
+【TypeScript】
+ts是js的一个超集，可以编译成纯JavaScript，编译出来的JavaScript可以运行在任何浏览器。
 
-2、本地安装npm（cmd打开控制台，输入npm -v查看npm版本，输入node -v查看node版本）。
-（全局安装node即会带有npm，详细安装过程咨询搜索引擎）
-
-3、安装TypeScript：npm install -g typescript。
+【ts安装使用】
+本地安装npm（cmd打开控制台，输入npm -v查看npm版本，输入node -v查看node版本）。
+（全局安装node即会带有npm，详细安装过程咨询搜索引擎或菜鸟教程ts教程）
+安装TypeScript：npm install -g typescript。
 查看typescript版本号：tsc -v。
 将ts文件转化为js文件：tsc name.ts。（name为ts文件名,在vs code终端台的该目录下输入命令）。
 运行ts编译后的js文件：node name.js（name为js文件名）
 
-4、Typescript基础类型：任意类型（any），数组类型（元素类型上加入[]）。
+【ts基础类型】
+Typescript基础类型：任意类型（any），数组类型（元素类型上加入[]）。
 类型断言：一种类型转换为另一种类型，<type>value
 类型推断：当变量没有声明值的类型时，ts自动推断该值的类型。
 
-5、ts函数的参数：可选参数，fucntion name(a:string,b?:string){}。
+【ts函数】
+ts函数的参数：可选参数，fucntion name(a:string,b?:string){}。
 默认参数，fucntion name(a:string,b=:string=‘data’){}。
 剩余参数（不明确参数传递的数量），fucntion name(...num:number[]){}。
 匿名函数：没有函数名字的函数，其它与标准函数类似。
@@ -21,14 +24,13 @@
 函数递归：在函数里面调用自身的操作。诸如：利用递归算数的阶乘。
 函数重载：方法名字相同而参数不同，返回类型也可以不同。
 
-6、元组：类似于数组，存储不同类型的数据。
+【ts其它】
+元组：类似于数组，存储不同类型的数据。
 联合类型：通过管道符（|）来将变量声明为多种类型，根据类型来进行相关赋值。
-
-7、接口：使用interface来定义，接口继承使用extends。
+接口：使用interface来定义，接口继承使用extends。
 interface name{str : string | string[]};let a : name = {str : 'hello'}。
 interface name extends name2 {}。
-
-8、类：class name{}。类的继承使用extends。 
+类：class name{}。类的继承使用extends。 
 class a extends b {}。子类可以重写父类的方法。super关键字对父类直接引用。
-
-9、
+status定义静态的类成员和属性，可以直接通过类名调用。
+private类的私有属性，外界访问不到。

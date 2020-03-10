@@ -1,0 +1,17 @@
+【node安装】
+安装教程参见菜鸟教程node.js教程。
+终端常见命令：
+node -v 查看当前安装node.js版本。
+npm -v 查看当前安装npm版本。
+node name.js（name为js文件名称）：运行当前name.js文件。
+
+【node repl （交互式解释器）】
+可以在终端调试js代码。
+使用方法：终端中输入 node。下方出现 > 即可启用repl。
+repl常见命令：
+ctrl + c : 退出当前终端状态。
+ctri + c （按两下c）：退出 repl。
+ctrl + d ：退出repl。
+tab：列出当前命令。
+
+【node的回调函数】
