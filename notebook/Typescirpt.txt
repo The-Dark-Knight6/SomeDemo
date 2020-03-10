@@ -12,4 +12,23 @@
 类型断言：一种类型转换为另一种类型，<type>value
 类型推断：当变量没有声明值的类型时，ts自动推断该值的类型。
 
-5、
+5、ts函数的参数：可选参数，fucntion name(a:string,b?:string){}。
+默认参数，fucntion name(a:string,b=:string=‘data’){}。
+剩余参数（不明确参数传递的数量），fucntion name(...num:number[]){}。
+匿名函数：没有函数名字的函数，其它与标准函数类似。
+匿名函数自调用，(fucntion(){console.log('hello,world');}())。
+构造函数：var res = new Function('a','b','return a * b')。
+函数递归：在函数里面调用自身的操作。诸如：利用递归算数的阶乘。
+函数重载：方法名字相同而参数不同，返回类型也可以不同。
+
+6、元组：类似于数组，存储不同类型的数据。
+联合类型：通过管道符（|）来将变量声明为多种类型，根据类型来进行相关赋值。
+
+7、接口：使用interface来定义，接口继承使用extends。
+interface name{str : string | string[]};let a : name = {str : 'hello'}。
+interface name extends name2 {}。
+
+8、类：class name{}。类的继承使用extends。 
+class a extends b {}。子类可以重写父类的方法。super关键字对父类直接引用。
+
+9、
