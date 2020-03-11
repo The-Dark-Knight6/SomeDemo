@@ -1,5 +1,5 @@
 【node安装】
-安装教程参见菜鸟教程node.js教程。
+node教程参见菜鸟教程node.js教程以及廖雪峰官方网站node教程。
 终端常见命令：
 node -v 查看当前安装node.js版本。
 npm -v 查看当前安装npm版本。
@@ -15,3 +15,32 @@ ctrl + d ：退出repl。
 tab：列出当前命令。
 
 【node的回调函数】
+异步非阻塞是最好的处理。
+nodejs每个api都支持回调。
+
+【node模块】
+单独的一个js文件即可成为一个模块。
+在模块内使用：module.exports = name;来暴露出该模块的输出变量。
+引入其它模块输出的变量： var variable = require('./相对路径')。
+多个变量输出：module.exports = {name1:name1,name2:name2}。
+接受多个变量：var variable = require('./路径');variable.name1。
+
+【fs模块】
+nodejs文件系统模块，负责读写文件。
+读取文件：var fs = require('fs');
+	fs.readFile('name.txt','utf-8',function(err,data){
+	if(err){console.log(err);//失败返回}else{console.log(data);//成功返回}
+	})//异步读取文件，同步不记录，参见文档
+写入文件：var fs = require('fs');
+	var data = '这是写入的数据。';
+	fs.writeFile('name.txt',data,function(err){
+	if(err){console.log(err);}else{console.log('success');}
+	})
+读取文件信息：var fs = require('fs');
+	fs.stat('name.txt',function(err,data){
+	if(err){console.log(err);}else{console.log('iffile:'+data.ifFile());
+	if(data.isFile()){console.log('file_size:'+data.size);}}
+	})
+
+【http模块】
+

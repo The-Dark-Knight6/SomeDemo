@@ -1,3 +1,19 @@
+【js获取url的相关参数】
+  function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) {
+                console.log(pair[i]);
+                return pair[1];
+            } else {
+                console.log('no found...');
+            }
+        }
+        return (false);
+    }
+调用getQueryVariable('id')即可判断url参数中是否存在。
 【js实现把字节转换成正常单位】
  getfilesize(size) {
       //把字节转换成正常文件大小
