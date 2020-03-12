@@ -1,5 +1,5 @@
 【node安装】
-node教程参见菜鸟教程node.js教程以及廖雪峰官方网站node教程。
+node教程参见菜鸟教程node.js教程以及廖雪峰官方网站node教程（主要）。
 终端常见命令：
 node -v 查看当前安装node.js版本。
 npm -v 查看当前安装npm版本。
@@ -43,4 +43,13 @@ nodejs文件系统模块，负责读写文件。
 	})
 
 【http模块】
+解析url使用url模块，通过parse()方法将字符串机械为url对象：
+let url = require('url');
+console.log(url.parse('www.baidu.com'));
+处理本地文件目录使用path模块：
+let path = require('path');
+console.log(path.resolve('.'));//解析当前目录（打开当前目录）
 
+【koa】
+koa：基于nodejs的web框架。
+1、创建相关项目目录，使用npm install koa@2.0.0安装依赖。
