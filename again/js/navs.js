@@ -77,11 +77,11 @@ let float=` <div class="float_tip">
 
 window.onload=function(){
     //判断设备
-    if(os.isPc){
-        console.info("%c Welcome to my blog","color:red");
-      }else if(os.isAndroid || os.isPhone){
-        window.location.replace('../phone/PhoneIndex.html')
-      }
+    // if(os.isPc){
+    //     console.info("%c Welcome to my blog","color:red");
+    //   }else if(os.isAndroid || os.isPhone){
+    //     window.location.replace('../phone/PhoneIndex.html')
+    //   }
     // 导航栏点击折叠效果
     $('.slide_ul>li>div').click(function () {
         $(this).siblings().slideToggle();

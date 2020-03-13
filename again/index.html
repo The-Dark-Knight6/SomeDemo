@@ -9,6 +9,13 @@
     <!-- 引入右侧导航栏目 -->
     <script src="./js/navs.js"></script>
     <script src="./js/broswer.js"></script>
+    <script>
+        if (os.isPc) {
+            console.info("%c Welcome to my blog", "color:red");
+        } else if (os.isAndroid || os.isPhone) {
+            window.location.replace('../phone/PhoneIndex.html')
+        }
+    </script>
     <style>
         .loading {
             z-index: 30;
@@ -73,9 +80,10 @@
         }
 
         .tips {
-            top:30px;
+            top: 30px;
         }
-        .bottoms{
+
+        .bottoms {
             bottom: 0%;
         }
 
@@ -85,7 +93,8 @@
             color: rgb(240, 240, 240);
         }
 
-        .bottoms,.tips {
+        .bottoms,
+        .tips {
             position: absolute;
             width: 100%;
             text-align: center;
@@ -127,7 +136,7 @@
             <p>落霞与孤鹜齐飞，秋水共长天一色</p>
         </div> -->
         <div class="bottoms">
-            <p>Copyright 2019 小付同学 All Rights Reserved | <span style="cursor:pointer">粤ICP备19054851号-1</span></p>
+            <p>Copyright 2019-2020 小付同学 All Rights Reserved | <span style="cursor:pointer">粤ICP备19054851号-1</span></p>
         </div>
         <div class="blub">
             <div class="blub_content">
@@ -153,7 +162,6 @@
         $("a[href='./index.html']").addClass('acives').parents().slideDown(); //添加当前a标签样式
         $('.blub_content>img').click(function () {
             let status = $(this).attr('src');
-
             if (status.indexOf('bulb.svg') > -1) {
                 audio.play();
                 $(this).siblings().animate({
