@@ -1,5 +1,6 @@
+notes:node教程参见菜鸟教程node.js教程以及廖雪峰官方网站node教程（主要）。
+
 【node安装】
-node教程参见菜鸟教程node.js教程以及廖雪峰官方网站node教程（主要）。
 终端常见命令：
 node -v 查看当前安装node.js版本。
 npm -v 查看当前安装npm版本。
@@ -13,13 +14,6 @@ ctrl + c : 退出当前终端状态。
 ctri + c （按两下c）：退出 repl。
 ctrl + d ：退出repl。
 tab：列出当前命令。
-
-【node函数】
-函数可以作为另一个函数接收一个参数（在一个函数里面调用另外一个函数）。	
-
-【buffer（缓冲区）】
-定义：用来存放二进制数据的缓存区。
-
 
 【node模块】
 单独的一个js文件即可成为一个模块。
@@ -44,15 +38,47 @@ nodejs文件系统模块，负责读写文件。
 	if(err){console.log(err);}else{console.log('iffile:'+data.ifFile());
 	if(data.isFile()){console.log('file_size:'+data.size);}}
 	})
-
+	
+【stream】
+写入文件流：let fs = require('fs');
+let wr = fa.createWriteStream('name.txt','utf-8');
+wr.write('this is writing words ... \n');
+wr.end();
+读取文件流：let fs = require('fs');
+let re = fs.createReadStream('name.txt');
+re.on('data',function(chunk){
+console.log(chunk);
+))//读取成功
+re.on('end',function(){
+console.log('end');
+})//读取结束
+re.on('error',function(err){
+console.log(err);})//读取有误
+读取流（createReadStream）的pipe方法：将读取流中的数据赋值到写入流当中来。
+let fs = require('fs');
+let wr = fs.createWriteStream('name.txt');
+let re = fs.createReadStream('name2.txt');
+re.pipe(wr);//这样写入流中的文本内容就会和读取流中的文本内容相同（即name2.txt===name.txt）。
+ 
 【http模块】
-解析url使用url模块，通过parse()方法将字符串机械为url对象：
+request:封装了http请求。
+response:封装了http响应。
+let http = require('http');
+let server = http.createServer(function(request,response){
+response.writeHead(200,{'Content-Type':'text/html'});
+response.end('<p>this is first server</p>'); //把响应的http内容写入html中
+})
+server.linsten(8088);//监听8088端口
+解析url使用url模块，通过parse()方法将一个url字符串转化为url对象：
 let url = require('url');
 console.log(url.parse('www.baidu.com'));
 处理本地文件目录使用path模块：
 let path = require('path');
 console.log(path.resolve('.'));//解析当前目录（打开当前目录）
 
+【crypto】
+crypto：用于提供通用的加密和哈希算法（详见教程对crypto的解释）
+	
 【koa】
 koa：基于nodejs的web框架。
-1、创建相关项目目录，使用npm install koa@2.0.0安装依赖。
+1、创建相关项目目录，使用npm install koa@2.0.0安装koa框架的依赖。
