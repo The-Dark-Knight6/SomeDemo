@@ -8,7 +8,11 @@ let foot = ` <div class="foot">
 
 let center=`
 <ul>
-<li>Story</li>
+<li>
+      <div class="picture">
+            <img src="../img/8576.jpg" alt="">
+      </div>
+</li>
 <li>青蛙与啦蛤蟆的区别...</li>
 <li>青蛙思想封建，坐井观天，不思进取，是负能量；</li>
 <li>癞蛤蟆思想前卫，想吃天鹅肉，有远大抱负，是正能量。</li>
