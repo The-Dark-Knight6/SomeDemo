@@ -1,4 +1,4 @@
-notes:node教程参见菜鸟教程node.js教程以及廖雪峰官方网站node教程（主要）。
+notes:node教程参见菜鸟教程node.js教程以及廖雪峰官方网站node教程。
 
 【node安装】
 终端常见命令：
@@ -79,6 +79,16 @@ console.log(path.resolve('.'));//解析当前目录（打开当前目录）
 【crypto】
 crypto：用于提供通用的加密和哈希算法（详见教程对crypto的解释）
 	
-【koa】
-koa：基于nodejs的web框架。
-1、创建相关项目目录，使用npm install koa@2.0.0安装koa框架的依赖。
+【express】
+基于nodejs的一个框架。
+express创建app：使用npm install express --save安装express的依赖。
+let express = require('express');
+let app = express();
+app.get('/',function(req,res){
+	res.send('hello,express');
+})
+let server = app.listen(3000,function(){
+	let host = server.adress().adress;
+	let port = server.adress().port();
+	console.log('the server is running at : 127.0.0.1:',host,port);
+})

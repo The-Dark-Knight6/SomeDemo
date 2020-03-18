@@ -359,3 +359,5 @@ props: ["getdata"], //父组件传过来的数据
 //反馈给父组件的方法 closediog、finish为子组件响应的方法，false为传过去的数据
 this.$emit("closediog", false);
 this.$emit("finish", false);
+【vue中使用echarts】
+注：如若需进入页面即调用echarts，需要将函数初始在mounted()里面。
