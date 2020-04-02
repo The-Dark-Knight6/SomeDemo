@@ -13,10 +13,12 @@ pickerOptions: {
           return time.getTime() < Date.now() - 8.64e7; //如果没有后面的-8.64e7就是不可以选择今天的
         }
       },
+【纯css实现加载动画】
+https://www.cnblogs.com/lhb25/p/loading-spinners-animated-with-css3.html
 【图片获取宽高】
+参看：https://segmentfault.com/a/1190000012088214
 【数值大于1k时用逗号分隔】
 function(e){return e.toLocalString();}
-参看：https://segmentfault.com/a/1190000012088214
 【表格单选和多选】
 【多选】
 渲染的表格数据需要多选，并且翻到下一页时，保留前一页所选择的内容。
