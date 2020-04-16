@@ -1,3 +1,11 @@
+【移动端实现图片点击放大/滑动的效果】
+https://blog.csdn.net/Jioho_chen/article/details/86622845
+【纯css实现加载动画】
+https://www.cnblogs.com/lhb25/p/loading-spinners-animated-with-css3.html
+【图片获取宽高】
+参看：https://segmentfault.com/a/1190000012088214
+【数值大于1k时用逗号分隔】
+function(e){return e.toLocalString();}
 【js获取url的相关参数】
   function getQueryVariable(variable) {
         var query = window.location.search.substring(1);
