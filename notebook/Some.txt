@@ -215,3 +215,16 @@ csrf攻击（跨站请求伪造），攻击者盗用身份信息（即自己的帐号被盗了）
 xss攻击（跨站脚本攻击），网页中嵌入脚本进行相应攻击
 处理跨域的方法，jsonp，空iframe加form，cors，
 axios、vue-resource都可获取接口数据，即响应http请求，vue2.0之后推荐使用axios
+
+【vue部署到服务器】
+1、本地项目完成后，修改config/index.js中的dev{assetsPublicPath:'/'}，路径改为'./'。
+2、执行：npm run build，成功后在原目录下生成dist文件夹。
+3、将dist丢入nginx执行html文件的地方。
+（上述方法每次vue的更新都需要本地build，然后再将dist文件夹丢入服务器，
+甚至在更改路径后本地不能运行的情况，所以参考一下步骤）
+1、本地项目完成后，修改config/index.js中的dev{assetsPublicPath:'/'}，路径改为'./'。
+2、将vue项目代码（除node_module外）整体丢到nginx执行html文件的文件夹里面。
+3、进入服务器，进入到刚才丢入的vue项目里，执行npm install,安装所有的依赖。
+4、执行npm run build，生成dist文件夹。
+5、再nginx.conf中修改server的指向目录，一般是 root{html}更改为root{html/dist}。
+6、重启nginx服务即可。
