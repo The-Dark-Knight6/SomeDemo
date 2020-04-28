@@ -62,6 +62,7 @@ handleCheckedCitiesChange(value) {
   
 【element-ui图片上传】
  <el-upload
+ accept="image/png, image/jpeg"
             action="#"
             :http-request="httpRequest"
             list-type="picture-card"
@@ -156,7 +157,42 @@ handleCheckedCitiesChange(value) {
       this.dialogImageUrl = file.url;
       this.picvisible = true;
     }
-
+【element-ui图片上传 （调用上传图片的方法时即限制上传图片的大小/分辨率）】
+ //图片上传
+    httpRequest(e) {
+      let name = e.file,
+        that = this,
+        params = {},
+        data = new FormData(),
+        reader = new FileReader(),
+        url = this.api.picupdata;
+      params.image = name;
+      reader.readAsDataURL(name);
+      reader.onload = function(e) {
+        let img = new Image();
+        img.src = e.target.result;
+        img.onload = function() {
+          if (this.width == 800 && this.height == 400) {
+            for (let i in params) {
+              data.append(i, params[i]);
+            }
+            that.$http.post(url, data).then(res => {
+              let my = res.data;
+              if (my.status == 1) {
+                that.main_file_id = my.data.file_id;
+                that.$message({
+                  type: "success",
+                  message: "上传成功!"
+                });
+              }
+            });
+          } else {
+            that.$message("上传失败，图片尺寸应为800*400");
+            that.productImgs = [];
+          }
+        };
+      };
+    },
 【element-ui后台初始界面模版】
 <template>
   <div class="masterQuotations">
