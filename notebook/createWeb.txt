@@ -1,0 +1,17 @@
+【navicat连接服务器提示Host ‘XXX’ is not allowed to connect to this MySQL server】
+1、服务端中打开3306端口，关闭防火墙。
+2、xshell进入mysql，授权当前id：
+grant all PRIVILEGES on db_name.* to 'username'@'xxx.xxx.xx.x' identified by 'password' WITH GRANT OPTION;
+flush privileges;
+参考：https://www.cnblogs.com/jesu/p/5650699.html
+
+【服务器中MySQL for Linux错误 ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)，安装mysql到服务器之后提示密码错误无法打开的情况】
+参考：https://www.cnblogs.com/gumuzi/p/5711495.html
+
+【navicat连接远程数据库报1045错误】
+1、服务器要打开3306端口。
+2、root密码要一致。
+3、服务器中进入mysql，输入以下语句：
+grant all privileges on *.* to 'root'@'你的电脑id' identified by '访问密码';
+参考：https://blog.csdn.net/qq_29984105/article/details/81635232
+
