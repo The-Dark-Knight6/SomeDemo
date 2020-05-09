@@ -92,3 +92,14 @@ let server = app.listen(3000,function(){
 	let port = server.adress().port();
 	console.log('the server is running at : 127.0.0.1:',host,port);
 })
+
+【使用express创建后端服务】
+1、前提条件，电脑已装好node服务。
+2、新建目录，进入该目录（在目录下shift+右键，选择“在此处打开命令窗口”），输入npm init。
+3、继续在该目录下输入命令npm install express。
+4、继续输入npm install -g express-generator。
+5、继续输入express。（有回答的直接回车即可）
+6、输入npm install。
+7、输入npm start。（此时express项目运行在http://127.0.0.1:3000/）
+——express连接mysql数据库
+1、
