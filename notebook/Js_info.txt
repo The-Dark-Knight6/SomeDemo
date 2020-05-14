@@ -1,0 +1,39 @@
+------------https://zh.javascript.info/【学习手记】-----------
+
+【数字类型】
+1、字母'e'可代替0，使得大数字表示的更加简洁。
+let num = 10000; //let num = 1e4;
+let num = 0.000001; //let num = 1e-6;
+
+2、toString()，将变量转化为数字类型；
+123..toString() // 123
+//在数字上直接调用toString()方法，第一个小数点为js默认的小数部分，第二个为调用方法。
+
+3、对小数部分进行的操作函数：
+Math.floor(),向下舍入。 //3.8=>3; 3.2=>3;（注：箭头为返回的结果）
+Math.ceil(),向上舍入。 //8.8=>9; 8.2=>9;
+Math.round(),向最近的整数舍入（四舍五入）。 //2.4=>2; 2.5=>3;
+Math.trunc(),移出小数点后的所有数字。 //2.343=>2; 2.1=>2;
+toFixed(n),舍入小数点后n位，返回字符串。
+//+123.123413.toFixed(2) => 123.12; (一元加号强制转换为整型)
+
+4、isNaN(),isFinite();
+isNaN(n)，判断n是否为数值类型。是，返回false；否，返回true。
+isFinite(n),判断n是否为数值类型。是，返回true；否，返回false。
+
+5、parseInt(),parseFloat();
+parseInt(‘123afds’) // 123
+parseFloat('12.34px') //12.34
+
+6、Math.random(),Math.max(),Math.min(),Math.pow();
+Math.random()，产生0—1之间的随机数。
+Math.max(a,b,c),返回多个参数之中的最大值。
+Math.min(a,b,c),返回多个参数之中的最小值。
+Math.pow(n,power),返回n的power次幂的值。
+
+【字符串】
+1、toLowerCase(),toUpperXase();
+'ASB'.toLowerCase(); //asb
+'asb'.toUpperXase(); //ASB
+
+2、indexOF(),
