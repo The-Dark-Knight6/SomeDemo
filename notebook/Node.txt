@@ -100,6 +100,24 @@ let server = app.listen(3000,function(){
 4、继续输入npm install -g express-generator。
 5、继续输入express。（有回答的直接回车即可）
 6、输入npm install。
-7、输入npm start。（此时express项目运行在http://127.0.0.1:3000/）
-——express连接mysql数据库
-1、
+7、输入npm start。（默认此时express项目运行在http://127.0.0.1:3000/）
+
+【express + mysql】
+1、express项目中安装mysql：npm install mysql。
+2、连接mysql数据库：
+	可在app.js中直接连接，参见教程。
+	可在app.js中设置全局变量golbal.sql={}，随后在设置的路由中连接mysql。
+
+【express + nodemon】
+nodemon自动化工具（即修改express代码后自动重启服务器）
+1、express项目中安装nodemon:npm install -g nodemon（或cnpm install -g nodemon）。
+2、输入：nodemon。（即可实现更改代码后重启服务）
+
+【停止占用的端口（进程）】
+弹出控制台：cmd
+输入netstat -ani
+查找端口，找到最后的数字，输入taskkill -PID (最后的数字) -F
+
+【liunx下部署express项目】
+前提条件：node + mysql 。
+1、在nginx相应目录下和本地创建express类似。

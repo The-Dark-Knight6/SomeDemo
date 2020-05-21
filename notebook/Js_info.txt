@@ -32,8 +32,17 @@ Math.min(a,b,c),返回多个参数之中的最小值。
 Math.pow(n,power),返回n的power次幂的值。
 
 【字符串】
-1、toLowerCase(),toUpperXase();
+1、toLowerCase(),toUpperCase();	
 'ASB'.toLowerCase(); //asb
-'asb'.toUpperXase(); //ASB
+'asb'.toUpperCase(); //ASB
 
-2、indexOF(),
+2、indexOf()，
+'love'.indexOf('no') //返回-1
+
+includes(),startsWith(),endsWith()
+
+【递归】
+·函数调用自身的用法。
+
+【rest参数与spread语法】
+
