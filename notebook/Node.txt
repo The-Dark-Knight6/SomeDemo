@@ -121,3 +121,4 @@ nodemon自动化工具（即修改express代码后自动重启服务器）
 【liunx下部署express项目】
 前提条件：node + mysql 。
 1、在nginx相应目录下和本地创建express类似。
+2、使用forever或者pm2来进行后端服务的永久跑。
