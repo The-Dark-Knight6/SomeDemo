@@ -120,5 +120,9 @@ nodemon自动化工具（即修改express代码后自动重启服务器）
 
 【liunx下部署express项目】
 前提条件：node + mysql 。
-1、在nginx相应目录下和本地创建express类似。
-2、使用forever或者pm2来进行后端服务的永久跑。
+1、在nginx相应目录下和本地创建express类似（参见上述此条）。
+2、使用forever或者pm2来进行后端服务的永久跑（即更改代买后不再需要手动启动express）。
+
+【express中mysql检索多条sql语句】
+默认express中mysql只能查询一条sql语句，但可以开启多条语句检索功能：
+var connection = mysql.createConnection(ultipleStatements: true);

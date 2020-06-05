@@ -1,3 +1,18 @@
+【element el-upload自定义传参数】
+<el-upload
+  class="upload-demo"
+   :action="GLOBAL.upFileUrl"
+   :data="uploadData"
+   :before-upload="fileSizeFiltering"
+   :on-success="(response, file, fileList)=>handleUpSuccess(response, file, fileList,i)"
+   :on-remove="(file, fileList)=>handleRemoveFile(file, fileList,i)"
+   :file-list="item.uploadFileList"
+   v-model="item.pushUpFileId"
+   :limit="5"
+   style="display: inline-block;">
+   <div class="addFile"></div>
+ </el-upload>
+
 【一些笔记】
 在使用element中的分页时，遇到每页显示的条数
  <el-pagination

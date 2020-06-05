@@ -1,3 +1,32 @@
+【判断上传视频的分辨率】
+ getvedio(file, el) {
+      let video = document.createElement("video"),
+        bool,
+        width = Number(el.split("*")[0]),
+        height = Number(el.split("*")[1]);
+      video.preload = "metadata";
+      video.src = URL.createObjectURL(file);
+      video.onloadedmetadata = () => {
+        window.URL.revokeObjectURL(video.src);
+        let w = video.videoWidth,
+          h = video.videoHeight;
+        console.log(w, width, h, height);
+        if (w == width && h == height) {
+          bool = true;
+        } else {
+          bool = false;
+        }
+      };
+      setTimeout(() => {
+        this.bool = bool;
+        console.log(bool);
+        console.log(this.bool);
+      }, 1000);
+    },
+说明：（vue项目中）此方法中视频需要在onloadedmetadata中完成后才可以得到它的宽高（分辨率），
+所以需要一段时间来过渡。
+this.bool是在data中定义的bool变量。
+file为文件，el为分辨率字符串。
 【移动端实现图片点击放大/滑动的效果】
 https://blog.csdn.net/Jioho_chen/article/details/86622845
 【纯css实现加载动画】
