@@ -1,3 +1,35 @@
+【列表中操作按钮需要进行多个折叠时使用el-dropdown】
+<el-dropdown trigger="click" @command="handleCommand">
+<el-button type="primary" size="mini" plain>
+  更多
+  <i class="el-icon-arrow-down el-icon--right"></i>
+</el-button>
+<el-dropdown-menu slot="dropdown">
+  <el-dropdown-item
+	:command="beforeHandleCommand(0, scope.row)"
+  >{{scope.row.status == 0 ? '禁用' : '启用'}}</el-dropdown-item>
+  <el-dropdown-item :command="beforeHandleCommand(1, scope.row)">删除</el-dropdown-item>
+</el-dropdown-menu>
+</el-dropdown>
+
+//更多之下的函数调用
+handleCommand(command) {
+  switch (command.index) {
+	case 0: // 停用 启用
+	  this.tostatus(command.row);
+	  break;
+	case 1: //删除
+	  this.remove(command.row);
+	  break;
+  }
+},
+// 将commend参数封装一个函数返回
+beforeHandleCommand(index, row) {
+  return {
+	index: index,
+	row: row
+  };
+},
 【时间选取的限制】
 选择时间的时候限制不可选择今天之前的时间：
  <el-date-picker
