@@ -1,4 +1,41 @@
-【列表中操作按钮需要进行多个折叠时使用el-dropdown】
+【el-tree树状结构当中出现父子元素勾选连系的问题】
+说明：el-tree默认处理方式为只要父元素选取，那么其下面的子元素会全部选取，这样在接受后台返回数据的时候会出现意想不到的错误。
+<el-tree
+	:data="menudata"
+	show-checkbox
+	node-key="menu_id"
+	:default-expanded-keys="choosemenu"
+	:default-checked-keys="choosemenu"
+	:props="defaultProps"
+	ref="tree"
+	:check-strictly="true"
+	@check-change="checkchange"
+></el-tree>
+可设置一个属性:check-strictly="true"来解决父子元素连系的问题，更多参见文档。
+【el-table列表默认展开全部行】
+说明：由于列表在获取到接口数据时候是[]空数组，即便使用element-ui提供的default-expand-all也是无效的，所以需要使用其他的方法来展开这种折叠类型的element-ui表格。
+在vue的生命周期中：
+updated(){
+     this.expandAll()
+},
+methods:{
+ expandAll() {
+      var els = document.getElementsByClassName("el-table__expand-icon"); //获取点击的箭头元素
+      for (let i = 0; i < els.length; i++) {
+        els[i].click();
+      }
+    },
+},
+说明：为防止update生命周期中更新的相关问题，可换成：（在文档加载完成后延迟几秒执行方法）
+mounted(){
+setTimeout(()=>{
+this.expandAll();
+},500)
+},
+【element-ui列表中操作按钮有多个，需要进行多个折叠时使用el-dropdown】
+//table当中的操作行
+<el-table-column label="操作">
+	<template slot-scope="scope">
 <el-dropdown trigger="click" @command="handleCommand">
 <el-button type="primary" size="mini" plain>
   更多
@@ -11,6 +48,8 @@
   <el-dropdown-item :command="beforeHandleCommand(1, scope.row)">删除</el-dropdown-item>
 </el-dropdown-menu>
 </el-dropdown>
+</template>
+</el-table-column>
 
 //更多之下的函数调用
 handleCommand(command) {
@@ -23,6 +62,7 @@ handleCommand(command) {
 	  break;
   }
 },
+
 // 将commend参数封装一个函数返回
 beforeHandleCommand(index, row) {
   return {
@@ -30,6 +70,7 @@ beforeHandleCommand(index, row) {
 	row: row
   };
 },
+
 【时间选取的限制】
 选择时间的时候限制不可选择今天之前的时间：
  <el-date-picker
@@ -45,8 +86,8 @@ pickerOptions: {
 	  return time.getTime() < Date.now() - 8.64e7; //如果没有后面的-8.64e7就是不可以选择今天的
 	}
   },
-【表格单选和多选】
-【多选】
+  
+【表格多选】
 渲染的表格数据需要多选，并且翻到下一页时，保留前一页所选择的内容。
 组件中支持这种模式下的状态保留以及筛选条件。
 ```
@@ -89,7 +130,7 @@ pickerOptions: {
 ```
 handleSelectionChange多选事件，selectedData存储所选数据，getRowKeys返回所取对象中的某属性值，objtable列表数据。
 
-【单选】
+【表格单选】
 表格的单选中，组件只提供了单选之后用色块来显示，这样用户体验效果不是很好。
 可以在选中之后增加一个单选框来显示选中的效果，使得选中的一行展示更加明显。
 ```
