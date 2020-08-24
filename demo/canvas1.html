@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myCanvas {
+            width: 400px;
+            height: 200px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <p>canvas画出散点图</p>
+    <canvas id="myCanvas">
+</body>
+
+</html>
+
+<script>
+    //背景色
+    function random() {
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+        return `rgb(${r},${g},${b})`;
+    }
+    //圆心
+    function center() {
+        let x = Math.floor(Math.random() * 200);
+        let y = Math.floor(Math.random() * 100);
+        return [x, y];
+    }
+    //半径
+    function ban() {
+        let r = Math.floor(Math.random() * 20);
+        return r;
+    }
+    //画圆
+    let c = document.getElementById("myCanvas");
+    let ctx = c.getContext("2d");
+    for (let i = 0; i < 10; i++) {
+        let x = center()[0];
+        let y = center()[1];
+        let r = ban();
+        ctx.fillStyle = random();
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.fillStyle = 'white';
+        ctx.textBaseline = "middle";//字体样式竖直对齐
+        ctx.textAlign = "center";//字体样式水平对齐　
+        ctx.fillText(i+1,x,y);
+        ctx.fill();
+        console.log(x,y,r);
+    }
+</script>
