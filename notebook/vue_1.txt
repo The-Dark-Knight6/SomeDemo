@@ -99,10 +99,11 @@ getFile (e) {
         }
     };
 },
-【短信验证码发送后的倒计时】
+
+【vue设置一定时间的倒计时（指定倒计时后才可以再次激发相关操作）】
 template里写：
 <el-button type="text" v-show="threelater" @click="tosend">发送验证码</el-button>
-          <el-button type="text" v-show="!threelater" disabled>{{timer}}秒后可重新发送验证码</el-button>
+  <el-button type="text" v-show="!threelater" 	disabled>{{timer}}秒后可重新发送验证码</el-button>
 data里写：
 timer:60,
 threelater:true,
@@ -117,3 +118,23 @@ tosend(){
 		}
 	},1000)
 }
+
+【vue高德地图绘制行驶轨迹（路线规划）】
+AMap.plugin("AMap.Geocoder", function () {
+	var geocoder = new AMap.Geocoder({
+	  radius: 1000, //范围，默认：500
+	});
+	var lnglat = [jing, wei]; //经纬度
+	geocoder.getAddress(lnglat, function (status, result) {
+	  address = result.regeocode.formattedAddress;
+	  if (status === "complete" && result.regeocode) {
+		let address = result.regeocode.formattedAddress;
+		document.getElementById('place').innerHTML = address;
+	  } else {
+		console.log("获取地址失败");
+	  }
+	});
+});
+*必须使用AMap.plugin('高德插件')来声明使用到的插件，不然在vue项目中会报错。
+*address变量得到的值不可返回，只可用dom相关操作来渲染到相关dom节点上。
+*更多地图使用参考高德地图js API。
