@@ -1,17 +1,4 @@
-【vue实例属性】
-main.js下可以定义全局的属性、方法以及请求：
-vue.prototype.$appname='your name',
-vue.prototype.$way=function(app){this[app]=this[app].split('').reverse().join();},
-【vue/element-ui笔记】
-1、在element-ui插件中的table渲染接口上的时间戳，可以在slot-scope-'scope'的template标签中加如这个{{action.timeFormat(scope.row.time)}}（time即为从接口数据中返回的参数时间）即可完美转换接口的时间戳，不必再写转换时间戳的函数。
-
-2、使用element组件中的多选框提取其中的值，若是对象则会失去效果（指的是checkbox-group，即多选框的集合）。这时可以使用单个的checkbox，在用v-for来循环，value来显示判断是否勾选，同时change事件来更改所勾选的checkbox。
-
-3、在获取日期时间时，后半段的时间（小时、分钟和秒）可用toLocaleTimeString来实现。
-
-4、在点击一个编辑按钮之后编辑输入框，此时环境是在后台所给接口渲染数据的大列表下，需要进行对点击编辑按钮之后立马进行输入框聚焦（即点击第一个编辑按钮，光标就聚焦在第一个编辑的输入框上，点第几个就聚焦在第几个的输入框上，优化用户的编辑输入体验，如若没有这个聚焦则需要用户手动的点击编辑输入框，这样就意味着用户需要点击两次来完成这个编辑操作）。实现：利用自定义指令，而后用原生的input输入框（之前项目用de element-ui，则将里头的input样式复刻一下即可），在这个input中绑定自定义指令，同时处理好点击编辑按钮时候触发的input中disabled状态即可。
-
-5、vue路由的优化写法以及其拥有子路由的时候的写法，在有使用到子路由的时候需要在vue页面中使用<router-view>这个标签，如需要缓存子路由则可以写成<keep-alive><router-view></router-view></keep-alive>这样子路由就可以显示在<router-view>这对标签里头了。
+vue路由的优化写法以及其拥有子路由的时候的写法，在有使用到子路由的时候需要在vue页面中使用<router-view>这个标签，如需要缓存子路由则可以写成<keep-alive><router-view></router-view></keep-alive>这样子路由就可以显示在<router-view>这对标签里头了。
  {
 	path: '/scene',
 	component: resolve => require(['@/components/AI/scene/index'], resolve),
@@ -30,7 +17,7 @@ vue.prototype.$way=function(app){this[app]=this[app].split('').reverse().join();
 	]
 }
 
-7、vue跨域代理多个写法：
+vue跨域代理多个写法：
  proxyTable: {
   '/api2': {
 	target: 'https://***.***.com/',
@@ -49,7 +36,7 @@ vue.prototype.$way=function(app){this[app]=this[app].split('').reverse().join();
 	
 },
 
-8、对于vue（或者其它类型表单上传）上传表单文件（或文件，ajax不能上传文件），需要new一个FormData()对象，之后用for...in循环将表单内的数据循环到这个对象上。
+对于vue（或者其它类型表单上传）上传表单文件（或文件，ajax不能上传文件），需要new一个FormData()对象，之后用for...in循环将表单内的数据循环到这个对象上。
 let data=new FormData();for(let i in params){data.appent(i,params[i])};
 上传的参数就改为data即可。如果还有需要上传文件，则先获取到文件：
 let file=document.getElementById('filename').files[0];params.file=file;之后同上。
@@ -61,7 +48,7 @@ sowhat(ev) {
     },
 其中src参数即可用来更改图片的相应路径。
 
-9、如果需要按cdn方式引入关联文件到vue中（或者是插件）可以在index.html页面中：
+如果需要按cdn方式引入关联文件到vue中（或者是插件）可以在index.html页面中：
    <!-- element-Ui的样式文件 以下放置于<head></head>之间-->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 	  <!-- vue的相应依赖cdn引入 优化项目整体大小 加快页面载入 以下放于<body></body>之间-->
@@ -78,7 +65,7 @@ sowhat(ev) {
  }（详细参照个人项目源码）
  之后直接在项目中使用element-ui（或者其它vue组件）即可。
 
-10、上传图片判断大小：
+上传图片判断大小：
 // html
 <input type="file" accept="image/png" name="iconFile" @change="getFile">
 // js
@@ -100,7 +87,7 @@ getFile (e) {
     };
 },
 
-【vue设置一定时间的倒计时（指定倒计时后才可以再次激发相关操作）】
+【vue设置倒计时按钮（指定倒计时后才可以再次激发相关操作）】
 template里写：
 <el-button type="text" v-show="threelater" @click="tosend">发送验证码</el-button>
   <el-button type="text" v-show="!threelater" 	disabled>{{timer}}秒后可重新发送验证码</el-button>
@@ -138,3 +125,77 @@ AMap.plugin("AMap.Geocoder", function () {
 *必须使用AMap.plugin('高德插件')来声明使用到的插件，不然在vue项目中会报错。
 *address变量得到的值不可返回，只可用dom相关操作来渲染到相关dom节点上。
 *更多地图使用参考高德地图js API。
+
+【刷新当前vue页面】
+1、在app.vue中书写：
+<template>
+  <div id="app">
+    <router-view v-if="isRouterAlive"></router-view>
+  </div>
+</template>
+<script>
+export default {
+  name: "App",
+  provide() {
+    return {
+      reload: this.reload
+    };
+  },
+  data() {
+    return {
+      isRouterAlive: true
+    };
+  },
+
+  methods: {
+    reload() {
+      this.isRouterAlive = false;
+      this.$nextTick(function() {
+        this.isRouterAlive = true;
+      });
+    }
+  }
+};
+</script>
+2、在需要使用的组件中注入即可。
+<script>
+export default {
+  name: "App",
+  inject:['reload'],//注入
+  data() {
+    return {
+    };
+  },
+
+  methods: {
+  //在需要使用刷新当前页面的方法下使用即可
+    getlist(){
+		this.reload(); //即可加载当前页面
+	}
+  }
+};
+</script>
+*参考地址：https://www.cnblogs.com/yinn/p/9056731.html
+
+【vue父子组件之间的数据传递】
+··父组件：
+//首先引入 子组件
+import child from "./child"; 
+components: {
+    child
+  },
+//这里设置的弹框  在子组件标签中也写入v-if=‘dialogVisible’这样可以避免子组件渲染数据时出现只保留第一次渲染的数据，即getdata得到的是postdata的第一次传输过去的数据。
+//closediog、finish为父组件自定义的方法，postdata为父组件传输给子组件的数据
+<el-dialog :visible.sync="dialogVisible" width="60%">
+      <child v-if="dialogVisible" @closediog="closediog" @finish="finish" :getdata="postdata"></child	>
+    </el-dialog>
+
+··子组件：
+//得到父组件的数据 即相当于子组件data里的数据
+props: ["getdata"], //父组件传过来的数据
+//反馈给父组件的方法 closediog、finish为子组件响应的方法，false为传过去的数据
+this.$emit("closediog", false);
+this.$emit("finish", false);
+
+【vue中使用echarts】
+*如若需进入页面即调用echarts图表，需要将初始函数在mounted()里调用。

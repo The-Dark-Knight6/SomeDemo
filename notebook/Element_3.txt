@@ -1,0 +1,8 @@
+【elemnet—ui列表时间戳转化为正常时间格式】
+<el-table-column label="时间" show-overflow-tooltip>
+<template slot-scope="scope">
+  <span>{{action.timeFormat(scope.row.time)}}</span>
+</template>
+</el-table-column>
+*接口time字段为时间戳，可用此方法快速转化为正常的时间格式显示。
+
