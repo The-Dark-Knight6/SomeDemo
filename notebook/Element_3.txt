@@ -6,3 +6,51 @@
 </el-table-column>
 *接口time字段为时间戳，可用此方法快速转化为正常的时间格式显示。
 
+【element-ui中select框下拉列表触底时加载更多数据】
+自定义组件指令：
+directives: {
+more: {
+  bind(el, binding) {
+	// 获取element-ui定义好的scroll盒子
+	const SELECTWRAP_DOM = el.querySelector(
+	  ".el-select-dropdown .el-select-dropdown__wrap"
+	);
+	SELECTWRAP_DOM.addEventListener("scroll", function () {
+	  const CONDITION =
+		this.scrollHeight - this.scrollTop <= this.clientHeight;
+	  if (CONDITION) {
+		binding.value();
+	  }
+	});
+  },
+},
+},
+在select中使用即可。
+*参考：https://www.cnblogs.com/lianjy/p/10726662.html
+
+【element-ui中el-tabs关于刷新当前标签后再次停留在当前标签】
+*在点击切换tab时给url加入actname参数，created判断有无actname，有则令tab的name取值，反之则无。
+*<el-tab-pane>中设置属性name，根据name不同在vue生命周期的created中初始化el-tabs的取值。
+
+<el-tabs v-model="activeName" @tab-click="handleClick">
+  <el-tab-pane label="用户资料" name="first">
+  <el-tab-pane>
+  <el-tab-pane label="标签名字" name="second">
+  <el-tab-pane>
+<el-tabs>
+
+created(){
+	if(this.$route.query.actname){
+		this.activeName = this.$route.query.actname;
+	}
+}
+methods:{
+	handleClick(val){
+		let id = this.$route.query.actname; 
+		this.$router.push({
+			query:{
+				id:id;
+			}
+		})
+	}
+}
