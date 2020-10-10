@@ -1,7 +1,58 @@
-【小程序配置】
-app.json，注册小程序的所有页面以及主要配置。
+【小程序使用weui】
+1、新建小程序项目（此处省略步骤）。
+2、打开weui的github地址：https://github.com/Tencent/weui-wxss，下载源代码。
+3、解压缩包，复制dist/style下的weui.wxss文件。
+4、在第一步中的小程序项目的根目录引入weui.wxss文件。
+5、在项目app.wxss中引入：@import “weui.wxss”。
 
-useExtendedLib，指定需要拓展的组件库。
+*下载的dist文件中的example是weui的例子展示，使用时可以打开这些wxml文件进行赋值即可。
+*如使用无效，请检查所使用的wxml文件同级的js文件是否声明了Page({})。
+
+【小程序自定义tabbar】
+1、app.json中tabBar{custom:true}。
+
+2、根目录创建custom-tab-bar文件夹，其下创建四个小程序文件
+（index.json/index.js/index.wxml/index.wxss）。
+
+3、在第2个目录下的index.js书写：
+Component({
+    data: {
+        selected: 0,
+        color: 'black',
+        selectedColor: "#3874ff",
+        tab: [{
+                "pagePath": "/pages/index/index",
+                "text": "首页",
+                "iconPath": "/images/window/home.png",
+                "selectedIconPath": "/images/window/homed.png"
+            },
+            {
+                "pagePath": "/pages/myself/myself",
+                "text": "我的",
+                "iconPath": "/images/window/my.png",
+                "selectedIconPath": "/images/window/myed.png"
+            }
+        ]
+    },
+    methods: {
+        switchTab(e) {
+            const data = e.currentTarget.dataset
+            const url = data.path
+            wx.switchTab({
+                url:url
+            })
+        }
+    }
+})
+
+4、在第2步中的index.wxml中书写自己需要的tabbar栏目样式和布局。
+
+5、在使用到的切换组件的onShow()中书写：
+this.getTabBar().setData({
+	selected: 1 //此处数字即为当前页面所在tab数组的顺序，对应即可
+})
+
+【指南】
 
 1、小程序主要开发语言为javascript，同时逻辑层和渲染层是分开的，即有些js库（jq，zepto）在小程序中是无法使用的。
 2、json数据格式在小程序中的作用：静态配置。json格式为key-value键值对模式，必须用双引号，不可加备注，被[}包裹着，同时不能使用js中undefined这个数据类型。
