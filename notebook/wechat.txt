@@ -1,3 +1,6 @@
+【小程序中处理后台返回数据逻辑】
+参考小程序官方文档中｛wxs语法参考｝一节。
+
 【小程序使用weui】
 1、新建小程序项目（此处省略步骤）。
 2、打开weui的github地址：https://github.com/Tencent/weui-wxss，下载源代码。

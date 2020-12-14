@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+        }
+
+        div {
+            position: relative;
+        }
+
+        input:checked~label {
+            color: #0983FE;
+        }
+
+        input:checked~label::after {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 5px;
+            display: inline-block;
+            width: 5px;
+            height: 10px;
+            border-radius: 0%;
+            border: 1px solid white;
+            border-top: 0;
+            border-left: 0;
+            transform: rotate(45deg);
+        }
+
+        input:checked~span {
+            border-color: #0983FE;
+            background-color: #0983FE;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="radio" name="sex" id="mate" checked>
+        <span></span>
+        <label for="mate">男</label>
+    </div>
+    <div>
+        <input type="radio" name="sex" id="femate">
+        <span></span>
+        <label for="femate">女</label>
+    </div>
+</body>
+
+</html>
+
+<!-- css选择器 ：
+ p ~ ul ： p元素下所有的ul
+ p + ul ： p元素下相邻的第一个ul -->

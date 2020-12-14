@@ -1,0 +1,29 @@
+【前期环境】
+node、npm、vue-cli全局的脚手架。
+
+【本地创建vue项目】
+1、新建文件夹demo
+2、进入文件夹，shift+鼠标右键，点击“在此处打开命令窗口”
+3、输入 vue init webpack project
+（初始化过程中，除了vue-router选择y，其余都可以选n）
+4、进入创建好的项目 npm run dev (cnpm run dev)
+
+【使用element-ui】
+1、npm i element-ui -S
+2、在main.js中
+	import ElementUI from 'element-ui';
+	import 'element-ui/lib/theme-chalk/index.css';
+	Vue.use(ElementUI);
+
+【使用sass】
+1、在bulid/webpack.base.conf.js中的module{rules:[]}写：
+	{
+        test: /\.scss$/,   
+		loader: 'sass-loader!style-loader!css-loader',
+    }
+2、npm install --save-dev sass-loader
+3、npm install --save-dev node-sass
+（如果报错，则在package.json中找到sass-loader，将它的版本改为7.0.3，
+然后npm install sass-loader@7.0.3 --save-dev，重新npm run dev）
+
+【】
