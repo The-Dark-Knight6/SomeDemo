@@ -31,3 +31,7 @@ ctrl + f
 
 【直接跳转到下一行（硬性回车）】
 ctrl + enter
+
+【power mode打字特效插件】
+https://www.cnblogs.com/echolun/p/11454915.html
+
