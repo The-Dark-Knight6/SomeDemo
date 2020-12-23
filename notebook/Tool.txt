@@ -1,3 +1,5 @@
+----------收藏软件、网址、Google浏览器插件---------
+
 【工具】
 Beyond Compare：文件对比上传到服务器。
 winscp：文件上传到服务器（无对比）。
@@ -6,9 +8,10 @@ upupw：本地部署服务器。
 Notepad++：比较好用的文本编辑器。
 Visual Studio Code：编辑代码必备。
 navicat：数据库操作。
+
 【网站】
-搜索引擎：https://cn.bing.com/?FORM=Z9FD1 （必应搜索，设为首页）
-搜索引擎：https://mijisou.com/ （搜索辅助）
+搜索引擎：https://cn.bing.com/?FORM=Z9FD1 （必应搜索）
+搜索引擎：https://mijisou.com/ （搜索）
 搜索引擎：https://magi.com/ （magi搜索）
 电影搜索：https://www.cilixiong.com/
 iScroll 5 API 中文版:http://caibaojian.com/iscroll-5/ （上下滑动插件）
@@ -28,8 +31,12 @@ uni-app：https://uniapp.dcloud.io/ （一端开发多端使用）
 vant：https://youzan.github.io/vant-weapp/#/intro （小程序组件库）
 github：https://github.com/ （github代码库）
 ibcn：https://www.ibcn.online/auth/register （翻墙）
-mdn：https://developer.mozilla.org/zh-CN/ （MDN前端）
+mdn：https://developer.mozilla.org/zh-CN/ （MDN手册）
 runoob：https://www.runoob.com/ （菜鸟教程）
+Tweenmax：https://www.tweenmax.com.cn/start/init/（tweenmax动画插件）
+6v电影下载：http://www.hao6v.com
+ts入门教程：https://ts.xcatliu.com/
+
 【Google浏览器插件】
 Listen1：全网音乐播放
 Vue.js devtools：vue助手

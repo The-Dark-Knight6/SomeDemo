@@ -1,0 +1,15 @@
+------------- Uni App ----------
+
+1、安装HBuilder X，新建项目-uni app-默认模板。
+
+*uni-app内置了常用样式变量，使用scss预处理，文件名为uni.scss，给style加上lang='scss'即可。
+
+2、对导航栏的自定义配置。（参考https://www.jianshu.com/p/7344c4066e82）
+page.json文件下：
+	"globalStyle": {
+		"navigationStyle": "custom"
+	},
+即全局取消原生导航栏。
+
+*TypeError: Cannot read property 'forceUpdate' of undefined报错：给wx小程序配置一个AppID即可。
+
