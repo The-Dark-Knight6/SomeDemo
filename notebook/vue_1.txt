@@ -199,3 +199,48 @@ this.$emit("finish", false);
 
 【vue中使用echarts】
 *如若需进入页面即调用echarts图表，需要将初始函数在mounted()里调用。
+
+【vue中长时间未操作，则退出登录】
+*登录vue的项目，如果用户长时间（自定义多长时间）未操作，则下次点击项目时候退出登录。
+*在app.vue文件中绑定一个click事件，同时定义当前点击时间、最后一次点击时间以及设置的限制退出的时间，当满足当前时间减去最后点击的时间大于限定的时间时，则退出登录（前提为已登录状态）。
+
+<template>
+	<div id='app' @click='ClickTime'>
+		<router-view/>
+	</div>
+</template>
+<script>
+	export default{
+		name:'app',
+		data(){
+			return{
+				last_time:null,
+				current_time:null,
+				time_out:30 * 60 * 1000,
+			}
+		},
+		created(){
+			this.last_time = new Date().getTime();
+		},
+		methods:{
+			ClickTime(){
+				this.current_time = new Date().getTime();
+				// 如果已登录 => 退出登录，清空storage; 
+				// 如果未登录 => 当前点击时间为最后一次点击时间;
+				if(this.current_time - this.last_time > this.time_out){
+					if(localStorage.getItem('token')){
+						alert('登录超时，请重新登录！');
+						this.$router.push({
+							path:'/login'
+						});
+						localStorage.clear();
+					}else{
+						this.last_time = new Date().getTime();
+					}
+				}else{
+					this.last_time = new Date().getTime();
+				}
+			}
+		}
+	}
+</script>

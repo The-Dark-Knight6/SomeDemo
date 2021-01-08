@@ -1,4 +1,4 @@
-------------- Uni App ----------
+------------- Uni App 创建微信小程序----------
 
 1、安装HBuilder X，新建项目-uni app-默认模板。
 
@@ -13,3 +13,31 @@ page.json文件下：
 
 *TypeError: Cannot read property 'forceUpdate' of undefined报错：给wx小程序配置一个AppID即可。
 
+*在template中引入组件的时候，uni-app需要将引入的组件首字母大写。
+
+<template>
+	<Nav></Nav>
+</template>
+<script>
+	import nav from '../components/navs.vue'; //navs.vue为组件名称
+	export default{
+		data(){
+			return{		
+			}
+		},
+		components:{
+			nav
+		}
+	}
+</script>
+<style lang='scss'></style>
+
+3、全局设置相关元素样式：
+例：全局设置所有的字体大小以及各个页面的背景颜色：
+App.vue下：
+<style>
+ page{
+	font-size:30rpx;
+	background-color:#F6F6F6;
+ }
+</style>
